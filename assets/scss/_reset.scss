@@ -1,0 +1,32 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+i {
+  aspect-ratio: 1;
+  display: inline-block;
+}
+
+/*****Developer Mode*********/
+i.not-correct {
+  background-color: red;
+}

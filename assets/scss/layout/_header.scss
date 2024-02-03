@@ -1,0 +1,115 @@
+@use '../utils/_index' as *;
+
+header {
+  @include d_flex($j_c: space-between);
+  padding-block-start: PxToRem(28);
+  position: relative;
+  z-index: 4;
+
+  .right-col {
+    @include d_flex();
+    gap: PxToRem(16);
+    .logo {
+      width: PxToRem(44);
+
+      svg {
+        #gradientSection {
+          > stop:nth-child(1) {
+            stop-color: $gradient_blue_start;
+          }
+
+          > stop:nth-child(2) {
+            stop-color: $gradient_blue_end;
+          }
+        }
+      }
+    }
+
+    .header-menu {
+      ul.menu {
+        @include d_flex();
+        gap: PxToRem(16);
+
+        li {
+          color: $gray_1;
+          transition: 0.3s ease-in-out;
+
+          &:hover {
+            color: $white_1;
+          }
+
+          &.menu-item-has-children {
+            @include d_flex(row, center, center);
+            @include make_icon('\e931') {
+              font-size: PxToRem(24);
+              translate: 0 10%;
+              cursor: pointer;
+              transition: inherit;
+            }
+
+            transition: 0.3s;
+            position: relative;
+
+            > ul.sub-menu {
+              position: absolute;
+              background: $white_1;
+              color: $black_1;
+              inset: 0;
+              width: 100%;
+              min-height: 100%;
+              top: 100%;
+              pointer-events: none;
+              opacity: 0;
+              transition: inherit;
+            }
+
+            &:hover {
+              &::after {
+                rotate: 180deg;
+              }
+
+              > ul.sub-menu {
+                pointer-events: all;
+                opacity: 1;
+              }
+            }
+          }
+
+          &.current-menu-item,
+          &.current_page_item {
+            --El_width: 125%;
+            $El_top: PxToRem(-16);
+
+            color: $white_1 !important;
+
+            @include psudo($inset: unset) {
+              background: $cyan_1;
+              width: var(--El_width);
+              height: PxToRem(4);
+              border-radius: PxToRem(1000);
+              top: $El_top;
+              left: 50%;
+              translate: -50%;
+              overflow: hidden;
+            }
+
+            @include psudo(before, $inset: unset) {
+              background: $cyan_2;
+              width: var(--El_width);
+              height: PxToRem(48);
+              top: $El_top;
+              left: 50%;
+              translate: -50%;
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .left-col {
+    @include d_flex($a_i: center);
+    gap: PxToRem(16);
+  }
+}

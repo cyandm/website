@@ -1,0 +1,21 @@
+@use '../utils/_index' as *;
+
+h1,
+.h1 {
+  @include font_style('h1');
+}
+
+h2,
+.h2 {
+  @include font_style('h2');
+}
+
+h3,
+.h3 {
+  @include font_style('h3');
+}
+
+h4,
+.h4 {
+  @include font_style('h4');
+}

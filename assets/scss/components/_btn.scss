@@ -1,0 +1,51 @@
+@use '../utils/_index' as *;
+
+.primary-btn {
+  @include base_btn();
+  padding: PxToRem(8) PxToRem(32);
+}
+
+.secondary-btn {
+  @include base_btn(
+    $border_color: #fff,
+    $psudo_bg_color: #fff,
+    $color_hover: $black_1
+  );
+  padding: PxToRem(12) PxToRem(64);
+}
+
+.icon-btn {
+  @include d_flex();
+  font-size: PxToRem(24);
+  border-radius: 50%;
+  padding: PxToRem(8);
+  background: $cyan_1;
+  color: $black_1;
+  overflow: hidden;
+
+  @include psudo($inset: 2px, $square: '100%') {
+    background-color: $black_1;
+    border-radius: 50%;
+    z-index: -1;
+    transition: 0.3s ease-in-out;
+    scale: 0;
+  }
+
+  &:hover {
+    color: $white_1;
+    &::after {
+      scale: 1;
+    }
+  }
+}
+
+.link-btn {
+  @include d_flex(row, start, center);
+  @include font_style('h4');
+  color: #16b6fb;
+
+  i {
+    font-size: PxToRem(24);
+    rotate: -45deg;
+  }
+}
