@@ -1,6 +1,12 @@
 <?php
 $customers_Q = new WP_Query( [ 
-	'post_type' => 'customer'
+	'post_type' => 'customer',
+	'meta_query' => [ 
+		[ 
+			'key' => 'show_in_front',
+			'value' => 1,
+		]
+	]
 ] );
 
 
@@ -42,7 +48,10 @@ $customers_Q = new WP_Query( [
 								'<img src="' . get_stylesheet_directory_uri() . '/assets/imgs/placeholder.png' . '" />';
 							?>
 						</div>
-					<?php endwhile; ?>
+						<?php
+					endwhile;
+					wp_reset_postdata();
+					?>
 
 				<?php endfor; ?>
 			</div>

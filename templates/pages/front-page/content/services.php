@@ -26,7 +26,9 @@ $services_Q = new WP_Query( [
 				$is_color_selected = $ball_first_color && $ball_second_color;
 				?>
 
-				<a href=<?= $url ?> class="single-service-card" style="<?php $is_color_selected &&
+				<a href=<?= $url ?>
+				   class="single-service-card"
+				   style="<?php $is_color_selected &&
 				   	printf( '--ball-first-color:%s; --ball-second-color:%s; ', $ball_first_color, $ball_second_color ) ?>">
 
 					<span class="ball">
@@ -46,9 +48,14 @@ $services_Q = new WP_Query( [
 					</span>
 
 				</a>
-			<?php endwhile ?>
+				<?php
+			endwhile;
+			wp_reset_postdata();
+			?>
 
-			<a href=<?= get_post_type_archive_link( 'service' ) ?> class="all-service">
+
+			<a href=<?= get_post_type_archive_link( 'service' ) ?>
+			   class="all-service">
 				به کم قانع نشو...
 			</a>
 		</div>

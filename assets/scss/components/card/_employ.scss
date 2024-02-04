@@ -1,0 +1,91 @@
+@use '../../utils/_index' as *;
+
+.employ-card {
+	--border-width: 2px;
+
+	padding: 2rem;
+	display: flex;
+	position: relative;
+	border: var(--border-width) solid transparent;
+	border-radius: 0 1rem 1rem 0;
+	transition: 0.3s ease-in-out;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+	}
+
+	&__name-wrapper {
+		display: flex;
+		flex-direction: column;
+		transition: 0.3s ease-in-out;
+	}
+
+	&__name {
+		@include font_style('h3');
+	}
+
+	&__special {
+		@include font_style('body_2');
+	}
+
+	&__biography-wrapper {
+		opacity: 0;
+		pointer-events: none;
+
+		transition: all 0.3s ease-in-out;
+		position: absolute;
+		inset: calc(var(--border-width) * -1) 0 0 0;
+		height: calc(100% + (var(--border-width) * 2));
+		background-color: #000;
+		z-index: 100;
+		transform: translateX(-100%);
+		border: var(--border-width) solid var(--employ-color);
+		border-right: none;
+		border-radius: 1rem 0 0 1rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		padding-inline: 1rem;
+	}
+
+	&__image {
+		@include psudo(after, '', 0, 100%) {
+			border-radius: 50%;
+			aspect-ratio: 1;
+			height: unset;
+			background-color: var(--employ-color);
+			z-index: -1;
+			-webkit-filter: blur(50px);
+			filter: blur(50px);
+			transform: scale(0.5);
+			transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out,
+				-webkit-filter 0.3s ease-in-out;
+		}
+	}
+
+	&:hover {
+		background-color: #000;
+		border-color: var(--employ-color);
+
+		.employ-card {
+			&__image::after {
+				transform: scale(0.7);
+				-webkit-filter: blur(60px);
+				filter: blur(60px);
+			}
+
+			&__biography-wrapper {
+				opacity: 1;
+				pointer-events: all;
+			}
+
+			&__name-wrapper {
+				opacity: 0;
+			}
+		}
+	}
+}

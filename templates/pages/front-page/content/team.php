@@ -1,9 +1,17 @@
 <?php
 $employs_Q = new WP_Query( [ 
-	'post_type' => 'employ'
-] )
+	'post_type' => 'employ',
+	'posts_per_page' => '3',
+	'meta_query' => [ 
+		[ 
+			'key' => 'show_in_front',
+			'value' => 1,
+		]
+	]
+] );
 
-	?>
+
+?>
 
 <?php if ( $employs_Q->have_posts() ) : ?>
 	<section class="team-con container">
@@ -13,7 +21,8 @@ $employs_Q = new WP_Query( [
 				کارای خفن یه تیم خفن هم میخواد
 			</h2>
 
-			<a href=<?= get_post_type_archive_link( 'employ' ) ?> class="primary-btn">
+			<a href=<?= get_post_type_archive_link( 'employ' ) ?>
+			   class="primary-btn">
 				مشاهده همه
 			</a>
 		</div>
@@ -22,21 +31,18 @@ $employs_Q = new WP_Query( [
 		<div class="team-wrapper">
 			<div class="profile-wrapper">
 
-				<?php for ( $i = 0; $i < 3; $i++ ) : ?>
 
-					<?php while ( $employs_Q->have_posts() ) :
-						$employs_Q->the_post();
-						?>
 
-						<div class="img-wrapper profile" data-post-id=<?= get_the_ID() ?>>
-							<?= get_the_post_thumbnail() ?>
-						</div>
+				<?php
+				while ( $employs_Q->have_posts() ) :
+					$employs_Q->the_post();
 
-					<?php endwhile; ?>
+					get_template_part( '/templates/components/card/employ', null, [ 'post_id' => get_the_ID() ] );
+				endwhile;
 
-				<?php endfor; ?>
-			</div>
-			<div class="content">
+				wp_reset_postdata();
+				?>
+
 
 			</div>
 		</div>

@@ -9,7 +9,7 @@ if ( ! class_exists( 'cyn_register' ) ) {
 
 
 		public function cyn_post_type_register() {
-			function make_post_type( $name, $slug, $icon, $menu = true ) { {
+			function make_post_type( $name, $slug, $icon, $menu = true, $supports = [ 'title , thumbnail' ] ) { {
 					$labels = [ 
 						'name' => $name,
 						'singular_name' => $name,
@@ -39,7 +39,7 @@ if ( ! class_exists( 'cyn_register' ) ) {
 						'hierarchical' => false,
 						'menu_position' => null,
 						'menu_icon' => $icon,
-						'supports' => [ 'title', 'thumbnail' ],
+						'supports' => $supports,
 
 					];
 
@@ -51,6 +51,7 @@ if ( ! class_exists( 'cyn_register' ) ) {
 			make_post_type( 'مشتری', 'customer', 'dashicons-groups' );
 			make_post_type( 'خدمت', 'service', 'dashicons-lightbulb' );
 			make_post_type( 'کارمند', 'employ', 'dashicons-businesswoman' );
+			make_post_type( 'سوال', 'faq', 'dashicons-book', supports: [ 'title', 'editor' ] );
 
 		}
 
@@ -82,6 +83,7 @@ if ( ! class_exists( 'cyn_register' ) ) {
 			}
 
 			make_taxonomy( 'دسته‌بندی پروژه', 'project-type', [ 'project' ] );
+			make_taxonomy( 'دسته‌بندی سوالات', 'faq-type', [ 'faq' ] );
 		}
 	}
 }
