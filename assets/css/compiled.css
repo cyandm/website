@@ -653,8 +653,70 @@ html:has(.pop-up.open) {
 .post-card__actions > * i {
   font-size: 1.25rem;
 }
-.post-card:hover {
-  flex: 2 !important;
+@media screen and (max-width: 992px) {
+  .post-card {
+    --height: 150px;
+    display: flex;
+    border-radius: 0;
+  }
+  .post-card > * {
+    flex: 1;
+  }
+  .post-card__thumbnail {
+    border-radius: 20px;
+  }
+  .post-card__content {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .post-card__content::after {
+    display: none;
+  }
+  .post-card__actions {
+    flex-direction: row;
+    gap: 0;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+  }
+  .post-card__actions > * {
+    padding: 0.25rem;
+    flex-direction: row-reverse;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .post-card__actions > * i {
+    font-size: 16px;
+  }
+  .post-card__title {
+    font-family: "peyda";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-variant-ligatures: discretionary-ligatures;
+    font-feature-settings: "ss01" 1, "salt" 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 2rem;
+  }
+  .post-card__title-wrapper {
+    width: 100%;
+  }
+  .post-card__author {
+    color: hsl(0, 0%, 46%);
+    font-family: "peyda";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-variant-ligatures: discretionary-ligatures;
+    font-feature-settings: "ss01" 1, "salt" 0;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 14px;
+  }
 }
 
 .single-project-card {
@@ -1523,6 +1585,14 @@ section.blog-con .content {
 section.blog-con .content > * {
   flex: 1;
   transition: 0.3s;
+}
+section.blog-con .content > *:hover {
+  flex: 2;
+}
+@media screen and (max-width: 992px) {
+  section.blog-con .content {
+    flex-direction: column;
+  }
 }
 
 section.faq-con .faq-content {
