@@ -9,6 +9,9 @@ $projects_Q = new WP_Query( [
 	]
 ] );
 
+$link_all = get_post_type_archive_link( 'project' );
+
+
 ?>
 
 
@@ -16,6 +19,11 @@ $projects_Q = new WP_Query( [
 	<section class="projects-con">
 		<div class="section-title container">
 			<h2 class="h1">گوشه ای از پروژه‌های موفق سایان</h2>
+
+			<a href=<?= $link_all ?>
+			   class="primary-btn">
+				مشاهده همه
+			</a>
 		</div>
 
 		<div class="projects-wrapper swiper">
@@ -37,6 +45,13 @@ $projects_Q = new WP_Query( [
 
 				<?php } ?>
 			</div>
+		</div>
+
+		<div class="section-view-all">
+			<a href=<?= $link_all ?>
+			   class="primary-btn full-width">
+				مشاهده همه
+			</a>
 		</div>
 
 	</section>

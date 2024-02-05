@@ -4809,11 +4809,18 @@
   // assets/js/modules/swiper.js
   var projectsSwiper = new Swiper(".projects-wrapper", {
     modules: [Autoplay],
-    slidesPerView: 4.2,
+    slidesPerView: 1.5,
+    centeredSlides: true,
     spaceBetween: 16,
     speed: 800,
     autoplay: {
       delay: 1800
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 4.2,
+        centeredSlides: false
+      }
     }
   });
   var customerSwiperThumbs = new Swiper(".customer-thumbs", {

@@ -8,6 +8,7 @@ section.projects-con {
 
 	.swiper-wrapper {
 		transform: translate3d(calc(-1 * var(--margin-from-side)), 0, 0);
+		margin-block-end: 2rem;
 	}
 }
 

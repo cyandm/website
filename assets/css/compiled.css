@@ -775,6 +775,17 @@ html:has(.pop-up.open) {
   object-fit: cover;
   border-radius: 0.5rem;
 }
+@media screen and (max-width: 768px) {
+  .single-project-card {
+    padding: 1rem 2rem;
+  }
+  .single-project-card .image-wrapper {
+    display: flex;
+  }
+  .single-project-card .image-wrapper img {
+    height: 140px;
+  }
+}
 
 .project-on-hover {
   display: flex;
@@ -1483,6 +1494,7 @@ section.projects-con > *:nth-child(1) {
 }
 section.projects-con .swiper-wrapper {
   transform: translate3d(calc(-1 * var(--margin-from-side)), 0, 0);
+  margin-block-end: 2rem;
 }
 
 section.customer-con {

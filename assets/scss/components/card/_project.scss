@@ -1,104 +1,116 @@
 @use '../../utils/_index' as *;
 
 .single-project-card {
-  padding: PxToRem(76) PxToRem(40);
-  border-radius: PxToRem(12);
-  background: radial-gradient(#000, var(--project-color));
-  cursor: pointer;
-  box-sizing: border-box;
+	padding: PxToRem(76) PxToRem(40);
+	border-radius: PxToRem(12);
+	background: radial-gradient(#000, var(--project-color));
+	cursor: pointer;
+	box-sizing: border-box;
 
-  img {
-    height: PxToRem(200);
-    object-fit: cover;
-    border-radius: PxToRem(8);
-  }
+	img {
+		height: PxToRem(200);
+		object-fit: cover;
+		border-radius: PxToRem(8);
+	}
+
+	@include mq('md') {
+		padding: 1rem 2rem;
+
+		.image-wrapper {
+			display: flex;
+
+			img {
+				height: 140px;
+			}
+		}
+	}
 }
 
 .project-on-hover {
-  @include d_flex();
-  max-width: PxToRem(600);
-  background: #090c17;
-  border: 1px solid #1dbacf;
-  border-radius: PxToRem(32);
-  position: relative;
+	@include d_flex();
+	max-width: PxToRem(600);
+	background: #090c17;
+	border: 1px solid #1dbacf;
+	border-radius: PxToRem(32);
+	position: relative;
 
-  @include psudo(after, '', 0, 100%) {
-    z-index: -1;
-  }
+	@include psudo(after, '', 0, 100%) {
+		z-index: -1;
+	}
 
-  .head {
-    @include d_flex(row, space-between);
-    padding: PxToRem(32);
-    padding-bottom: 0;
-    width: 100%;
+	.head {
+		@include d_flex(row, space-between);
+		padding: PxToRem(32);
+		padding-bottom: 0;
+		width: 100%;
 
-    .left-col {
-      @include d_flex($gap: PxToRem(8));
-      max-width: PxToRem(248);
+		.left-col {
+			@include d_flex($gap: PxToRem(8));
+			max-width: PxToRem(248);
 
-      a {
-        background-color: var(--taxonomy-color);
-        padding: PxToRem(4) PxToRem(12);
-        border-radius: PxToRem(8);
-      }
-    }
-  }
+			a {
+				background-color: var(--taxonomy-color);
+				padding: PxToRem(4) PxToRem(12);
+				border-radius: PxToRem(8);
+			}
+		}
+	}
 
-  .project-content {
-    @include d_flex(column, center, center, $gap: PxToRem(24));
-    width: 100%;
-    padding: PxToRem(32);
+	.project-content {
+		@include d_flex(column, center, center, $gap: PxToRem(24));
+		width: 100%;
+		padding: PxToRem(32);
 
-    .img-con {
-      @include d_flex();
-      border-radius: PxToRem(12);
-      overflow: hidden;
-      width: 80%;
-      aspect-ratio: 3/2;
+		.img-con {
+			@include d_flex();
+			border-radius: PxToRem(12);
+			overflow: hidden;
+			width: 80%;
+			aspect-ratio: 3/2;
 
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-  }
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
 
-  .gallery {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    inset: 0;
-    z-index: -1;
+	.gallery {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		inset: 0;
+		z-index: -1;
 
-    .img-wrapper {
-      --num: 1;
+		.img-wrapper {
+			--num: 1;
 
-      position: absolute;
-      bottom: 59%;
-      left: 50%;
-      translate: 42%;
-      transform-origin: -50% 50%;
-      scale: 1.5;
-      scale: 0;
-      rotate: 0;
-      transition: scale 0.3s, rotate 1s;
+			position: absolute;
+			bottom: 59%;
+			left: 50%;
+			translate: 42%;
+			transform-origin: -50% 50%;
+			scale: 1.5;
+			scale: 0;
+			rotate: 0;
+			transition: scale 0.3s, rotate 1s;
 
-      @for $i from 1 to 5 {
-        &:nth-child(#{$i}) {
-          --num: #{$i};
-        }
-      }
-    }
-  }
+			@for $i from 1 to 5 {
+				&:nth-child(#{$i}) {
+					--num: #{$i};
+				}
+			}
+		}
+	}
 
-  &:hover {
-    .gallery {
-      .img-wrapper {
-        scale: 1.5;
-        rotate: calc(-11deg + var(--num) * 40deg);
-      }
-    }
-  }
+	&:hover {
+		.gallery {
+			.img-wrapper {
+				scale: 1.5;
+				rotate: calc(-11deg + var(--num) * 40deg);
+			}
+		}
+	}
 }
