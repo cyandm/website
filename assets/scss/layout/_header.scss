@@ -1,115 +1,129 @@
 @use '../utils/_index' as *;
 
 header {
-  @include d_flex($j_c: space-between);
-  padding-block-start: PxToRem(28);
-  position: relative;
-  z-index: 4;
+	@include d_flex($j_c: space-between);
+	padding-block-start: PxToRem(28);
+	position: relative;
+	z-index: 4;
 
-  .right-col {
-    @include d_flex();
-    gap: PxToRem(16);
-    .logo {
-      width: PxToRem(44);
+	.right-col {
+		@include d_flex();
+		gap: PxToRem(16);
+		.logo {
+			width: PxToRem(44);
 
-      svg {
-        #gradientSection {
-          > stop:nth-child(1) {
-            stop-color: $gradient_blue_start;
-          }
+			svg {
+				#gradientSection {
+					> stop:nth-child(1) {
+						stop-color: var(--start-color);
+					}
 
-          > stop:nth-child(2) {
-            stop-color: $gradient_blue_end;
-          }
-        }
-      }
-    }
+					> stop:nth-child(2) {
+						stop-color: var(--end-color);
+					}
+				}
+			}
+		}
 
-    .header-menu {
-      ul.menu {
-        @include d_flex();
-        gap: PxToRem(16);
+		.header-menu {
+			ul.menu {
+				@include d_flex();
+				gap: PxToRem(16);
 
-        li {
-          color: $gray_1;
-          transition: 0.3s ease-in-out;
+				li {
+					color: $gray_1;
+					transition: 0.3s ease-in-out;
 
-          &:hover {
-            color: $white_1;
-          }
+					&:hover {
+						color: $white_1;
+					}
 
-          &.menu-item-has-children {
-            @include d_flex(row, center, center);
-            @include make_icon('\e931') {
-              font-size: PxToRem(24);
-              translate: 0 10%;
-              cursor: pointer;
-              transition: inherit;
-            }
+					&.menu-item-has-children {
+						@include d_flex(row, center, center);
+						@include make_icon('\e931') {
+							font-size: PxToRem(24);
+							translate: 0 10%;
+							cursor: pointer;
+							transition: inherit;
+						}
 
-            transition: 0.3s;
-            position: relative;
+						transition: 0.3s;
+						position: relative;
 
-            > ul.sub-menu {
-              position: absolute;
-              background: $white_1;
-              color: $black_1;
-              inset: 0;
-              width: 100%;
-              min-height: 100%;
-              top: 100%;
-              pointer-events: none;
-              opacity: 0;
-              transition: inherit;
-            }
+						ul.sub-menu {
+							position: absolute;
+							background: $black_1;
+							color: $white_1;
+							inset: 0;
+							top: 100%;
+							height: fit-content;
+							width: 360px;
+							pointer-events: none;
+							opacity: 0;
+							transition: inherit;
+							border-radius: 0.5rem;
+							border: 1px solid var(--start-color);
 
-            &:hover {
-              &::after {
-                rotate: 180deg;
-              }
+							li {
+								display: block;
+								padding: 1rem 0.75rem;
+							}
+						}
 
-              > ul.sub-menu {
-                pointer-events: all;
-                opacity: 1;
-              }
-            }
-          }
+						&:hover {
+							&::after {
+								rotate: 180deg;
+							}
 
-          &.current-menu-item,
-          &.current_page_item {
-            --El_width: 125%;
-            $El_top: PxToRem(-16);
+							> ul.sub-menu {
+								pointer-events: all;
+								opacity: 1;
+							}
+						}
+					}
 
-            color: $white_1 !important;
+					&.current-menu-item,
+					&.current_page_item {
+						--El_width: 125%;
+						$El_top: PxToRem(-16);
 
-            @include psudo($inset: unset) {
-              background: $cyan_1;
-              width: var(--El_width);
-              height: PxToRem(4);
-              border-radius: PxToRem(1000);
-              top: $El_top;
-              left: 50%;
-              translate: -50%;
-              overflow: hidden;
-            }
+						color: $white_1 !important;
 
-            @include psudo(before, $inset: unset) {
-              background: $cyan_2;
-              width: var(--El_width);
-              height: PxToRem(48);
-              top: $El_top;
-              left: 50%;
-              translate: -50%;
-              opacity: 0.7;
-            }
-          }
-        }
-      }
-    }
-  }
+						@include psudo($inset: unset) {
+							background: var(--start-color);
+							width: var(--El_width);
+							height: PxToRem(4);
+							border-radius: PxToRem(1000);
+							top: $El_top;
+							left: 50%;
+							translate: -50%;
+							overflow: hidden;
+							pointer-events: none;
+							z-index: -1;
+						}
 
-  .left-col {
-    @include d_flex($a_i: center);
-    gap: PxToRem(16);
-  }
+						@include psudo(before, $inset: unset) {
+							z-index: -1;
+							background: linear-gradient(
+								var(--end-color),
+								rgba(#000, 0.7) 60%
+							);
+							pointer-events: none;
+							width: var(--El_width);
+							height: PxToRem(48);
+							top: $El_top;
+							left: 50%;
+							translate: -50%;
+							opacity: 0.7;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.left-col {
+		@include d_flex($a_i: center);
+		gap: PxToRem(16);
+	}
 }

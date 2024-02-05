@@ -146,11 +146,13 @@
 	cursor: pointer;
 	@include font_style($font_style);
 
-	@include psudo($inset: 0, $square: '100%') {
+	@include psudo($inset: 0, $square: 100%) {
 		background: $psudo_bg_color;
 		z-index: -1;
 		transition: translate 0.3s ease-in-out;
 		translate: 0 100%;
+		border: none;
+		border-radius: 0;
 	}
 
 	&:hover {

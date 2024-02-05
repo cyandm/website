@@ -11796,6 +11796,8 @@
       toggleFadeOff(bottomFire2, false);
     };
     const clickToLabel = (el, label) => {
+      if (!el)
+        return;
       el.addEventListener("click", () => {
         gsapWithCSS.to(window, {
           duration: 5,

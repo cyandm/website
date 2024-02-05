@@ -1,10 +1,6 @@
 import gsap from 'gsap';
 import { EasePack, ScrollToPlugin, ScrollTrigger } from 'gsap/all';
 import { toggleFadeOff, toggleShow } from '../../modules/classHandler';
-import {
-	singlePlanetThreeTL,
-	singlePlanetThreeEclipseTL,
-} from './singlePlanet';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, EasePack);
 
@@ -45,6 +41,8 @@ const PreloaderHome = () => {
 	};
 
 	const clickToLabel = (el, label) => {
+		if (!el) return;
+
 		el.addEventListener('click', () => {
 			gsap.to(window, {
 				duration: 5,

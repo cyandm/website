@@ -1,7 +1,10 @@
 @use '../utils/_index' as *;
 
 .primary-btn {
-	@include base_btn();
+	@include base_btn(
+		$psudo_bg_color: linear-gradient(var(--start-color), var(--end-color)),
+		$border_color: var(--start-color)
+	);
 	padding: PxToRem(8) PxToRem(32);
 }
 
@@ -19,7 +22,7 @@
 	font-size: PxToRem(24);
 	border-radius: 50%;
 	padding: PxToRem(8);
-	background: $cyan_1;
+	background: linear-gradient(var(--start-color), var(--end-color));
 	color: $black_1;
 	overflow: hidden;
 
