@@ -62,13 +62,13 @@
 @mixin font_style($type) {
 	@include base_font();
 	@if ($type == 't1') {
-		font-size: PxToRem(84);
+		font-size: PxToRem(80);
 		font-weight: bold;
 	}
 	@if ($type == 't2') {
-		font-size: PxToRem(56);
+		font-size: PxToRem(64);
 		font-weight: bold;
-		line-height: PxToRem(106);
+		line-height: PxToRem(104);
 	}
 	@if ($type == 'h1') {
 		font-size: PxToRem(36);
@@ -155,7 +155,8 @@
 		border-radius: 0;
 	}
 
-	&:hover {
+	&:hover,
+	&[data-active='true'] {
 		color: $color_hover;
 		&::after {
 			translate: 0;

@@ -39,3 +39,11 @@ h4,
 .body-2 {
 	@include font_style('body_2');
 }
+
+.t1 {
+	@include font_style('t1');
+}
+
+.t2 {
+	@include font_style('t2');
+}

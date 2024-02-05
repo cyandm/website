@@ -53,6 +53,23 @@
 	}
 }
 
+.cart-btn {
+	@include base_btn(
+		$border_color: hsla(50, 100%, 47%, 1),
+		$psudo_bg_color: linear-gradient(170.93deg, #ffc806 -6.97%, #cb5500 126.75%),
+		$color_hover: #fff
+	);
+	border-radius: 0.75rem;
+	padding: 0.5rem 4rem;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	i {
+		font-size: 1.25rem;
+	}
+}
+
 .full-width {
 	width: 100%;
 	text-align: center;

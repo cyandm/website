@@ -1,4 +1,6 @@
 <?php
+$render = isset( $args['render'] ) ? $args['render'] : true;
+
 $front_page_ID = get_option( 'page_on_front' );
 
 $col_1_title = get_field( 'column_1_title', $front_page_ID );
@@ -18,71 +20,75 @@ $footer_image = wp_get_attachment_image( get_field( 'footer_image', $front_page_
 
 ?>
 
-<footer>
-	<div class="container">
-		<div class="columns">
-			<div class="column-1">
-				<span class="footer-title h4">
-					<?= $col_1_title ?>
-				</span>
+<?php if ( $render === true ) : ?>
 
-				<div class="footer-menu">
-					<?php wp_nav_menu( [ 
-						'theme_location' => 'footer_col_1'
-					] ) ?>
+	<footer>
+		<div class="container">
+			<div class="columns">
+				<div class="column-1">
+					<span class="footer-title h4">
+						<?= $col_1_title ?>
+					</span>
+
+					<div class="footer-menu">
+						<?php wp_nav_menu( [ 
+							'theme_location' => 'footer_col_1'
+						] ) ?>
+					</div>
+				</div>
+				<div class="column-2">
+					<span class="footer-title h4">
+						<?= $col_2_title ?>
+					</span>
+
+					<div class="footer-menu">
+						<?php wp_nav_menu( [ 
+							'theme_location' => 'footer_col_2'
+						] ) ?>
+					</div>
+				</div>
+				<div class="column-3">
+					<span class="footer-title h4">
+						<?= $col_3_title ?>
+					</span>
+
+					<p class="footer-address-text">
+						<?= $address_text ?>
+					</p>
+
+					<div class="footer-address-map">
+						<?= $address_html ?>
+					</div>
+				</div>
+				<div class="column-4">
+					<span class="footer-title h4">
+						<?= $col_4_title ?>
+					</span>
+
+					<div class="footer-phones">
+						<a href="tel:<?= $phone_num_1 ?>">
+							<?= $phone_num_1 ?>
+						</a>
+						<a href="tel:<?= $phone_num_1 ?>">
+							<?= $phone_num_2 ?>
+						</a>
+						<a href="tel:<?= $phone_num_1 ?>">
+							<?= $phone_num_3 ?>
+						</a>
+					</div>
+
 				</div>
 			</div>
-			<div class="column-2">
-				<span class="footer-title h4">
-					<?= $col_2_title ?>
-				</span>
-
-				<div class="footer-menu">
-					<?php wp_nav_menu( [ 
-						'theme_location' => 'footer_col_2'
-					] ) ?>
-				</div>
-			</div>
-			<div class="column-3">
-				<span class="footer-title h4">
-					<?= $col_3_title ?>
-				</span>
-
-				<p class="footer-address-text">
-					<?= $address_text ?>
-				</p>
-
-				<div class="footer-address-map">
-					<?= $address_html ?>
-				</div>
-			</div>
-			<div class="column-4">
-				<span class="footer-title h4">
-					<?= $col_4_title ?>
-				</span>
-
-				<div class="footer-phones">
-					<a href="tel:<?= $phone_num_1 ?>">
-						<?= $phone_num_1 ?>
-					</a>
-					<a href="tel:<?= $phone_num_1 ?>">
-						<?= $phone_num_2 ?>
-					</a>
-					<a href="tel:<?= $phone_num_1 ?>">
-						<?= $phone_num_3 ?>
-					</a>
-				</div>
+			<div class="social-media">
 
 			</div>
 		</div>
-		<div class="social-media">
-
+		<div class="footer-image">
+			<?= $footer_image ?>
 		</div>
-	</div>
-	<div class="footer-image">
-		<?= $footer_image ?>
-	</div>
-</footer>
+	</footer>
+
+<?php endif; ?>
 
 <?php get_template_part( '/templates/components/popup' ) ?>
 

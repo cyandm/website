@@ -1,0 +1,27 @@
+@use '../utils/_index' as *;
+
+.scroll-down {
+	&:hover {
+		i {
+			translate: 0 PxToRem(8);
+		}
+	}
+
+	div {
+		@include d_flex(column);
+		padding-block-start: PxToRem(12);
+
+		i {
+			transition: 0.3s ease-in-out;
+			font-size: PxToRem(24);
+			font-weight: 700;
+			margin-block-start: PxToRem(-16);
+			color: var(--scroll-color, $gradient_blue_start) !important;
+			@for $i from 1 to 3 {
+				&:nth-child(#{$i}) {
+					transition-delay: calc($i * 0.025s);
+				}
+			}
+		}
+	}
+}

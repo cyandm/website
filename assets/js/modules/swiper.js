@@ -30,6 +30,7 @@ export const customerSwiperThumbs = new Swiper('.customer-thumbs', {
 		delay: 1800,
 	},
 });
+
 export const customerSwiper = new Swiper('.customer-wrapper', {
 	modules: [EffectFade, Autoplay, Thumbs],
 	slidesPerView: 1,
@@ -39,4 +40,8 @@ export const customerSwiper = new Swiper('.customer-wrapper', {
 	autoplay: {
 		delay: 1800,
 	},
+});
+
+export const uiDesignSwiper = new Swiper('#uiDesignSwiper', {
+	slidesPerView: 1,
 });

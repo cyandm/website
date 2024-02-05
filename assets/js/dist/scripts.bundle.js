@@ -71,6 +71,7 @@
 
   // assets/js/modules/fire.js
   var bottomFire = document.querySelector(".bottom-fire");
+  var uiFire = document.querySelector(".ui-fire");
   var makeFire = (config3) => {
     const {
       parent,
@@ -123,6 +124,32 @@
       },
       saturate: {
         min: 65,
+        max: 100
+      },
+      lightness: {
+        min: 31,
+        max: 63
+      }
+    }
+  });
+  makeFire({
+    parent: uiFire,
+    count: 15,
+    position: {
+      left: 100,
+      top: 50
+    },
+    size: {
+      min: 150,
+      max: 450
+    },
+    color: {
+      hue: {
+        min: 4,
+        max: 57
+      },
+      saturate: {
+        min: 50,
         max: 100
       },
       lightness: {
@@ -4850,6 +4877,9 @@
     autoplay: {
       delay: 1800
     }
+  });
+  var uiDesignSwiper = new Swiper("#uiDesignSwiper", {
+    slidesPerView: 1
   });
 
   // assets/js/modules/variable.js

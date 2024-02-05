@@ -19,14 +19,6 @@
 		</p>
 	</div>
 
-	<span class="scroll-down cursor-pointer ">
-		<p class="body-2">
-			اسکرول کنید
-		</p>
-		<div>
-			<i class="icon-arrow"></i>
-			<i class="icon-arrow"></i>
-		</div>
-	</span>
+	<?php get_template_part( '/templates/components/scroll' ) ?>
 
 </section>
