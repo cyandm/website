@@ -128,12 +128,27 @@ section.services-con {
 					-o-object-fit: contain;
 					object-fit: contain;
 				}
+
+				@include mq('md') {
+					width: PxToRem(120);
+					height: PxToRem(100);
+				}
 			}
 
 			.h3 {
 				-webkit-margin-before: PxToRem(8);
 				margin-block-start: PxToRem(8);
 				opacity: 0.4;
+
+				@include mq('md') {
+					display: none;
+				}
+			}
+
+			.h2 {
+				@include mq('md') {
+					@include font_style('body_2');
+				}
 			}
 
 			&:nth-child(3n-1) {
@@ -162,6 +177,19 @@ section.services-con {
 			@include font_style('h2');
 			grid-row: 2 span;
 			color: #3de2f2;
+
+			@include mq('md') {
+				display: none;
+			}
+		}
+
+		@include mq('md') {
+			display: flex;
+			flex-wrap: wrap;
+
+			> * {
+				flex-basis: 45%;
+			}
 		}
 	}
 }

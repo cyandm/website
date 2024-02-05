@@ -1564,10 +1564,35 @@ section.services-con .services-wrapper .single-service-card .img-wrapper img {
   -o-object-fit: contain;
   object-fit: contain;
 }
+@media screen and (max-width: 768px) {
+  section.services-con .services-wrapper .single-service-card .img-wrapper {
+    width: 7.5rem;
+    height: 6.25rem;
+  }
+}
 section.services-con .services-wrapper .single-service-card .h3 {
   -webkit-margin-before: 0.5rem;
   margin-block-start: 0.5rem;
   opacity: 0.4;
+}
+@media screen and (max-width: 768px) {
+  section.services-con .services-wrapper .single-service-card .h3 {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  section.services-con .services-wrapper .single-service-card .h2 {
+    font-family: "peyda";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-variant-ligatures: discretionary-ligatures;
+    font-feature-settings: "ss01" 1, "salt" 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 2rem;
+  }
 }
 section.services-con .services-wrapper .single-service-card:nth-child(3n-1) {
   grid-column: 2 span;
@@ -1597,6 +1622,20 @@ section.services-con .services-wrapper .all-service {
   font-weight: bold;
   grid-row: 2 span;
   color: #3de2f2;
+}
+@media screen and (max-width: 768px) {
+  section.services-con .services-wrapper .all-service {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  section.services-con .services-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  section.services-con .services-wrapper > * {
+    flex-basis: 45%;
+  }
 }
 
 section.team-con {
