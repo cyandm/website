@@ -590,6 +590,32 @@ html:has(.pop-up.open) {
 .employ-card:hover .employ-card__name-wrapper {
   opacity: 0;
 }
+@media screen and (max-width: 992px) {
+  .employ-card {
+    border-color: transparent !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .employ-card__biography-wrapper {
+    border-color: transparent;
+    position: relative;
+    opacity: 1;
+    transform: translate(0);
+  }
+  .employ-card__name-wrapper {
+    display: none;
+  }
+  .employ-card__image {
+    display: flex;
+    justify-content: center;
+  }
+  .employ-card__image img {
+    max-width: max(50%, 200px);
+  }
+}
 
 .post-card {
   --height: 450px;
@@ -1168,6 +1194,10 @@ main > section:not(:first-child) {
   }
 }
 
+.custom_link {
+  color: #3de2f2;
+}
+
 .preloader {
   position: relative;
   height: 100vh;
@@ -1575,6 +1605,12 @@ section.team-con {
 section.team-con .profile-wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+}
+@media screen and (max-width: 992px) {
+  section.team-con .profile-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 section.blog-con .content {

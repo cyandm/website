@@ -10,6 +10,7 @@ $employs_Q = new WP_Query( [
 	]
 ] );
 
+$link_all = get_post_type_archive_link( 'employ' );
 
 ?>
 
@@ -21,7 +22,7 @@ $employs_Q = new WP_Query( [
 				کارای خفن یه تیم خفن هم میخواد
 			</h2>
 
-			<a href=<?= get_post_type_archive_link( 'employ' ) ?>
+			<a href=<?= $link_all ?>
 			   class="primary-btn">
 				مشاهده همه
 			</a>
@@ -45,6 +46,13 @@ $employs_Q = new WP_Query( [
 
 
 			</div>
+		</div>
+
+		<div class="section-view-all">
+			<a href=<?= $link_all ?>
+			   class="primary-btn full-width">
+				مشاهده همه
+			</a>
 		</div>
 	</section>
 <?php endif; ?>

@@ -88,4 +88,33 @@
 			}
 		}
 	}
+
+	@include mq('lg') {
+		border-color: transparent !important;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 1rem;
+		gap: 1rem;
+
+		&__biography-wrapper {
+			border-color: transparent;
+			position: relative;
+			opacity: 1;
+			transform: translate(0);
+		}
+
+		&__name-wrapper {
+			display: none;
+		}
+
+		&__image {
+			display: flex;
+			justify-content: center;
+
+			img {
+				max-width: max(50%, 200px);
+			}
+		}
+	}
 }

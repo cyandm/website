@@ -171,6 +171,11 @@ section.team-con {
 	.profile-wrapper {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
+
+		@include mq('lg') {
+			display: flex;
+			flex-direction: column;
+		}
 	}
 }
 
