@@ -1390,6 +1390,7 @@ main > section:not(:first-child) {
   border-radius: 50%;
   z-index: -5;
   filter: blur(150px);
+  display: none;
 }
 
 .multi-planet {

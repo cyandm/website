@@ -1,219 +1,221 @@
 @use '../../utils/_index' as *;
 
 .preloader {
-  position: relative;
-  height: 100vh;
+	position: relative;
+	height: 100vh;
 
-  > * {
-    position: absolute;
-    translate: 0 calc(-1 * var(--header-height));
-  }
+	> * {
+		position: absolute;
+		translate: 0 calc(-1 * var(--header-height));
+	}
 }
 
 .pre-clock {
-  height: calc(100vh - var(--header-height));
-  @include d_flex(column, center, $gap: PxToRem(16));
+	height: calc(100vh - var(--header-height));
+	@include d_flex(column, center, $gap: PxToRem(16));
 
-  translate: 0 -8%;
+	translate: 0 -8%;
 
-  .content {
-    @include d_flex(column, $gap: PxToRem(16));
-    h1 {
-      @include font_style('t1');
-      position: relative;
-    }
-  }
+	.content {
+		@include d_flex(column, $gap: PxToRem(16));
+		h1 {
+			@include font_style('t1');
+			position: relative;
+		}
+	}
 
-  .scroll-down {
-    &:hover {
-      i {
-        translate: 0 PxToRem(8);
-      }
-    }
+	.scroll-down {
+		&:hover {
+			i {
+				translate: 0 PxToRem(8);
+			}
+		}
 
-    div {
-      @include d_flex(column);
-      padding-block-start: PxToRem(20);
+		div {
+			@include d_flex(column);
+			padding-block-start: PxToRem(20);
 
-      i {
-        transition: 0.3s ease-in-out;
-        font-size: PxToRem(24);
-        font-weight: 700;
-        margin-block-start: PxToRem(-16);
-        color: $gradient_blue_start !important;
-        @for $i from 1 to 3 {
-          &:nth-child(#{$i}) {
-            transition-delay: calc($i * 0.025s);
-          }
-        }
-      }
-    }
-  }
+			i {
+				transition: 0.3s ease-in-out;
+				font-size: PxToRem(24);
+				font-weight: 700;
+				margin-block-start: PxToRem(-16);
+				color: $gradient_blue_start !important;
+				@for $i from 1 to 3 {
+					&:nth-child(#{$i}) {
+						transition-delay: calc($i * 0.025s);
+					}
+				}
+			}
+		}
+	}
 }
 
 .clock {
-  --width: 125px;
-  --rotate: 0deg;
+	--width: 125px;
+	--rotate: 0deg;
 
-  position: absolute;
-  aspect-ratio: 1;
-  width: var(--width);
-  background: repeating-conic-gradient(
-    from var(--rotate) at 50% 50%,
-    #1c0b8e 0%,
-    #382db9 100%
-  );
-  border-radius: 50%;
-  left: 35%;
-  top: 15%;
-  overflow: hidden;
-  z-index: 20;
-  scale: 1;
+	position: absolute;
+	aspect-ratio: 1;
+	width: var(--width);
+	background: repeating-conic-gradient(
+		from var(--rotate) at 50% 50%,
+		#1c0b8e 0%,
+		#382db9 100%
+	);
+	border-radius: 50%;
+	left: 35%;
+	top: 15%;
+	overflow: hidden;
+	z-index: 20;
+	scale: 1;
 
-  &::after {
-    content: '';
-    position: absolute;
+	&::after {
+		content: '';
+		position: absolute;
 
-    left: 50%;
-    translate: calc(-50% - 0.5px) 0.5px;
-    transform-origin: 50% 100%;
-    rotate: var(--rotate);
+		left: 50%;
+		translate: calc(-50% - 0.5px) 0.5px;
+		transform-origin: 50% 100%;
+		rotate: var(--rotate);
 
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: calc(var(--width) / 2) solid hsla(173, 100%, 56%, 1);
-  }
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-top: calc(var(--width) / 2) solid hsla(173, 100%, 56%, 1);
+	}
 }
 
 .clock-section {
-  height: 100%;
-  width: 100%;
-  inset: 0;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  pointer-events: none;
-  visibility: hidden;
+	height: 100%;
+	width: 100%;
+	inset: 0;
+	z-index: 3;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	pointer-events: none;
+	visibility: hidden;
 
-  .content {
-    min-width: 100%;
-  }
+	.content {
+		min-width: 100%;
+	}
 
-  h2 {
-    @include font_style('t1');
-  }
+	h2 {
+		@include font_style('t1');
+	}
 
-  .secondary-btn {
-    margin-block-start: PxToRem(24);
-  }
+	.secondary-btn {
+		margin-block-start: PxToRem(24);
+	}
 }
 
 #singlePlanet {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  inset: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	inset: 0;
 
-  .webGL {
-    z-index: -2;
-  }
+	.webGL {
+		z-index: -2;
+	}
 
-  .content {
-    position: absolute;
-    @include d_flex(column, center, center, $gap: PxToRem(12));
+	.content {
+		position: absolute;
+		@include d_flex(column, center, center, $gap: PxToRem(12));
 
-    h2 {
-      @include font_style('t1');
-      line-height: 1em;
-    }
+		h2 {
+			@include font_style('t1');
+			line-height: 1em;
+		}
 
-    .scroll {
-      cursor: pointer;
-    }
-  }
+		.scroll {
+			cursor: pointer;
+		}
+	}
 }
 
 .light-planet {
-  width: 450px;
-  height: 450px;
-  background: conic-gradient(#fbcf34, #f22424, #2cccd7, #0574dc, #05b5dc);
-  position: absolute;
-  border-radius: 50%;
-  z-index: -5;
-  filter: blur(150px);
+	width: 450px;
+	height: 450px;
+	background: conic-gradient(#fbcf34, #f22424, #2cccd7, #0574dc, #05b5dc);
+	position: absolute;
+	border-radius: 50%;
+	z-index: -5;
+	filter: blur(150px);
+
+	display: none;
 }
 
 .multi-planet {
-  position: absolute;
-  z-index: 6;
-  inset: 0;
-  visibility: hidden;
-  pointer-events: none;
-  @include d_flex(column, center, center);
+	position: absolute;
+	z-index: 6;
+	inset: 0;
+	visibility: hidden;
+	pointer-events: none;
+	@include d_flex(column, center, center);
 
-  .planet-con {
-    --planet-translateX: 20rem;
-    --size: $size;
+	.planet-con {
+		--planet-translateX: 20rem;
+		--size: $size;
 
-    width: var(--size);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    @include d_flex(row, end, end);
+		width: var(--size);
+		aspect-ratio: 1;
+		border-radius: 50%;
+		@include d_flex(row, end, end);
 
-    &.planet-red {
-      --size: 13.25rem;
-      background: linear-gradient(215.98deg, #ff0a0a 12.08%, #120e1f 87.95%);
-    }
-    &.planet-yellow {
-      --size: 11rem;
-      background: linear-gradient(220.36deg, #defc29 -19.64%, #e76100 82.46%);
-    }
-    &.planet-cyan {
-      --size: 9.5rem;
-      background: linear-gradient(170.93deg, #00fbbf -6.97%, #0065fd 166.9%);
-    }
+		&.planet-red {
+			--size: 13.25rem;
+			background: linear-gradient(215.98deg, #ff0a0a 12.08%, #120e1f 87.95%);
+		}
+		&.planet-yellow {
+			--size: 11rem;
+			background: linear-gradient(220.36deg, #defc29 -19.64%, #e76100 82.46%);
+		}
+		&.planet-cyan {
+			--size: 9.5rem;
+			background: linear-gradient(170.93deg, #00fbbf -6.97%, #0065fd 166.9%);
+		}
 
-    &:nth-child(2n) {
-      translate: calc(var(--planet-translateX) * -1);
-    }
+		&:nth-child(2n) {
+			translate: calc(var(--planet-translateX) * -1);
+		}
 
-    &:nth-child(2n + 1) {
-      translate: var(--planet-translateX);
-    }
+		&:nth-child(2n + 1) {
+			translate: var(--planet-translateX);
+		}
 
-    .cta {
-      background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.02) 0%,
-        rgba(255, 255, 255, 0.03) 100%
-      );
-      box-shadow: 0 PxToRem(4) PxToRem(24) 0 #050507;
-      backdrop-filter: blur(PxToRem(16));
-      border-radius: PxToRem(48);
-      border: 1px solid hsla(173, 100%, 56%, 1);
-      padding: PxToRem(12) PxToRem(20) PxToRem(12) PxToRem(24);
-      translate: -35% 35%;
-      @include font_style('h2');
+		.cta {
+			background: linear-gradient(
+				180deg,
+				rgba(255, 255, 255, 0.02) 0%,
+				rgba(255, 255, 255, 0.03) 100%
+			);
+			box-shadow: 0 PxToRem(4) PxToRem(24) 0 #050507;
+			backdrop-filter: blur(PxToRem(16));
+			border-radius: PxToRem(48);
+			border: 1px solid hsla(173, 100%, 56%, 1);
+			padding: PxToRem(12) PxToRem(20) PxToRem(12) PxToRem(24);
+			translate: -35% 35%;
+			@include font_style('h2');
 
-      a {
-        transition: 200ms ease-in;
-        text-wrap: nowrap;
-        @include d_flex(row-reverse, center, center, nowrap);
-        @include make_icon('\e93a') {
-          font-size: PxToRem(32);
-          transition: inherit;
-          transition-delay: 100ms;
-        }
+			a {
+				transition: 200ms ease-in;
+				text-wrap: nowrap;
+				@include d_flex(row-reverse, center, center, nowrap);
+				@include make_icon('\e93a') {
+					font-size: PxToRem(32);
+					transition: inherit;
+					transition-delay: 100ms;
+				}
 
-        &:hover {
-          translate: PxToRem(4);
-          &::after {
-            translate: PxToRem(4);
-          }
-        }
-      }
-    }
-  }
+				&:hover {
+					translate: PxToRem(4);
+					&::after {
+						translate: PxToRem(4);
+					}
+				}
+			}
+		}
+	}
 }
