@@ -75,7 +75,7 @@
 		font-weight: 700;
 	}
 	@if ($type == 'h2') {
-		font-size: PxToRem(20);
+		font-size: PxToRem(24);
 		line-height: PxToRem(36);
 		font-weight: bold;
 	}

@@ -11,7 +11,7 @@ $faq_Q = new WP_Query( [
 ] );
 
 $faq_image = wp_get_attachment_image( get_field( 'faq_section_image' ), 'full' );
-
+$link_all = get_post_type_archive_link( 'faq' );
 ?>
 
 
@@ -23,7 +23,7 @@ $faq_image = wp_get_attachment_image( get_field( 'faq_section_image' ), 'full' )
 				سوالات متداول
 			</h2>
 
-			<a href=<?= get_post_type_archive_link( 'faq' ) ?>
+			<a href=<?= $link_all ?>
 			   class="primary-btn">
 				مشاهده همه
 			</a>
@@ -47,6 +47,14 @@ $faq_image = wp_get_attachment_image( get_field( 'faq_section_image' ), 'full' )
 			<div class="faq-image">
 				<?= $faq_image ?>
 			</div>
+		</div>
+
+
+		<div class="section-view-all">
+			<a href=<?= $link_all ?>
+			   class="primary-btn full-width">
+				مشاهده همه
+			</a>
 		</div>
 	</section>
 <?php endif; ?>

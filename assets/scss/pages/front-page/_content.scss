@@ -196,6 +196,18 @@ section.faq-con {
 			> *:nth-child(1) {
 				flex: 2;
 			}
+
+			@include mq('md') {
+				flex-direction: column-reverse;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+
+		&-image {
+			@include mq('md') {
+				max-width: max(50%, 200px);
+			}
 		}
 	}
 }

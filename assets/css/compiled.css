@@ -223,6 +223,11 @@ i.not-correct {
   rotate: -45deg;
 }
 
+.full-width {
+  width: 100%;
+  text-align: center;
+}
+
 .mini-bubble {
   background: linear-gradient(103.44deg, #15eded 12.12%, #04b2e9 130.32%);
   position: absolute;
@@ -1064,16 +1069,6 @@ header .left-col {
 }
 
 body {
-  font-family: "peyda";
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  font-variant-ligatures: discretionary-ligatures;
-  font-feature-settings: "ss01" 1, "salt" 0;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 2.25rem;
   background-color: hsl(227, 44%, 6%);
   color: hsl(194, 100%, 96%);
   overflow: hidden;
@@ -1083,34 +1078,7 @@ html {
   overflow-x: hidden;
 }
 
-h1,
-.h1 {
-  font-family: "peyda";
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  font-variant-ligatures: discretionary-ligatures;
-  font-feature-settings: "ss01" 1, "salt" 0;
-  font-size: 2.25rem;
-  font-weight: 700;
-}
-
-.body-2 {
-  font-family: "peyda";
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  font-variant-ligatures: discretionary-ligatures;
-  font-feature-settings: "ss01" 1, "salt" 0;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 2rem;
-}
-
 main > section:not(:first-child) {
-  -webkit-margin-before: 4rem;
   margin-block-start: 4rem;
 }
 
@@ -1121,8 +1089,21 @@ main > section:not(:first-child) {
   align-items: start;
   flex-wrap: wrap;
   gap: 0;
-  -webkit-margin-after: 1.25rem;
   margin-block-end: 1.25rem;
+}
+@media screen and (max-width: 768px) {
+  .section-title .primary-btn {
+    display: none;
+  }
+}
+
+.section-view-all {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .section-view-all {
+    display: block;
+  }
 }
 
 .preloader {
@@ -1349,7 +1330,7 @@ main > section:not(:first-child) {
   line-height: normal;
   font-variant-ligatures: discretionary-ligatures;
   font-feature-settings: "ss01" 1, "salt" 0;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 2.25rem;
   font-weight: bold;
 }
@@ -1519,7 +1500,7 @@ section.services-con .services-wrapper .all-service {
   line-height: normal;
   font-variant-ligatures: discretionary-ligatures;
   font-feature-settings: "ss01" 1, "salt" 0;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 2.25rem;
   font-weight: bold;
   grid-row: 2 span;
@@ -1550,6 +1531,18 @@ section.faq-con .faq-content {
 }
 section.faq-con .faq-content > *:nth-child(1) {
   flex: 2;
+}
+@media screen and (max-width: 768px) {
+  section.faq-con .faq-content {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  section.faq-con .faq-image {
+    max-width: max(50%, 200px);
+  }
 }
 
 @font-face {
@@ -1901,6 +1894,33 @@ i {
   font-style: normal;
   font-display: swap;
 }
+body {
+  font-family: "peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-variant-ligatures: discretionary-ligatures;
+  font-feature-settings: "ss01" 1, "salt" 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2.25rem;
+}
+@media screen and (max-width: 768px) {
+  body {
+    font-family: "peyda";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-variant-ligatures: discretionary-ligatures;
+    font-feature-settings: "ss01" 1, "salt" 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 2rem;
+  }
+}
+
 h1,
 .h1 {
   font-family: "peyda";
@@ -1913,6 +1933,21 @@ h1,
   font-size: 2.25rem;
   font-weight: 700;
 }
+@media screen and (max-width: 480px) {
+  h1,
+  .h1 {
+    font-family: "peyda";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-variant-ligatures: discretionary-ligatures;
+    font-feature-settings: "ss01" 1, "salt" 0;
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    font-weight: bold;
+  }
+}
 
 h2,
 .h2 {
@@ -1923,7 +1958,7 @@ h2,
   line-height: normal;
   font-variant-ligatures: discretionary-ligatures;
   font-feature-settings: "ss01" 1, "salt" 0;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 2.25rem;
   font-weight: bold;
 }
@@ -1941,6 +1976,21 @@ h3,
   font-weight: 700;
   line-height: 1;
 }
+@media screen and (max-width: 768px) {
+  h3,
+  .h3 {
+    font-family: "peyda";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-variant-ligatures: discretionary-ligatures;
+    font-feature-settings: "ss01" 1, "salt" 0;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+}
 
 h4,
 .h4 {
@@ -1954,6 +2004,19 @@ h4,
   font-size: 1rem;
   font-weight: 700;
   line-height: 1;
+}
+
+.body-2 {
+  font-family: "peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-variant-ligatures: discretionary-ligatures;
+  font-feature-settings: "ss01" 1, "salt" 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
 }
 
 /**

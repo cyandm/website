@@ -10,7 +10,6 @@
 }
 
 body {
-	@include font_style('body_1');
 	background-color: $black_1;
 	color: $white_1;
 	overflow: hidden;
@@ -20,22 +19,24 @@ html {
 	overflow-x: hidden;
 }
 
-h1,
-.h1 {
-	@include font_style('h1');
-}
-
-.body-2 {
-	@include font_style('body_2');
-}
-
 main > section:not(:first-child) {
-	-webkit-margin-before: PxToRem(64);
-	        margin-block-start: PxToRem(64);
+	margin-block-start: PxToRem(64);
 }
 
 .section-title {
 	@include d_flex(row, space-between);
-	-webkit-margin-after: PxToRem(20);
-	        margin-block-end: PxToRem(20);
+	margin-block-end: PxToRem(20);
+
+	.primary-btn {
+		@include mq('md') {
+			display: none;
+		}
+	}
+}
+
+.section-view-all {
+	display: none;
+	@include mq('md') {
+		display: block;
+	}
 }
