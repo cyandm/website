@@ -55,7 +55,8 @@ if ( ! class_exists( 'cyn-theme-init' ) ) {
 
 			register_nav_menus( [ 
 				'header' => 'Header',
-				'footer' => 'Footer'
+				'footer_col_1' => 'Footer - Column 1',
+				'footer_col_2' => 'Footer - Column 2',
 			] );
 		}
 

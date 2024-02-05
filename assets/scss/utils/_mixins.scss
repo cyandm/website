@@ -168,3 +168,20 @@
 	gap: $gap;
 	@content;
 }
+
+@mixin mq($viewport: 'xs', $type: screen) {
+	$window_width: map-get(
+		(
+			'xs': 320px,
+			'sm': 480px,
+			'md': 768px,
+			'lg': 992px,
+			'xl': 1200px,
+		),
+		$viewport
+	);
+
+	@media #{$type} and (max-width: #{$window_width}) {
+		@content;
+	}
+}

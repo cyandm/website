@@ -1,0 +1,71 @@
+@use '../utils/_index' as *;
+
+footer {
+	margin-block: 2rem;
+	position: relative;
+
+	.columns {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6rem;
+
+		.column-3 {
+			max-width: 20%;
+
+			@include mq('md') {
+				max-width: 100%;
+			}
+		}
+	}
+
+	.footer-menu {
+		ul {
+			display: grid;
+			gap: 0.5rem;
+		}
+
+		li {
+			color: $gray_1;
+			transition: color 0.3s ease-in-out;
+
+			@include psudo(after, '', 0, 0.5rem) {
+				transform: translate(50%, 1rem);
+				right: -0.75rem;
+				border-radius: 50%;
+				transition: 0.3s ease-in-out;
+			}
+
+			&:hover {
+				color: #fff;
+
+				&::after {
+					background-color: #3de2f2;
+				}
+			}
+		}
+	}
+
+	.footer-address-map {
+		iframe {
+			max-height: 10rem;
+			max-width: 100%;
+			border-radius: 1rem;
+		}
+	}
+
+	.footer-phones {
+		display: grid;
+		color: #3de2f2;
+	}
+
+	.footer-image {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+
+		img {
+			object-fit: cover;
+			transform: translate(-25%, 50%);
+		}
+	}
+}
