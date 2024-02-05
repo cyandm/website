@@ -397,11 +397,23 @@ html:has(.pop-up.open) {
 .single-customer-card > * {
   flex: 1;
 }
+@media screen and (max-width: 768px) {
+  .single-customer-card {
+    flex-direction: column;
+  }
+}
 .single-customer-card .feature-img {
   max-inline-size: var(--image-width, 40%);
   max-block-size: 33.25rem;
   border-radius: 2rem;
   overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .single-customer-card .feature-img {
+    max-inline-size: 100%;
+    inline-size: calc(100% - 2 * var(--margin-from-side));
+    max-block-size: 20rem;
+  }
 }
 .single-customer-card .feature-img img {
   max-height: 100%;
@@ -417,6 +429,12 @@ html:has(.pop-up.open) {
   gap: 1rem;
   padding-block-start: 0.75rem;
   margin-inline-end: var(--margin-from-side);
+}
+@media screen and (max-width: 768px) {
+  .single-customer-card .content {
+    margin-inline: 0;
+    inline-size: calc(100% - 2 * var(--margin-from-side));
+  }
 }
 .single-customer-card .content .name-wrapper {
   display: flex;
@@ -1491,7 +1509,6 @@ section.customer-con .customer-thumbs {
   bottom: 0;
   width: calc(100% - var(--image-width) + var(--margin-from-side) - var(--gap));
   right: calc(var(--image-width) + var(--gap));
-  -webkit-padding-end: var(--gap);
   padding-inline-end: var(--gap);
 }
 section.customer-con .customer-thumbs img {
@@ -1506,6 +1523,15 @@ section.customer-con .customer-thumbs .swiper-slide {
 section.customer-con .customer-thumbs .swiper-slide:not(.swiper-slide-thumb-active) {
   opacity: 0.5;
   cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  section.customer-con .customer-thumbs {
+    width: 100%;
+    right: 0;
+  }
+  section.customer-con .customer-thumbs img {
+    border-radius: 0.5rem;
+  }
 }
 
 section.services-con .services-wrapper {
