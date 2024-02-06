@@ -1802,11 +1802,10 @@ section.faq-con .faq-content > *:nth-child(1) {
 #uiDesignSwiper * {
   transition: 0.3s ease;
 }
-#uiDesignSwiper .swiper-slide {
+#uiDesignSwiper > .swiper-wrapper > .swiper-slide {
   height: calc(100vh - var(--header-height));
-  display: block;
 }
-#uiDesignSwiper .swiper-slide:not(.swiper-slide-visible) {
+#uiDesignSwiper > .swiper-wrapper > .swiper-slide:not(.swiper-slide-visible) {
   pointer-events: none;
 }
 #uiDesignSwiper .slide-0 {
@@ -1875,6 +1874,17 @@ section.faq-con .faq-content > *:nth-child(1) {
   position: fixed;
   bottom: 2rem;
   width: 100%;
+}
+
+#portfolioServicePage {
+  margin-block-start: 12rem;
+  overflow: visible;
+}
+#portfolioServicePage .swiper-slide:nth-child(2n) {
+  transform: translateY(3rem);
+}
+#portfolioServicePage .swiper-slide:nth-child(2n+1) {
+  transform: translateY(-3rem);
 }
 
 @font-face {

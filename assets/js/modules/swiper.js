@@ -51,4 +51,15 @@ export const uiDesignSwiper = new Swiper('#uiDesignSwiper', {
 	},
 	speed: 800,
 	mousewheel: true,
+	allowTouchMove: false,
+});
+
+export const portfolioServicePage = new Swiper('#portfolioServicePage', {
+	modules: [Autoplay],
+	slidesPerView: 4.2,
+	centeredSlides: true,
+	spaceBetween: 16,
+	autoplay: {
+		disableOnInteraction: false,
+	},
 });

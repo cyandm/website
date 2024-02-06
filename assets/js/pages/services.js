@@ -15,16 +15,23 @@ const footerService = (swiper, startContentSlide, contentCountSlide) => {
 		[workSteps, portfolio, faq, contact].map((el) => deActivateEl(el));
 	};
 
+	const addListenerToSlide = (el, slide) => {
+		el.addEventListener('click', () => {
+			swiper.slideTo(slide);
+		});
+	};
+
 	const startContent = startContentSlide;
 	const contentCount = contentCountSlide;
-	const endContent = startContent + contentCount;
+	const endContent = startContent + contentCount - 1;
 	const portfolioSlide = endContent + 1;
 	const faqSlide = portfolioSlide + 1;
 	const contactSlide = faqSlide + 1;
 
-	workSteps.addEventListener('click', () => {
-		swiper.slideTo(startContent);
-	});
+	addListenerToSlide(workSteps, startContent);
+	addListenerToSlide(portfolio, portfolioSlide);
+	addListenerToSlide(faq, faqSlide);
+	addListenerToSlide(contact, contactSlide);
 
 	swiper.on('activeIndexChange', ({ activeIndex }) => {
 		deActivateAllButton();

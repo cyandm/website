@@ -5,12 +5,13 @@
 		transition: 0.3s ease;
 	}
 
-	.swiper-slide {
-		height: calc(100vh - var(--header-height));
-		display: block;
+	> .swiper-wrapper {
+		> .swiper-slide {
+			height: calc(100vh - var(--header-height));
 
-		&:not(.swiper-slide-visible) {
-			pointer-events: none;
+			&:not(.swiper-slide-visible) {
+				pointer-events: none;
+			}
 		}
 	}
 

@@ -16,6 +16,7 @@ Template Name: UI Design
 		<div class="swiper-wrapper">
 			<?php get_template_part( '/templates/pages/services/ui-design/slide-0' ) ?>
 			<?php get_template_part( '/templates/pages/services/work-steps' ) ?>
+			<?php get_template_part( '/templates/pages/services/portfolio' ) ?>
 
 
 			<?php get_template_part( '/templates/pages/services/footer' ) ?>

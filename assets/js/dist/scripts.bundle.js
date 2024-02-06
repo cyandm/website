@@ -5201,7 +5201,17 @@
       crossFade: true
     },
     speed: 800,
-    mousewheel: true
+    mousewheel: true,
+    allowTouchMove: false
+  });
+  var portfolioServicePage = new Swiper("#portfolioServicePage", {
+    modules: [Autoplay],
+    slidesPerView: 4.2,
+    centeredSlides: true,
+    spaceBetween: 16,
+    autoplay: {
+      disableOnInteraction: false
+    }
   });
 
   // assets/js/modules/variable.js
@@ -12252,13 +12262,14 @@
     const projectSingleCardGroup = document.querySelectorAll(
       ".projects-con .single-project-card"
     );
-    if (projectSingleCardGroup) {
-      projectSingleCardGroup.forEach((project) => {
-        project.addEventListener("click", () => {
-          openPopUp(project.dataset.postId);
-        });
+    if (!projectSingleCardGroup)
+      return;
+    projectSingleCardGroup.forEach((project) => {
+      project.addEventListener("click", () => {
+        console.log("first");
+        openPopUp(project.dataset.postId);
       });
-    }
+    });
     projectsSwiper.on("slideChange", (swiper) => {
       swiper.realIndex === 0 && swiper.setTranslate(marginFromSide);
     });
@@ -12304,15 +12315,21 @@
     const deActivateAllButton = () => {
       [workSteps, portfolio, faq, contact].map((el) => deActivateEl(el));
     };
+    const addListenerToSlide = (el, slide2) => {
+      el.addEventListener("click", () => {
+        swiper.slideTo(slide2);
+      });
+    };
     const startContent = startContentSlide;
     const contentCount = contentCountSlide;
-    const endContent = startContent + contentCount;
+    const endContent = startContent + contentCount - 1;
     const portfolioSlide = endContent + 1;
     const faqSlide = portfolioSlide + 1;
     const contactSlide = faqSlide + 1;
-    workSteps.addEventListener("click", () => {
-      swiper.slideTo(startContent);
-    });
+    addListenerToSlide(workSteps, startContent);
+    addListenerToSlide(portfolio, portfolioSlide);
+    addListenerToSlide(faq, faqSlide);
+    addListenerToSlide(contact, contactSlide);
     swiper.on("activeIndexChange", ({ activeIndex }) => {
       deActivateAllButton();
       if (activeIndex <= endContent && activeIndex >= startContent) {
