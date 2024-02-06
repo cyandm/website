@@ -1911,6 +1911,11 @@ section.faq-con .faq-content > *:nth-child(1) {
   position: fixed;
   bottom: 2rem;
   width: 100%;
+  transform: translateY(200%);
+  transition: opacity 0.8s ease-in-out;
+}
+.service-footer.show {
+  transform: translateY(0);
 }
 
 #portfolioServicePage {

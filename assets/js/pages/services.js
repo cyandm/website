@@ -36,6 +36,8 @@ const footerService = (swiper, startContentSlide, contentCountSlide) => {
 	swiper.on('activeIndexChange', ({ activeIndex }) => {
 		deActivateAllButton();
 
+		footerCon.classList.toggle('show', activeIndex !== 0);
+
 		if (activeIndex <= endContent && activeIndex >= startContent) {
 			activateEl(workSteps);
 		}

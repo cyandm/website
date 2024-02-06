@@ -12333,6 +12333,7 @@
     addListenerToSlide(contact, contactSlide);
     swiper.on("activeIndexChange", ({ activeIndex }) => {
       deActivateAllButton();
+      footerCon.classList.toggle("show", activeIndex !== 0);
       if (activeIndex <= endContent && activeIndex >= startContent) {
         activateEl(workSteps);
       }
@@ -12353,7 +12354,7 @@
   var header = document.querySelector("header");
   if (header) {
     const activeMenu = header.querySelector(".current-menu-item");
-    appendMiniBubble(4, activeMenu);
+    appendMiniBubble(8, activeMenu);
   }
 })();
 /*! Bundled license information:

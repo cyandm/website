@@ -6,4 +6,10 @@
 	position: fixed;
 	bottom: 2rem;
 	width: 100%;
+	transform: translateY(200%);
+	transition: opacity 0.8s ease-in-out;
+
+	&.show {
+		transform: translateY(0);
+	}
 }
