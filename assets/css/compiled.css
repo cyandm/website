@@ -1013,11 +1013,11 @@ html:has(.pop-up.open) {
   overflow: hidden;
 }
 .faq-card:hover {
-  border-color: #1dbacf;
+  border-color: var(--start-color);
 }
 .faq-card:hover .faq-card__title-wrapper i {
   transform: rotate(0deg);
-  color: #1dbacf;
+  color: var(--start-color);
 }
 .faq-card:hover .faq-card__content-wrapper {
   grid-template-rows: 1fr;
@@ -1864,6 +1864,43 @@ section.faq-con .faq-content > *:nth-child(1) {
   text-shadow: 1px 1px 0px var(--start-color), -1px -1px 0px var(--start-color);
 }
 
+.service-contact img {
+  max-height: 300px;
+  max-width: 300px;
+  object-fit: contain;
+}
+.service-contact-top {
+  margin-block: 4rem 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.service-contact-top > * {
+  flex: 1;
+}
+.service-contact-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.service-contact-bottom > * {
+  flex: 1;
+}
+.service-contact-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .service-footer {
   display: flex;
   flex-direction: row;
@@ -1885,6 +1922,21 @@ section.faq-con .faq-content > *:nth-child(1) {
 }
 #portfolioServicePage .swiper-slide:nth-child(2n+1) {
   transform: translateY(-3rem);
+}
+
+.service-faq {
+  padding-block-start: 6rem;
+}
+.service-faq .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.service-faq .container > * {
+  flex: 1;
 }
 
 @font-face {

@@ -17,6 +17,8 @@ Template Name: UI Design
 			<?php get_template_part( '/templates/pages/services/ui-design/slide-0' ) ?>
 			<?php get_template_part( '/templates/pages/services/work-steps' ) ?>
 			<?php get_template_part( '/templates/pages/services/portfolio' ) ?>
+			<?php get_template_part( '/templates/pages/services/faq' ) ?>
+			<?php get_template_part( '/templates/pages/services/contact' ) ?>
 
 
 			<?php get_template_part( '/templates/pages/services/footer' ) ?>

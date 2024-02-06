@@ -5202,7 +5202,8 @@
     },
     speed: 800,
     mousewheel: true,
-    allowTouchMove: false
+    allowTouchMove: false,
+    width: window.innerWidth
   });
   var portfolioServicePage = new Swiper("#portfolioServicePage", {
     modules: [Autoplay],
@@ -12342,7 +12343,7 @@
         activateEl(faq);
       }
       if (activeIndex === contactSlide) {
-        activateEl(contactSlide);
+        activateEl(contact);
       }
     });
   };

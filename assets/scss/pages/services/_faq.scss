@@ -1,0 +1,9 @@
+@use '../../utils/_index' as *;
+
+.service-faq {
+	padding-block-start: 6rem;
+
+	.container {
+		@include d_flex($equal_children: true, $gap: 2rem);
+	}
+}

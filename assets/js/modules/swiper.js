@@ -52,6 +52,7 @@ export const uiDesignSwiper = new Swiper('#uiDesignSwiper', {
 	speed: 800,
 	mousewheel: true,
 	allowTouchMove: false,
+	width: window.innerWidth,
 });
 
 export const portfolioServicePage = new Swiper('#portfolioServicePage', {

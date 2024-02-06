@@ -1,6 +1,7 @@
 <?php
-$title = get_the_title();
-$content = get_the_content();
+$faq_ID = isset( $args['faq_ID'] ) ? $args['faq_ID'] : get_the_ID();
+$title = get_the_title( $faq_ID );
+$content = get_the_content( post: $faq_ID );
 
 ?>
 

@@ -48,7 +48,7 @@ const footerService = (swiper, startContentSlide, contentCountSlide) => {
 			activateEl(faq);
 		}
 		if (activeIndex === contactSlide) {
-			activateEl(contactSlide);
+			activateEl(contact);
 		}
 	});
 };

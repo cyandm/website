@@ -1,0 +1,22 @@
+@use '../../utils/_index' as *;
+
+.service-contact {
+	img {
+		max-height: 300px;
+		max-width: 300px;
+		object-fit: contain;
+	}
+
+	&-top {
+		margin-block: 4rem 4rem;
+		@include d_flex(row, center, center, $equal_children: true);
+	}
+
+	&-bottom {
+		@include d_flex(row, space-around, $equal_children: true);
+	}
+
+	&-content {
+		@include d_flex(column, center, center, $gap: 1rem);
+	}
+}

@@ -31,14 +31,14 @@
 	}
 
 	&:hover {
-		border-color: #1dbacf;
+		border-color: var(--start-color);
 
 		.faq-card {
 			&__title {
 				&-wrapper {
 					i {
 						transform: rotate(0deg);
-						color: #1dbacf;
+						color: var(--start-color);
 					}
 				}
 			}
