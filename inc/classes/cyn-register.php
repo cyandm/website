@@ -49,7 +49,8 @@ if ( ! class_exists( 'cyn_register' ) ) {
 
 			make_post_type( 'پروژه', 'project', 'dashicons-layout' );
 			make_post_type( 'مشتری', 'customer', 'dashicons-groups' );
-			make_post_type( 'خدمت', 'service', 'dashicons-lightbulb' );
+			make_post_type( 'خدمت', 'service', 'dashicons-lightbulb',
+				supports: [ 'title', 'thumbnail', 'page-attributes' ] );
 			make_post_type( 'کارمند', 'employ', 'dashicons-businesswoman' );
 			make_post_type( 'سوال', 'faq', 'dashicons-book', supports: [ 'title', 'editor' ] );
 

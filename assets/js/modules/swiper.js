@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Autoplay, EffectFade, Thumbs } from 'swiper/modules';
+import { Mousewheel, Autoplay, EffectFade, Thumbs } from 'swiper/modules';
 
 export const projectsSwiper = new Swiper('.projects-wrapper', {
 	modules: [Autoplay],
@@ -43,5 +43,12 @@ export const customerSwiper = new Swiper('.customer-wrapper', {
 });
 
 export const uiDesignSwiper = new Swiper('#uiDesignSwiper', {
+	modules: [EffectFade, Mousewheel],
 	slidesPerView: 1,
+	effect: 'fade',
+	fadeEffect: {
+		crossFade: true,
+	},
+	speed: 800,
+	mousewheel: true,
 });

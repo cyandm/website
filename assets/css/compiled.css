@@ -70,7 +70,7 @@ i.not-correct {
 }
 .primary-btn {
   border-radius: 62.5rem;
-  border: 2px solid var(--start-color);
+  border: 1px solid var(--start-color);
   background: transparent;
   overflow: hidden;
   display: inline-block;
@@ -118,7 +118,7 @@ i.not-correct {
 
 .secondary-btn {
   border-radius: 62.5rem;
-  border: 2px solid #fff;
+  border: 1px solid #fff;
   background: transparent;
   overflow: hidden;
   display: inline-block;
@@ -229,7 +229,7 @@ i.not-correct {
 
 .cart-btn {
   border-radius: 62.5rem;
-  border: 2px solid hsl(50, 100%, 47%);
+  border: 1px solid hsl(50, 100%, 47%);
   background: transparent;
   overflow: hidden;
   display: inline-block;
@@ -1322,25 +1322,6 @@ main > section:not(:first-child) {
   color: #3de2f2;
 }
 
-#uiDesignSwiper .slide-0 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  flex-wrap: wrap;
-  gap: 0;
-  height: 75vh;
-}
-#uiDesignSwiper .slide-0 .container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
 .preloader {
   position: relative;
   height: 100vh;
@@ -1816,6 +1797,84 @@ section.faq-con .faq-content > *:nth-child(1) {
   section.faq-con .faq-image {
     max-width: max(50%, 200px);
   }
+}
+
+#uiDesignSwiper * {
+  transition: 0.3s ease;
+}
+#uiDesignSwiper .swiper-slide {
+  height: calc(100vh - var(--header-height));
+  display: block;
+}
+#uiDesignSwiper .swiper-slide:not(.swiper-slide-visible) {
+  pointer-events: none;
+}
+#uiDesignSwiper .slide-0 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 0;
+}
+#uiDesignSwiper .slide-0 .container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+#uiDesignSwiper .work-step {
+  counter-increment: work;
+}
+#uiDesignSwiper .work-step .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-block-start: 4rem;
+}
+#uiDesignSwiper .work-step .container > * {
+  flex: 1;
+}
+#uiDesignSwiper .work-step-content a {
+  color: var(--start-color);
+}
+#uiDesignSwiper .work-step-content a:hover {
+  text-decoration: underline;
+}
+#uiDesignSwiper .work-step-content li {
+  list-style: disc;
+  margin-inline-start: 1.5rem;
+  margin-block-start: 0.5rem;
+}
+#uiDesignSwiper .work-step-content li::marker {
+  color: hsl(47, 100%, 51%);
+  font-size: 1.5em;
+  line-height: 0;
+}
+#uiDesignSwiper .work-step-title::before {
+  content: counter(work);
+  margin-inline-end: 1rem;
+  color: #000;
+  font-size: 3rem;
+  text-shadow: 1px 1px 0px var(--start-color), -1px -1px 0px var(--start-color);
+}
+
+.service-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  position: fixed;
+  bottom: 2rem;
+  width: 100%;
 }
 
 @font-face {

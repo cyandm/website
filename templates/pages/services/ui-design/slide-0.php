@@ -15,4 +15,8 @@
 
 		<?php get_template_part( '/templates/components/scroll', null, [ 'scroll_color' => 'hsla(29, 87%, 59%, 1)' ] ) ?>
 	</div>
+
+	<div class="bottom-fire ui-fire">
+
+	</div>
 </div>

@@ -6,7 +6,6 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, EasePack);
 
 const PreloaderHome = () => {
 	//Elements
-	const mainFrontPage = document.querySelector('main.front-page');
 	const clockEl = document.querySelector('.clock');
 	const preClockScrollDown = document.querySelector('.pre-clock .scroll-down');
 	const clockSection = document.querySelector('.clock-section');
@@ -20,6 +19,18 @@ const PreloaderHome = () => {
 	const multiPlanetGroup = document.querySelectorAll(
 		'.multi-planet .planet-con'
 	);
+
+	if (
+		!clockEl ||
+		!preClockScrollDown ||
+		!clockSection ||
+		!clockInnerElements ||
+		!letsGo ||
+		!bottomFire ||
+		!multiPlanetSection ||
+		!multiPlanetGroup
+	)
+		return;
 
 	//TimeLines Config
 	const clockSpinTL = gsap.timeline();

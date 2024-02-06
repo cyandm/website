@@ -1,0 +1,9 @@
+@use '../../utils/_index' as *;
+
+.service-footer {
+	@include d_flex(row, center, $gap: 0.5rem);
+
+	position: fixed;
+	bottom: 2rem;
+	width: 100%;
+}

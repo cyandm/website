@@ -4,9 +4,9 @@ $services_Q = new WP_Query( [
 	'meta_key' => 'order_home_page',
 	'orderby' => 'meta_value',
 	'order' => 'ASC'
-] )
+] );
 
-	?>
+?>
 
 <?php if ( $services_Q->have_posts() ) : ?>
 	<section class="services-con container">
@@ -24,9 +24,11 @@ $services_Q = new WP_Query( [
 				$ball_first_color = get_field( 'ball_first_color_home_page' );
 				$ball_second_color = get_field( 'ball_second_color_home_page' );
 				$is_color_selected = $ball_first_color && $ball_second_color;
+				$related_landing = get_field( 'related_landing' );
+
 				?>
 
-				<a href=<?= $url ?>
+				<a href=<?= $related_landing ? $related_landing : $url ?>
 				   class="single-service-card"
 				   style="<?php $is_color_selected &&
 				   	printf( '--ball-first-color:%s; --ball-second-color:%s; ', $ball_first_color, $ball_second_color ) ?>">
