@@ -133,3 +133,39 @@ export const changeButtonStatus = (status, btn) => {
 		return;
 	}
 };
+
+/**
+ * Remove general class for swiper
+ *
+ * @param {string} selector
+ * @return {void}
+ */
+export const cynRemoveSwiperClass = (selector) => {
+	const swiper = document.querySelector(selector);
+	if (!swiper) return;
+
+	const swiperWrapper = swiper.querySelector('.swiper-wrapper');
+	const swiperSlides = swiper.querySelectorAll('.swiper-slide');
+	if (!swiperWrapper || !swiperSlides) return;
+
+	swiper.classList.remove('swiper');
+	swiper.classList.remove('swiper-backface-hidden');
+	swiperWrapper.classList.remove('swiper-wrapper');
+	swiperSlides.forEach((el) => {
+		el.classList.remove('swiper-slide');
+	});
+};
+
+/**
+ * Destroy a swiper and remove general class for swiper
+ *
+ * @use cynRemoveSwiperClass
+ *
+ * @param {Swiper} swiper
+ * @param {string} selector
+ * @return {void}
+ */
+export const cynDestroySwiper = (swiper, selector) => {
+	swiper.destroy(true, true);
+	cynRemoveSwiperClass(selector);
+};

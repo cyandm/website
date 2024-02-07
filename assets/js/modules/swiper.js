@@ -1,5 +1,6 @@
 import Swiper from 'swiper';
 import { Mousewheel, Autoplay, EffectFade, Thumbs } from 'swiper/modules';
+import { cynDestroySwiper } from '../utils/functions';
 
 export const projectsSwiper = new Swiper('.projects-wrapper', {
 	modules: [Autoplay],
@@ -64,3 +65,7 @@ export const portfolioServicePage = new Swiper('#portfolioServicePage', {
 		disableOnInteraction: false,
 	},
 });
+
+if (window.innerWidth <= 1240) {
+	cynDestroySwiper(uiDesignSwiper, '#uiDesignSwiper');
+}

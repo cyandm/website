@@ -3,6 +3,7 @@ import './cookie-handler';
 import './classHandler';
 import './common';
 import './fire';
+import './mobile-menu';
 import './popUp';
 import './random';
 import './swiper';

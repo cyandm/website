@@ -13,10 +13,26 @@ body {
 	background-color: $black_1;
 	color: $white_1;
 	overflow: hidden;
+	@include psudo(after, '', 0, 100%) {
+		background-color: rgba(#000000, 0.6);
+		backdrop-filter: blur(20px);
+		transition: opacity 0.3s ease-in;
+		opacity: 0;
+	}
+
+	&[data-popup-open='true'] {
+		&::after {
+			opacity: 1;
+		}
+	}
 }
 
 html {
 	overflow-x: hidden;
+
+	&:has(body[data-popup-open='true']) {
+		overflow: hidden;
+	}
 }
 
 main > section:not(:first-child) {

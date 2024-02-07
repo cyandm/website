@@ -25,6 +25,8 @@ $end_color = isset( $args['end_color'] ) ? $args['end_color'] : '#04B2E9';
 		<header class="container"
 				style="--start-color: <?= $start_color ?> ; --end-color: <?= $end_color ?>;">
 
+			<?php get_template_part( '/templates/components/mobile-menu' ) ?>
+
 			<div class="right-col">
 				<div class="logo">
 					<?php

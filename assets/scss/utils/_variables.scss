@@ -1,5 +1,6 @@
 //Color
 $black_1: hsla(227, 44%, 6%, 1);
+$black_2: #151823;
 $white_1: hsla(194, 100%, 96%, 1);
 $gray_1: hsla(0, 0%, 46%, 1);
 
@@ -8,9 +9,9 @@ $gradient_blue_start: #1dbacf;
 $gradient_blue_end: #0d8bff;
 
 $gradient_blue_1: linear-gradient(
-  100.06deg,
-  $gradient_blue_start 23.34%,
-  $gradient_blue_end 124.17%
+	100.06deg,
+	$gradient_blue_start 23.34%,
+	$gradient_blue_end 124.17%
 );
 
 $cyan_1: linear-gradient(103.44deg, #15eded 12.12%, #04b2e9 130.32%);

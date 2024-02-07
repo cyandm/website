@@ -32,6 +32,45 @@
     nodeEl.setAttribute("data-active", "true");
     nodeEl.dispatchEvent(cynActivate);
   };
+  var toggleActivateEl = (nodeEl) => {
+    const current = nodeEl.getAttribute("data-active");
+    if (current === "false" || !current) {
+      activateEl(nodeEl);
+      return;
+    }
+    deActivateEl(nodeEl);
+  };
+  var definePopUp = (nodeEl) => {
+    nodeEl.addEventListener("cynActivate", (e) => {
+      if (e.target != nodeEl)
+        return;
+      document.body.setAttribute("data-popup-open", e.target.dataset.active);
+    });
+    nodeEl.addEventListener("click", (e) => {
+      if (e.target != nodeEl)
+        return;
+      deActivateEl(nodeEl);
+    });
+  };
+  var cynRemoveSwiperClass = (selector3) => {
+    const swiper = document.querySelector(selector3);
+    if (!swiper)
+      return;
+    const swiperWrapper = swiper.querySelector(".swiper-wrapper");
+    const swiperSlides = swiper.querySelectorAll(".swiper-slide");
+    if (!swiperWrapper || !swiperSlides)
+      return;
+    swiper.classList.remove("swiper");
+    swiper.classList.remove("swiper-backface-hidden");
+    swiperWrapper.classList.remove("swiper-wrapper");
+    swiperSlides.forEach((el) => {
+      el.classList.remove("swiper-slide");
+    });
+  };
+  var cynDestroySwiper = (swiper, selector3) => {
+    swiper.destroy(true, true);
+    cynRemoveSwiperClass(selector3);
+  };
 
   // assets/js/modules/random.js
   var getRandomInt = (min, max) => {
@@ -51,6 +90,28 @@
       cloned.style.setProperty("scale", getRandomInt(100, 200) + "%");
       parent.appendChild(cloned);
     }
+  };
+
+  // assets/js/modules/classHandler.js
+  var toggleShow = (el, isAddClass) => {
+    ["visible", "pointer-all"].map((cls) => {
+      el.classList.toggle(cls, isAddClass);
+    });
+  };
+  var toggleFadeOff = (el, isAddClass) => {
+    el.classList.toggle("fade-off", isAddClass);
+  };
+  var activate = (el) => {
+    el.classList.add("active");
+  };
+  var deactivate = (el) => {
+    el.classList.remove("active");
+  };
+  var activateOnly = (el, node) => {
+    node.forEach((element) => {
+      deactivate(element);
+    });
+    activate(el);
   };
 
   // assets/js/modules/common.js
@@ -149,6 +210,42 @@
       }
     }
   });
+
+  // assets/js/modules/mobile-menu.js
+  var MobileMenu = () => {
+    const mobileMenuToggle = document.querySelector("#mobileMenuToggle");
+    const mobileMenu = document.querySelector("#mobileMenu");
+    const menuItemHasChildren = mobileMenu.querySelectorAll(
+      ".menu-item-has-children"
+    );
+    const addGridWrapper = (el) => {
+      const hasGrid = el.children.item(1).classList.contains("grid-wrapper");
+      if (hasGrid)
+        return;
+      const submenu = el.querySelector("ul.sub-menu");
+      const div = document.createElement("div");
+      div.classList.add("grid-wrapper");
+      el.appendChild(div);
+      div.appendChild(submenu);
+    };
+    if (!mobileMenuToggle)
+      return;
+    definePopUp(mobileMenu);
+    mobileMenuToggle.addEventListener("click", () => {
+      toggleActivateEl(mobileMenu);
+    });
+    if (!menuItemHasChildren)
+      return;
+    menuItemHasChildren.forEach((el) => {
+      el.addEventListener("click", (e) => {
+        if (e.target != el)
+          return;
+        toggleActivateEl(el);
+      });
+      addGridWrapper(el);
+    });
+  };
+  MobileMenu();
 
   // assets/js/modules/popUp.js
   var popUpCon = document.querySelector(".pop-up");
@@ -5214,6 +5311,9 @@
       disableOnInteraction: false
     }
   });
+  if (window.innerWidth <= 1240) {
+    cynDestroySwiper(uiDesignSwiper, "#uiDesignSwiper");
+  }
 
   // assets/js/modules/variable.js
   var rootEl = document.querySelector(":root");
@@ -12150,14 +12250,14 @@
     const slide2Content_TL = gsapWithCSS.timeline();
     const multiPlanet_TL = gsapWithCSS.timeline();
     const endClock = () => {
-      (void 0)(clockSection, true);
-      (void 0)(bottomFire2, true);
+      toggleShow(clockSection, true);
+      toggleFadeOff(bottomFire2, true);
       clockSpinTL.timeScale(0.05);
     };
     const backToStart = () => {
       clockSpinTL.timeScale(1);
-      (void 0)(clockSection, false);
-      (void 0)(bottomFire2, false);
+      toggleShow(clockSection, false);
+      toggleFadeOff(bottomFire2, false);
     };
     const clickToLabel = (el, label) => {
       if (!el)
@@ -12170,7 +12270,7 @@
       });
     };
     const startMultiPlanet = () => {
-      (void 0)(multiPlanetSection, true);
+      toggleShow(multiPlanetSection, true);
     };
     clockSpinTL.to(clockEl, {
       duration: 5,
@@ -12252,7 +12352,7 @@
     const profileGroup = document.querySelectorAll(".team-con .profile");
     profileGroup.forEach((profile, key) => {
       profile.addEventListener("click", () => {
-        (void 0)(profile, profileGroup);
+        activateOnly(profile, profileGroup);
       });
     });
   };

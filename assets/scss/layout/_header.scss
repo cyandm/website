@@ -1,7 +1,7 @@
 @use '../utils/_index' as *;
 
 header {
-	@include d_flex($j_c: space-between);
+	@include d_flex(row, space-between, center);
 	padding-block-start: PxToRem(28);
 	position: relative;
 	z-index: 4;
@@ -11,6 +11,7 @@ header {
 		gap: PxToRem(16);
 		.logo {
 			width: PxToRem(44);
+			@include d_flex(row, center, center);
 
 			svg {
 				#gradientSection {
@@ -125,5 +126,17 @@ header {
 	.left-col {
 		@include d_flex($a_i: center);
 		gap: PxToRem(16);
+	}
+
+	@include mq('lg') {
+		.header-menu {
+			display: none;
+		}
+
+		.left-col {
+			.primary-btn {
+				display: none;
+			}
+		}
 	}
 }
