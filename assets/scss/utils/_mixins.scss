@@ -82,12 +82,10 @@
 	@if ($type == 'h3') {
 		font-size: PxToRem(20);
 		font-weight: 700;
-		line-height: 1;
 	}
 	@if ($type == 'h4') {
 		font-size: PxToRem(16);
 		font-weight: 700;
-		line-height: 1;
 	}
 	@if ($type == 'body_1') {
 		font-size: PxToRem(16);
@@ -110,7 +108,7 @@
 	&::after {
 		content: $content;
 		font-family: 'cyan-icon' !important;
-		speak: never;
+		speak-as: never;
 		font-style: normal;
 		font-weight: normal;
 		font-variant: normal;

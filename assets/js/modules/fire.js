@@ -3,6 +3,7 @@ import { getRandomInt } from './random';
 const bottomFire = document.querySelector('.home-page-fire');
 const uiFire = document.querySelector('.ui-fire');
 const seoFire = document.querySelector('.seo-fire');
+const marketingFire = document.querySelector('.marketing-fire');
 
 export const makeFire = (config) => {
 	const {
@@ -147,3 +148,30 @@ makeFire({
 		},
 	},
 });
+
+// makeFire({
+// 	parent: marketingFire,
+// 	count: 15,
+// 	position: {
+// 		left: 100,
+// 		top: 50,
+// 	},
+// 	size: {
+// 		min: 150,
+// 		max: 450,
+// 	},
+// 	color: {
+// 		hue: {
+// 			min: 350,
+// 			max: 360,
+// 		},
+// 		saturate: {
+// 			min: 64,
+// 			max: 100,
+// 		},
+// 		lightness: {
+// 			min: 16,
+// 			max: 55,
+// 		},
+// 	},
+// });

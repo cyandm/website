@@ -1,32 +1,38 @@
 *,
 *::after,
 *::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 ul {
-  list-style: none;
+	list-style: none;
 }
 
 img {
-  width: 100%;
-  height: auto;
-  border-radius: inherit;
+	width: 100%;
+	height: auto;
+	border-radius: inherit;
 }
 
 a {
-  text-decoration: none;
-  color: unset;
+	text-decoration: none;
+	color: unset;
 }
 
 i {
-  aspect-ratio: 1;
-  display: inline-block;
+	aspect-ratio: 1;
+	display: inline-block;
+}
+
+//for admins
+html {
+	--wp-admin--admin-bar--height: 0px;
+	margin-top: 0 !important;
 }
 
 /*****Developer Mode*********/
 i.not-correct {
-  background-color: red;
+	background-color: red;
 }

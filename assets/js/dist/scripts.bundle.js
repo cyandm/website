@@ -127,6 +127,7 @@
   var bottomFire = document.querySelector(".home-page-fire");
   var uiFire = document.querySelector(".ui-fire");
   var seoFire = document.querySelector(".seo-fire");
+  var marketingFire = document.querySelector(".marketing-fire");
   var makeFire = (config3) => {
     const {
       parent,
@@ -5375,7 +5376,19 @@
     },
     speed: 800,
     mousewheel: true,
-    //allowTouchMove: false,
+    allowTouchMove: false,
+    width: window.innerWidth
+  });
+  var marketingSwiper = new Swiper("#marketingMainSwiper", {
+    modules: [EffectFade, Mousewheel],
+    slidesPerView: 1,
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true
+    },
+    speed: 800,
+    mousewheel: true,
+    allowTouchMove: false,
     width: window.innerWidth
   });
   var portfolioServicePage = new Swiper("#portfolioServicePage", {
@@ -5395,6 +5408,7 @@
   if (window.innerWidth <= 1240) {
     cynDestroySwiper(uiDesignSwiper, "#uiDesignSwiper");
     cynDestroySwiper(seoSwiper, "#seoMainSwiper");
+    cynDestroySwiper(marketingSwiper, "#marketingMainSwiper");
   }
 
   // assets/js/modules/variable.js
@@ -12532,6 +12546,7 @@
   };
   footerService(uiDesignSwiper, 1, 3);
   footerService(seoSwiper, 1, 2);
+  footerService(marketingSwiper, 1, 2);
 
   // assets/js/layout/header.js
   var Header = () => {

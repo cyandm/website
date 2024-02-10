@@ -6,3 +6,7 @@
 @forward './utils/_index';
 @forward './fonts/_index';
 @forward './libs/_index';
+
+#wpadminbar {
+	display: none !important;
+}

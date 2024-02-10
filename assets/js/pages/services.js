@@ -1,4 +1,4 @@
-import { uiDesignSwiper, seoSwiper } from '../modules/swiper';
+import { uiDesignSwiper, seoSwiper, marketingSwiper } from '../modules/swiper';
 import { activateEl, deActivateEl } from '../utils/functions';
 
 const footerService = (swiper, startContentSlide, contentCountSlide) => {
@@ -57,3 +57,4 @@ const footerService = (swiper, startContentSlide, contentCountSlide) => {
 
 footerService(uiDesignSwiper, 1, 3);
 footerService(seoSwiper, 1, 2);
+footerService(marketingSwiper, 1, 2);

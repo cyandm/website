@@ -26,6 +26,11 @@ i {
   display: inline-block;
 }
 
+html {
+  --wp-admin--admin-bar--height: 0px;
+  margin-top: 0 !important;
+}
+
 /*****Developer Mode*********/
 i.not-correct {
   background-color: red;
@@ -314,7 +319,6 @@ body[data-scrolled=true] .bottom-fire {
   font-feature-settings: "ss01" 1, "salt" 0;
   font-size: 1rem;
   font-weight: 700;
-  line-height: 1;
   color: #16b6fb;
 }
 .link-btn i {
@@ -471,7 +475,7 @@ body[data-scrolled=true] .bottom-fire {
 .mobile-menu li.menu-item-has-children > a::after {
   content: "\e931";
   font-family: "cyan-icon" !important;
-  speak: never;
+  speak-as: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -635,7 +639,6 @@ html:has(.pop-up.open) {
   font-feature-settings: "ss01" 1, "salt" 0;
   font-size: 1.25rem;
   font-weight: 700;
-  line-height: 1;
 }
 .single-customer-card .content .name-wrapper .project-name {
   font-family: "peyda";
@@ -647,7 +650,6 @@ html:has(.pop-up.open) {
   font-feature-settings: "ss01" 1, "salt" 0;
   font-size: 1rem;
   font-weight: 700;
-  line-height: 1;
   color: hsl(0, 0%, 46%);
 }
 .single-customer-card .content .stars-wrapper {
@@ -716,7 +718,6 @@ html:has(.pop-up.open) {
   font-feature-settings: "ss01" 1, "salt" 0;
   font-size: 1.25rem;
   font-weight: 700;
-  line-height: 1;
 }
 .employ-card__special {
   font-family: "peyda";
@@ -1290,7 +1291,7 @@ header .right-col .header-menu ul.menu li.menu-item-has-children {
 header .right-col .header-menu ul.menu li.menu-item-has-children::after {
   content: "\e931";
   font-family: "cyan-icon" !important;
-  speak: never;
+  speak-as: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -1692,7 +1693,7 @@ main > section:not(:first-child) {
 .multi-planet .planet-con .cta a::after {
   content: "\e93a";
   font-family: "cyan-icon" !important;
-  speak: never;
+  speak-as: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -2274,6 +2275,24 @@ main.seo .seo-slide-0-img > * {
   pointer-events: none;
 }
 
+.under-construction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  height: 100vh;
+}
+.under-construction-content {
+  text-align: center;
+  text-wrap: balance;
+}
+.under-construction-content a {
+  color: #1dbacf;
+  text-decoration: underline;
+}
+
 @font-face {
   font-family: "cyan-icon";
   src: url("../fonts/icons/cyan-icon.eot");
@@ -2703,7 +2722,6 @@ h3,
   font-feature-settings: "ss01" 1, "salt" 0;
   font-size: 1.25rem;
   font-weight: 700;
-  line-height: 1;
 }
 @media screen and (max-width: 768px) {
   h3,
@@ -2717,7 +2735,6 @@ h3,
     font-feature-settings: "ss01" 1, "salt" 0;
     font-size: 1rem;
     font-weight: 700;
-    line-height: 1;
   }
 }
 
@@ -2732,7 +2749,6 @@ h4,
   font-feature-settings: "ss01" 1, "salt" 0;
   font-size: 1rem;
   font-weight: 700;
-  line-height: 1;
 }
 
 .body-2 {
@@ -3004,5 +3020,8 @@ h4,
   }
 }
 /* Slide styles end */
+#wpadminbar {
+  display: none !important;
+}
 
 /*# sourceMappingURL=compiled.css.map */
