@@ -5415,8 +5415,10 @@
   var rootEl = document.querySelector(":root");
   var containerEL = document.querySelector(".container");
   var headerEl = document.querySelector("header");
+  var footerEl = document.querySelector("footer");
   var headerHeight;
   var marginFromSide;
+  var footerHeight;
   var makeKebab = (str) => str.replace(
     /[A-Z]+(?![a-z])|[A-Z]/g,
     ($, ofs) => (ofs ? "-" : "") + $.toLowerCase()
@@ -5427,10 +5429,12 @@
   };
   var setCssVariableGroup = () => {
     headerHeight = headerEl.getClientRects()[0].height;
+    footerHeight = footerEl.getClientRects()[0].height;
     const containerWidth = containerEL.clientWidth;
     marginFromSide = (window.innerWidth - containerWidth) / 2;
     setCssVariable(headerHeight, "headerHeight");
     setCssVariable(marginFromSide, "marginFromSide");
+    setCssVariable(footerHeight, "footerHeight");
   };
   window.addEventListener("load", setCssVariableGroup);
   window.addEventListener("resize", setCssVariableGroup);

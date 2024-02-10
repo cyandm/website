@@ -170,7 +170,7 @@ body[data-scrolled=true] .bottom-fire {
 
 .primary-btn {
   border-radius: 62.5rem;
-  border: 1px solid var(--start-color);
+  border: 1px solid var(--start-color, #1dbacf);
   background: transparent;
   overflow: hidden;
   display: inline-block;
@@ -202,7 +202,7 @@ body[data-scrolled=true] .bottom-fire {
   background: inherit;
   border-radius: inherit;
   border: inherit;
-  background: linear-gradient(var(--start-color), var(--end-color));
+  background: linear-gradient(var(--start-color, #1dbacf), var(--end-color, #0d8bff));
   z-index: -1;
   transition: translate 0.3s ease-in-out;
   translate: 0 100%;
@@ -2291,6 +2291,28 @@ main.seo .seo-slide-0-img > * {
 .under-construction-content a {
   color: #1dbacf;
   text-decoration: underline;
+}
+
+.page-404 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  height: calc(100vh - (var(--header-height) + var(--footer-height) + 4rem));
+}
+.page-404-image img {
+  max-width: 600px;
+}
+.page-404-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  text-align: center;
 }
 
 @font-face {

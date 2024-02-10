@@ -2,8 +2,12 @@
 
 .primary-btn {
 	@include base_btn(
-		$psudo_bg_color: linear-gradient(var(--start-color), var(--end-color)),
-		$border_color: var(--start-color)
+		$psudo_bg_color:
+			linear-gradient(
+				var(--start-color, $gradient_blue_start),
+				var(--end-color, $gradient_blue_end)
+			),
+		$border_color: var(--start-color, $gradient_blue_start)
 	);
 	padding: PxToRem(8) PxToRem(32);
 }

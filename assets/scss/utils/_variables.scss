@@ -16,3 +16,7 @@ $gradient_blue_1: linear-gradient(
 
 $cyan_1: linear-gradient(103.44deg, #15eded 12.12%, #04b2e9 130.32%);
 $cyan_2: linear-gradient(hsla(191, 99%, 58%, 1), hsla(227, 44%, 6%, 0) 70%);
+
+$full_height: calc(
+	100vh - (var(--header-height) + var(--footer-height) + 4rem)
+); //4rem is footer margins
