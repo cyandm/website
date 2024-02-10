@@ -1,20 +1,16 @@
-<?php
-/* 
-Template Name: UI Design
-*/?>
+<?php /* Template Name: SEO */?>
 
+<?php get_header( null, [ 'start_color' => '#FF0000', 'end_color' => '#370000' ] ) ?>
 
-<?php get_header( args: [ 'start_color' => '#FFC806', 'end_color' => '#CB5500' ] ); ?>
-
-
-<main class="ui-design service-page"
+<main class="seo service-page"
 	  style="
-		  --start-color: #FFC806;
-		--end-color: #CB5500;">
+		  --start-color: #FF0000;
+		--end-color: #370000;">
+
 	<div class="swiper"
-		 id="uiDesignSwiper">
+		 id="seoMainSwiper">
 		<div class="swiper-wrapper">
-			<?php get_template_part( '/templates/pages/services/ui-design/slide-0' ) ?>
+			<?php get_template_part( '/templates/pages/services/seo/slide-0' ) ?>
 			<?php get_template_part( '/templates/pages/services/work-steps' ) ?>
 			<?php get_template_part( '/templates/pages/services/portfolio' ) ?>
 			<?php get_template_part( '/templates/pages/services/faq' ) ?>
@@ -24,9 +20,7 @@ Template Name: UI Design
 			<?php get_template_part( '/templates/pages/services/footer' ) ?>
 		</div>
 	</div>
+
 </main>
 
-
-
-
-<?php get_footer( args: [ 'render' => false ] ); ?>
+<?php get_footer( null, [ 'render' => false ] ) ?>

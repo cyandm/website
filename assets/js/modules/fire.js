@@ -1,7 +1,8 @@
 import { getRandomInt } from './random';
 
-const bottomFire = document.querySelector('.bottom-fire');
+const bottomFire = document.querySelector('.home-page-fire');
 const uiFire = document.querySelector('.ui-fire');
+const seoFire = document.querySelector('.seo-fire');
 
 export const makeFire = (config) => {
 	const {
@@ -12,33 +13,28 @@ export const makeFire = (config) => {
 		color: { hue, saturate, lightness },
 	} = config;
 
-	if (parent) {
-		for (let i = 0; i < count; i++) {
-			const circle = document.createElement('div');
-			circle.classList.add('circle');
-			parent.appendChild(circle);
-		}
+	if (!parent) return;
+	for (let i = 0; i < count; i++) {
+		const circle = document.createElement('div');
+		circle.classList.add('circle');
+		circle.style.setProperty('--left', getRandomInt(0, left) + '%');
+		circle.style.setProperty('--top', getRandomInt(0, top) + '%');
 
-		const circleGroup = parent.querySelectorAll('.circle');
-		circleGroup.forEach((circle) => {
-			circle.style.setProperty('--left', getRandomInt(0, left) + '%');
-			circle.style.setProperty('--top', getRandomInt(0, top) + '%');
+		circle.style.setProperty(
+			'--width',
+			getRandomInt(size.min, size.max) + 'px'
+		);
 
-			circle.style.setProperty(
-				'--width',
-				getRandomInt(size.min, size.max) + 'px'
-			);
-
-			circle.style.setProperty('--hue', getRandomInt(hue.min, hue.max));
-			circle.style.setProperty(
-				'--saturate',
-				getRandomInt(saturate.min, saturate.max) + '%'
-			);
-			circle.style.setProperty(
-				'--lightness',
-				getRandomInt(lightness.min, lightness.max) + '%'
-			);
-		});
+		circle.style.setProperty('--hue', getRandomInt(hue.min, hue.max));
+		circle.style.setProperty(
+			'--saturate',
+			getRandomInt(saturate.min, saturate.max) + '%'
+		);
+		circle.style.setProperty(
+			'--lightness',
+			getRandomInt(lightness.min, lightness.max) + '%'
+		);
+		parent.appendChild(circle);
 	}
 };
 
@@ -92,6 +88,62 @@ makeFire({
 		lightness: {
 			min: 31,
 			max: 63,
+		},
+	},
+});
+
+//seo fire red
+makeFire({
+	parent: seoFire,
+	count: 15,
+	position: {
+		left: 100,
+		top: 50,
+	},
+	size: {
+		min: 150,
+		max: 450,
+	},
+	color: {
+		hue: {
+			min: 350,
+			max: 360,
+		},
+		saturate: {
+			min: 64,
+			max: 100,
+		},
+		lightness: {
+			min: 16,
+			max: 55,
+		},
+	},
+});
+
+//seo fire blue
+makeFire({
+	parent: seoFire,
+	count: 5,
+	position: {
+		left: 100,
+		top: 50,
+	},
+	size: {
+		min: 150,
+		max: 450,
+	},
+	color: {
+		hue: {
+			min: 236,
+			max: 255,
+		},
+		saturate: {
+			min: 64,
+			max: 100,
+		},
+		lightness: {
+			min: 31,
+			max: 51,
 		},
 	},
 });

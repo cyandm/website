@@ -56,6 +56,19 @@ export const uiDesignSwiper = new Swiper('#uiDesignSwiper', {
 	width: window.innerWidth,
 });
 
+export const seoSwiper = new Swiper('#seoMainSwiper', {
+	modules: [EffectFade, Mousewheel],
+	slidesPerView: 1,
+	effect: 'fade',
+	fadeEffect: {
+		crossFade: true,
+	},
+	speed: 800,
+	mousewheel: true,
+	//allowTouchMove: false,
+	width: window.innerWidth,
+});
+
 export const portfolioServicePage = new Swiper('#portfolioServicePage', {
 	modules: [Autoplay],
 	slidesPerView: 1.5,
@@ -74,4 +87,5 @@ export const portfolioServicePage = new Swiper('#portfolioServicePage', {
 
 if (window.innerWidth <= 1240) {
 	cynDestroySwiper(uiDesignSwiper, '#uiDesignSwiper');
+	cynDestroySwiper(seoSwiper, '#seoMainSwiper');
 }

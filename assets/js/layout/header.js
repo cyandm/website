@@ -1,9 +1,17 @@
 import { appendMiniBubble } from '../modules/bubble';
 
-const header = document.querySelector('header');
+const Header = () => {
+	const header = document.querySelector('.desktop-menu');
+	if (!header) return;
 
-if (header) {
-	const activeMenu = header.querySelector('.current-menu-item');
+	const activeMenu = header.querySelector('ul.menu > .current-menu-item');
+	const parentMenu = header.querySelector('ul.menu > .current-menu-parent');
 
+	if (!activeMenu) return;
 	appendMiniBubble(8, activeMenu);
-}
+
+	if (!parentMenu) return;
+	appendMiniBubble(8, parentMenu);
+};
+
+Header();

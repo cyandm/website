@@ -83,9 +83,11 @@ header {
 							}
 						}
 					}
+				}
 
+				> li {
 					&.current-menu-item,
-					&.current_page_item {
+					&.current-menu-parent {
 						--El_width: 125%;
 						$El_top: PxToRem(-16);
 
@@ -117,6 +119,12 @@ header {
 							left: 50%;
 							translate: -50%;
 							opacity: 0.7;
+						}
+
+						&:hover {
+							&::after {
+								rotate: 0deg !important;
+							}
 						}
 					}
 				}

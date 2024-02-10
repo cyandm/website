@@ -140,18 +140,15 @@ export const changeButtonStatus = (status, btn) => {
  * @param {string} selector
  * @return {void}
  */
-export const cynRemoveSwiperClass = (selector) => {
-	const swiper = document.querySelector(selector);
-	if (!swiper) return;
-
-	const swiperWrapper = swiper.querySelector('.swiper-wrapper');
+export const cynRemoveSwiperClass = (swiperEl, selector) => {
+	const swiperWrapper = swiperEl.querySelector('.swiper-wrapper');
 	const swiperSlides = document.querySelectorAll(
 		`${selector} > .swiper-wrapper > .swiper-slide`
 	);
 	if (!swiperWrapper || !swiperSlides) return;
 
-	swiper.classList.remove('swiper');
-	swiper.classList.remove('swiper-backface-hidden');
+	swiperEl.classList.remove('swiper');
+	swiperEl.classList.remove('swiper-backface-hidden');
 	swiperWrapper.classList.remove('swiper-wrapper');
 	swiperSlides.forEach((el) => {
 		el.classList.remove('swiper-slide');
@@ -168,6 +165,8 @@ export const cynRemoveSwiperClass = (selector) => {
  * @return {void}
  */
 export const cynDestroySwiper = (swiper, selector) => {
-	swiper.destroy(true, true);
-	cynRemoveSwiperClass(selector);
+	const swiperEl = document.querySelector(selector);
+	if (!swiperEl) return;
+	swiper.destroy();
+	cynRemoveSwiperClass(swiperEl, selector);
 };

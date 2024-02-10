@@ -40,7 +40,7 @@ $end_color = isset( $args['end_color'] ) ? $args['end_color'] : '#04B2E9';
 					<?php endif; ?>
 				</div>
 
-				<div class="header-menu">
+				<div class="header-menu desktop-menu">
 					<?php
 					wp_nav_menu( [ 
 						'theme-location' => 'header'

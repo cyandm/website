@@ -5,7 +5,9 @@
 
 <div class="container preloader">
 	<?php get_template_part( '/templates/pages/front-page/preloader/__index' ) ?>
-	<?php get_template_part( '/templates/components/bottom-fire' ) ?>
+	<div class="bottom-fire home-page-fire">
+
+	</div>
 </div>
 
 <main class="front-page">
