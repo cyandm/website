@@ -2314,6 +2314,12 @@ main.seo .seo-slide-0-img > * {
   gap: 1rem;
   text-align: center;
 }
+@media screen and (max-width: 768px) {
+  .page-404 {
+    height: unset;
+    margin-block: 2rem;
+  }
+}
 
 @font-face {
   font-family: "cyan-icon";
