@@ -22,6 +22,30 @@
 			width: 100%;
 			@include d_flex(column, center, $gap: 1rem);
 		}
+
+		@include mq('md') {
+			height: calc(100vh - var(--header-height));
+
+			.container {
+				margin: 0;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.t2 {
+				@include d_flex(column, center, center, $gap: 1rem);
+				@include font_style('h2');
+
+				span {
+					width: 100%;
+					text-align: center;
+				}
+			}
+
+			.scroll-down {
+				@include d_flex(column, center, center);
+			}
+		}
 	}
 
 	.work-step {
@@ -30,6 +54,10 @@
 		.container {
 			@include d_flex($equal_children: true, $gap: 2rem);
 			margin-block-start: 4rem;
+
+			@include mq('md') {
+				flex-direction: column-reverse;
+			}
 		}
 
 		&-content {

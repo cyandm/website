@@ -8,6 +8,11 @@
 	animation: bottom_fire_container 10s ease-in-out infinite alternate;
 	z-index: -1;
 	transition: opacity 0.3s ease;
+	opacity: 1;
+
+	@include mq('md') {
+		bottom: -13rem;
+	}
 
 	.circle {
 		--width: 240px;
@@ -43,5 +48,11 @@
 				animation-delay: calc($c * 0.3s);
 			}
 		}
+	}
+}
+
+body[data-scrolled='true'] {
+	.bottom-fire {
+		opacity: 0;
 	}
 }

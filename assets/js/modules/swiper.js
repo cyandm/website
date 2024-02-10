@@ -58,11 +58,17 @@ export const uiDesignSwiper = new Swiper('#uiDesignSwiper', {
 
 export const portfolioServicePage = new Swiper('#portfolioServicePage', {
 	modules: [Autoplay],
-	slidesPerView: 4.2,
+	slidesPerView: 1.5,
 	centeredSlides: true,
 	spaceBetween: 16,
 	autoplay: {
 		disableOnInteraction: false,
+	},
+
+	breakpoints: {
+		1240: {
+			slidesPerView: 4.2,
+		},
 	},
 });
 

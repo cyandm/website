@@ -1,14 +1,32 @@
-#portfolioServicePage {
-	margin-block-start: 12rem;
-	overflow: visible;
+@use '../../utils/_index' as *;
 
-	.swiper-slide {
-		&:nth-child(2n) {
-			transform: translateY(3rem);
+.projects-con {
+	.container {
+		margin-block-start: 8rem;
+		@include mq('md') {
+			margin-block-start: 2rem;
 		}
+	}
 
-		&:nth-child(2n + 1) {
-			transform: translateY(-3rem);
+	#portfolioServicePage {
+		margin-block-start: 5rem;
+		@include mq('md') {
+			margin-block-start: 1rem;
+		}
+		overflow: visible;
+
+		.swiper-slide {
+			&:nth-child(2n) {
+				transform: translateY(3rem);
+			}
+
+			&:nth-child(2n + 1) {
+				transform: translateY(-3rem);
+			}
+
+			@include mq('md') {
+				transform: translateY(0) !important;
+			}
 		}
 	}
 }

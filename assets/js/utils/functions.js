@@ -145,7 +145,9 @@ export const cynRemoveSwiperClass = (selector) => {
 	if (!swiper) return;
 
 	const swiperWrapper = swiper.querySelector('.swiper-wrapper');
-	const swiperSlides = swiper.querySelectorAll('.swiper-slide');
+	const swiperSlides = document.querySelectorAll(
+		`${selector} > .swiper-wrapper > .swiper-slide`
+	);
 	if (!swiperWrapper || !swiperSlides) return;
 
 	swiper.classList.remove('swiper');

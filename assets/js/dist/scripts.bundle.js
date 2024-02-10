@@ -57,7 +57,9 @@
     if (!swiper)
       return;
     const swiperWrapper = swiper.querySelector(".swiper-wrapper");
-    const swiperSlides = swiper.querySelectorAll(".swiper-slide");
+    const swiperSlides = document.querySelectorAll(
+      "".concat(selector3, " > .swiper-wrapper > .swiper-slide")
+    );
     if (!swiperWrapper || !swiperSlides)
       return;
     swiper.classList.remove("swiper");
@@ -210,6 +212,18 @@
       }
     }
   });
+
+  // assets/js/modules/main-scroll.js
+  var MainScroll = () => {
+    document.addEventListener("scroll", (e) => {
+      if (window.scrollY > 0) {
+        document.body.setAttribute("data-scrolled", "true");
+      } else {
+        document.body.setAttribute("data-scrolled", "false");
+      }
+    });
+  };
+  MainScroll();
 
   // assets/js/modules/mobile-menu.js
   var MobileMenu = () => {
@@ -5304,11 +5318,16 @@
   });
   var portfolioServicePage = new Swiper("#portfolioServicePage", {
     modules: [Autoplay],
-    slidesPerView: 4.2,
+    slidesPerView: 1.5,
     centeredSlides: true,
     spaceBetween: 16,
     autoplay: {
       disableOnInteraction: false
+    },
+    breakpoints: {
+      1240: {
+        slidesPerView: 4.2
+      }
     }
   });
   if (window.innerWidth <= 1240) {
