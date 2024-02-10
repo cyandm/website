@@ -2105,6 +2105,30 @@ section.faq-con .faq-content > *:nth-child(1) {
   transform: translateY(0);
 }
 
+.marketing-slide-0 .container {
+  height: 100%;
+}
+.marketing-slide-0-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  height: 100%;
+}
+.marketing-slide-0-content .t1 {
+  text-align: center;
+}
+.marketing-slide-0 .scroll-down {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
 .projects-con .container {
   margin-block-start: 8rem;
 }

@@ -149,29 +149,29 @@ makeFire({
 	},
 });
 
-// makeFire({
-// 	parent: marketingFire,
-// 	count: 15,
-// 	position: {
-// 		left: 100,
-// 		top: 50,
-// 	},
-// 	size: {
-// 		min: 150,
-// 		max: 450,
-// 	},
-// 	color: {
-// 		hue: {
-// 			min: 350,
-// 			max: 360,
-// 		},
-// 		saturate: {
-// 			min: 64,
-// 			max: 100,
-// 		},
-// 		lightness: {
-// 			min: 16,
-// 			max: 55,
-// 		},
-// 	},
-// });
+makeFire({
+	parent: marketingFire,
+	count: 15,
+	position: {
+		left: 100,
+		top: 50,
+	},
+	size: {
+		min: 150,
+		max: 450,
+	},
+	color: {
+		hue: {
+			min: 108,
+			max: 155,
+		},
+		saturate: {
+			min: 55,
+			max: 100,
+		},
+		lightness: {
+			min: 18,
+			max: 63,
+		},
+	},
+});

@@ -17,7 +17,11 @@ export const setCssVariable = (value, name, parent = rootEl, prefix = 'px') => {
 
 export const setCssVariableGroup = () => {
 	headerHeight = headerEl.getClientRects()[0].height;
-	footerHeight = footerEl.getClientRects()[0].height;
+	if (footerEl) {
+		footerHeight = footerEl.getClientRects()[0].height;
+	} else {
+		footerHeight = 0;
+	}
 
 	const containerWidth = containerEL.clientWidth;
 	marginFromSide = (window.innerWidth - containerWidth) / 2;

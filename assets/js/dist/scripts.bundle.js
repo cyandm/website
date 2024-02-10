@@ -263,6 +263,32 @@
       }
     }
   });
+  makeFire({
+    parent: marketingFire,
+    count: 15,
+    position: {
+      left: 100,
+      top: 50
+    },
+    size: {
+      min: 150,
+      max: 450
+    },
+    color: {
+      hue: {
+        min: 108,
+        max: 155
+      },
+      saturate: {
+        min: 55,
+        max: 100
+      },
+      lightness: {
+        min: 18,
+        max: 63
+      }
+    }
+  });
 
   // assets/js/modules/main-scroll.js
   var MainScroll = () => {
@@ -5429,7 +5455,11 @@
   };
   var setCssVariableGroup = () => {
     headerHeight = headerEl.getClientRects()[0].height;
-    footerHeight = footerEl.getClientRects()[0].height;
+    if (footerEl) {
+      footerHeight = footerEl.getClientRects()[0].height;
+    } else {
+      footerHeight = 0;
+    }
     const containerWidth = containerEL.clientWidth;
     marginFromSide = (window.innerWidth - containerWidth) / 2;
     setCssVariable(headerHeight, "headerHeight");
