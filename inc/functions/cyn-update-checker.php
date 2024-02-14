@@ -1,11 +1,10 @@
 <?php
-
-require get_stylesheet_directory_uri() . 'inc/libs/plugin-update-checker/plugin-update-checker.php';
+require( get_stylesheet_directory() . '/inc/libs/plugin-update-checker/plugin-update-checker.php' );
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 $myUpdateChecker = PucFactory::buildUpdateChecker(
 	'https://github.com/cyandm/website/',
-	__FILE__,
+	get_stylesheet_directory(),
 	'cyandm'
 );
 
