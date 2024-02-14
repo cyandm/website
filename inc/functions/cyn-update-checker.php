@@ -3,9 +3,9 @@ require( get_stylesheet_directory() . '/inc/libs/plugin-update-checker/plugin-up
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 $myUpdateChecker = PucFactory::buildUpdateChecker(
-	'https://github.com/cyandm/website/',
+	'https://github.com/cyandm/website/', //github theme
 	get_stylesheet_directory(),
-	'cyandm'
+	'cyandm' //theme slug
 );
 
 //Set the branch that contains the stable release.
