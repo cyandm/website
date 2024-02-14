@@ -7,6 +7,7 @@ require_once( __DIR__ . '/inc/classes/cyn-ajax.php' );
 require_once( __DIR__ . '/inc/functions/cyn-render.php' );
 require_once( __DIR__ . '/inc/functions/cyn-customize.php' );
 require_once( __DIR__ . '/inc/functions/cyn-under-construction.php' );
+require_once( __DIR__ . '/inc/functions/cyn-update-checker.php' );
 
 /***************************** Instance Classes */
 $cyn_theme_init = new cyn_theme_init();
