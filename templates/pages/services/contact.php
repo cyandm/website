@@ -10,25 +10,29 @@ $image_bl = wp_get_attachment_image( get_field( 'bottom_left' ), [ 300, 300 ] );
 
 
 function cyn_render_content( $title, $slogan, $btn ) {
-	?>
-	<div class="service-contact-content">
 
-		<div class="t2">
+	$btn_url = $btn['url'];
+	$btn_title = $btn['title'];
+	echo "<div class=\"service-contact-content\">
+
+		<div class=\"t2\">
 			<?= $title ?>
 		</div>
 
-		<div class="body_2">
+		<div class=\"body_2\">
 			<?= $slogan ?>
 		</div>
 
-		<a class="primary-btn"
-		   href="<?= $btn['url'] ?>">
-			<?= $btn['title'] ?>
+		<a class=\"primary-btn\"
+		   href=\"$btn_url \">
+			$btn_title
 		</a>
 
-	</div>
-	<?php
+	</div>";
+
+
 }
+
 
 ?>
 

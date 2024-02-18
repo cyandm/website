@@ -13,7 +13,8 @@ $render = isset( $args['render'] ) ? $args['render'] : true;
 
 
 <!DOCTYPE html>
-<html <?php language_attributes() ?>>
+<html <?php language_attributes() ?>
+	  data-theme-version="1.0.5">
 
 	<head>
 		<meta charset="UTF-8">
