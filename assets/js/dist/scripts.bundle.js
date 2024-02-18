@@ -12533,7 +12533,7 @@
   HomeProject();
 
   // assets/js/pages/services.js
-  var footerService = (swiper, startContentSlide, contentCountSlide) => {
+  var footerService = (swiper) => {
     const footerCon = document.querySelector(".service-footer");
     if (!footerCon)
       return;
@@ -12543,6 +12543,7 @@
     const contact = footerCon.querySelector("#contact");
     if (!workSteps || !portfolio || !faq || !contact)
       return;
+    const workStepSlides = document.querySelectorAll(".work-step");
     const deActivateAllButton = () => {
       [workSteps, portfolio, faq, contact].map((el) => deActivateEl(el));
     };
@@ -12551,8 +12552,8 @@
         swiper.slideTo(slide2);
       });
     };
-    const startContent = startContentSlide;
-    const contentCount = contentCountSlide;
+    const startContent = 1;
+    const contentCount = workStepSlides.length;
     const endContent = startContent + contentCount - 1;
     const portfolioSlide = endContent + 1;
     const faqSlide = portfolioSlide + 1;
@@ -12578,9 +12579,9 @@
       }
     });
   };
-  footerService(uiDesignSwiper, 1, 3);
-  footerService(seoSwiper, 1, 2);
-  footerService(marketingSwiper, 1, 2);
+  footerService(uiDesignSwiper);
+  footerService(seoSwiper);
+  footerService(marketingSwiper);
 
   // assets/js/layout/header.js
   var Header = () => {

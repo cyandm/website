@@ -14,7 +14,7 @@ $render = isset( $args['render'] ) ? $args['render'] : true;
 
 <!DOCTYPE html>
 <html <?php language_attributes() ?>
-	  data-theme-version="1.0.7">
+	  data-theme-version="1.0.8">
 
 	<head>
 		<meta charset="UTF-8">

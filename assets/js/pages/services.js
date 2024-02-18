@@ -1,7 +1,7 @@
 import { uiDesignSwiper, seoSwiper, marketingSwiper } from '../modules/swiper';
 import { activateEl, deActivateEl } from '../utils/functions';
 
-const footerService = (swiper, startContentSlide, contentCountSlide) => {
+const footerService = (swiper) => {
 	const footerCon = document.querySelector('.service-footer');
 	if (!footerCon) return;
 
@@ -10,6 +10,8 @@ const footerService = (swiper, startContentSlide, contentCountSlide) => {
 	const faq = footerCon.querySelector('#faq');
 	const contact = footerCon.querySelector('#contact');
 	if (!workSteps || !portfolio || !faq || !contact) return;
+
+	const workStepSlides = document.querySelectorAll('.work-step');
 
 	const deActivateAllButton = () => {
 		[workSteps, portfolio, faq, contact].map((el) => deActivateEl(el));
@@ -21,8 +23,8 @@ const footerService = (swiper, startContentSlide, contentCountSlide) => {
 		});
 	};
 
-	const startContent = startContentSlide;
-	const contentCount = contentCountSlide;
+	const startContent = 1;
+	const contentCount = workStepSlides.length;
 	const endContent = startContent + contentCount - 1;
 	const portfolioSlide = endContent + 1;
 	const faqSlide = portfolioSlide + 1;
@@ -55,6 +57,6 @@ const footerService = (swiper, startContentSlide, contentCountSlide) => {
 	});
 };
 
-footerService(uiDesignSwiper, 1, 3);
-footerService(seoSwiper, 1, 2);
-footerService(marketingSwiper, 1, 2);
+footerService(uiDesignSwiper);
+footerService(seoSwiper);
+footerService(marketingSwiper);
