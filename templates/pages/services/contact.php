@@ -16,13 +16,13 @@ function cyn_render_content( $title, $slogan, $btn ) {
 	echo "<div class=\"service-contact-content\">
 
 		<div class=\"t2\">
-			<?= $title ?>
+			$title
 		</div>
 
 		<div class=\"body_2\">
-			<?= $slogan ?>
+			$slogan
 		</div>
-
+		
 		<a class=\"primary-btn\"
 		   href=\"$btn_url \">
 			$btn_title
