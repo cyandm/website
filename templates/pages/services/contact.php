@@ -27,7 +27,7 @@ function cyn_render_content( $title, $slogan, $btn ) {
 		</a>
 
 	</div>
-<?
+	<?php
 }
 
 ?>
