@@ -1,0 +1,25 @@
+@use '../utils/_index' as *;
+
+.post-single {
+	@include d_flex($equal_children: true, $gap: 1rem);
+
+	& > * {
+		min-height: 10rem;
+	}
+
+	&-container {
+	}
+
+	&-thumbnail {
+		@include d_flex();
+		img {
+			object-fit: cover;
+			max-height: 600px;
+			border-radius: 1.5rem;
+		}
+	}
+
+	&-title {
+		margin-block: 1.75rem 1rem;
+	}
+}

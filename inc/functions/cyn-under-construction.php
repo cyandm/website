@@ -1,5 +1,5 @@
 <?php
-//add_action( 'init', 'cyn_under_construction' );
+
 
 function cyn_under_construction() {
 	$is_under_constructed = get_option( 'cyn_under_construction' );
@@ -16,9 +16,4 @@ function cyn_under_construction() {
 		return;
 
 	wp_redirect( site_url( '/under-construction/' ) );
-
-
-
 }
-
-cyn_under_construction();

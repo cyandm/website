@@ -1,4 +1,5 @@
 <?php
+$rel = isset( $args['rel'] ) ? $args['rel'] : null;
 $title = get_the_title();
 $author = get_the_author_meta( 'display_name' );
 $comment_num = get_comment_count()['approved'];
@@ -8,6 +9,7 @@ $link = get_permalink();
 ?>
 
 <a class="post-card"
+   <?= isset( $rel ) ? 'rel="nofollow"' : '' ?>
    href="<?= $link ?>">
 	<div class="post-card__thumbnail">
 		<?= $thumbnail ?>
@@ -24,7 +26,7 @@ $link = get_permalink();
 			</p>
 		</div>
 
-		<div class="post-card__actions">
+		<!-- <div class="post-card__actions">
 			<div class="post-card__comment">
 				<i class="icon-comment"></i>
 				<span>
@@ -34,7 +36,7 @@ $link = get_permalink();
 			<div class="post-card__like">
 				<i class="icon-like"></i>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
 </a>

@@ -1,6 +1,7 @@
 <?php
+cyn_under_construction();
+
 $logo_svg_hard_code = true;
-setcookie( 'textureURL', get_stylesheet_directory_uri() . '/assets/imgs/wood.jpg' );
 
 $start_color = isset( $args['start_color'] ) ? $args['start_color'] : '#15EDED';
 $end_color = isset( $args['end_color'] ) ? $args['end_color'] : '#04B2E9';

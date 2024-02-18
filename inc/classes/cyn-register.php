@@ -5,6 +5,7 @@ if ( ! class_exists( 'cyn_register' ) ) {
 		function __construct() {
 			add_action( 'init', [ $this, 'cyn_post_type_register' ] );
 			add_action( 'init', [ $this, 'cyn_taxonomy_register' ] );
+			add_action( 'init', [ $this, 'cyn_term_register' ] );
 		}
 
 
@@ -85,6 +86,11 @@ if ( ! class_exists( 'cyn_register' ) ) {
 
 			make_taxonomy( 'دسته‌بندی پروژه', 'project-type', [ 'project' ] );
 			make_taxonomy( 'دسته‌بندی سوالات', 'faq-type', [ 'faq' ] );
+		}
+
+		public function cyn_term_register() {
+			wp_insert_term( 'پیشنهادی', 'post_tag', [ 'slug' => 'recommended' ] );
+
 		}
 	}
 }
