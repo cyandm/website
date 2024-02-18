@@ -14,7 +14,7 @@ $render = isset( $args['render'] ) ? $args['render'] : true;
 
 <!DOCTYPE html>
 <html <?php language_attributes() ?>
-	  data-theme-version="1.0.8">
+	  data-theme-version="1.0.9">
 
 	<head>
 		<meta charset="UTF-8">
@@ -48,7 +48,7 @@ $render = isset( $args['render'] ) ? $args['render'] : true;
 					<div class="header-menu desktop-menu">
 						<?php
 						wp_nav_menu( [ 
-							'theme-location' => 'header'
+							'theme_location' => 'header'
 						] )
 							?>
 					</div>
@@ -56,16 +56,18 @@ $render = isset( $args['render'] ) ? $args['render'] : true;
 
 				<div class="left-col">
 
-					<a href="#"
+					<!-- <a href="#"
 					   class="primary-btn">
 						یه پروژه بساز
-					</a>
+					</a> -->
 
-					<a href="#"
+					<a href="tel:021-28428248"
 					   class="icon-btn">
+
 						<i class="icon-call">
 
 						</i>
+
 					</a>
 
 				</div>
