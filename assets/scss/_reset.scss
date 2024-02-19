@@ -26,11 +26,16 @@ i {
 	display: inline-block;
 }
 
-//for admins
-html {
-	--wp-admin--admin-bar--height: 0px;
-	margin-top: 0 !important;
-}
+// //for admins
+// html {
+// 	--wp-admin--admin-bar--height: 0px;
+// 	margin-top: 0 !important;
+// }
+
+// #wpadminbar {
+
+// 	display: none !important;
+// }
 
 /*****Developer Mode*********/
 i.not-correct {

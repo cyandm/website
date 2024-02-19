@@ -5,7 +5,13 @@
 	margin-block: 2rem 1.5rem;
 
 	nav p {
-		@include d_flex(row, flex-start, center);
+		@include d_flex(row, flex-start, center, nowrap);
+		overflow-x: auto;
+
+		> * {
+			min-width: fit-content;
+		}
+
 		a {
 			color: $gray_1;
 			transition: color 0.3s ease;

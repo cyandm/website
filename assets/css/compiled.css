@@ -26,11 +26,6 @@ i {
   display: inline-block;
 }
 
-html {
-  --wp-admin--admin-bar--height: 0px;
-  margin-top: 0 !important;
-}
-
 /*****Developer Mode*********/
 i.not-correct {
   background-color: red;
@@ -395,8 +390,12 @@ body[data-scrolled=true] .bottom-fire {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0;
+  overflow-x: auto;
+}
+.breadcrumb nav p > * {
+  min-width: fit-content;
 }
 .breadcrumb nav p a {
   color: hsl(0, 0%, 46%);
@@ -470,13 +469,11 @@ body[data-scrolled=true] .bottom-fire {
   animation-delay: 3.6s;
 }
 
-.icon-menu {
-  background-color: red;
-  padding: 1rem;
+#mobileMenuToggle {
   display: none;
 }
 @media screen and (max-width: 992px) {
-  .icon-menu {
+  #mobileMenuToggle {
     display: block;
   }
 }
@@ -591,6 +588,11 @@ html:has(.pop-up.open) {
 
 .post-sidebar {
   max-width: 300px;
+}
+@media screen and (max-width: 768px) {
+  .post-sidebar {
+    display: none;
+  }
 }
 .post-sidebar .h2 {
   display: inline-block;
@@ -1227,6 +1229,9 @@ footer .columns .column-3 {
     max-width: 100%;
   }
 }
+footer .columns .column-2 {
+  display: none;
+}
 footer .footer-menu ul {
   display: grid;
   gap: 0.5rem;
@@ -1803,6 +1808,32 @@ main > section:not(:first-child) {
   translate: 0.25rem;
 }
 
+@media (max-width: 768px) {
+  .pre-clock {
+    align-items: center;
+  }
+  .pre-clock .clock {
+    display: none;
+  }
+  .pre-clock h1 {
+    font-size: 2rem !important;
+    text-align: center;
+  }
+  .pre-clock .h1 {
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+  }
+  .pre-clock .scroll-down {
+    display: grid;
+    place-items: center;
+  }
+  .clock-section,
+  #singlePlanet,
+  .multi-planet {
+    display: none;
+  }
+}
 section.projects-con > *:nth-child(1) {
   -webkit-margin-after: 1.25rem;
   margin-block-end: 1.25rem;
@@ -3173,9 +3204,6 @@ h4,
 .post-single > * {
   flex: 1;
 }
-.post-single > * {
-  min-height: 10rem;
-}
 .post-single-thumbnail {
   display: flex;
   flex-direction: row;
@@ -3191,10 +3219,6 @@ h4,
 }
 .post-single-title {
   margin-block: 1.75rem 1rem;
-}
-
-#wpadminbar {
-  display: none !important;
 }
 
 /*# sourceMappingURL=compiled.css.map */

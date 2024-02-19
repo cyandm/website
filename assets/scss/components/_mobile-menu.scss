@@ -1,8 +1,6 @@
 @use '../utils/_index' as *;
 
-.icon-menu {
-	background-color: red;
-	padding: 1rem;
+#mobileMenuToggle {
 	display: none;
 
 	@include mq('lg') {

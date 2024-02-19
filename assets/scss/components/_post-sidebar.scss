@@ -2,6 +2,9 @@
 
 .post-sidebar {
 	max-width: 300px;
+	@include mq('md') {
+		display: none;
+	}
 
 	.h2 {
 		display: inline-block;

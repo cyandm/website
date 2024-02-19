@@ -3,10 +3,6 @@
 .post-single {
 	@include d_flex($equal_children: true, $gap: 1rem);
 
-	& > * {
-		min-height: 10rem;
-	}
-
 	&-container {
 	}
 

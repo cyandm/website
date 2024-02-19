@@ -193,3 +193,35 @@
 		}
 	}
 }
+
+@media (max-width: 768px) {
+	.pre-clock {
+		.clock {
+			display: none;
+		}
+
+		align-items: center;
+
+		h1 {
+			font-size: 2rem !important;
+			text-align: center;
+		}
+
+		.h1 {
+			font-size: 1rem;
+			text-align: center;
+			width: 100%;
+		}
+
+		.scroll-down {
+			display: grid;
+			place-items: center;
+		}
+	}
+
+	.clock-section,
+	#singlePlanet,
+	.multi-planet {
+		display: none;
+	}
+}

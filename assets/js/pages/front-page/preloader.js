@@ -5,6 +5,8 @@ import { toggleFadeOff, toggleShow } from '../../modules/classHandler';
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, EasePack);
 
 const PreloaderHome = () => {
+	if (window.innerWidth <= 768) return;
+
 	//Elements
 	const clockEl = document.querySelector('.clock');
 	const preClockScrollDown = document.querySelector('.pre-clock .scroll-down');
@@ -138,3 +140,4 @@ const PreloaderHome = () => {
 };
 
 PreloaderHome();
+window.addEventListener('resize', PreloaderHome());

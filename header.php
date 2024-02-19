@@ -8,13 +8,16 @@ $end_color = isset( $args['end_color'] ) ? $args['end_color'] : '#04B2E9';
 
 $render = isset( $args['render'] ) ? $args['render'] : true;
 
+$phone_num_1 = get_field( 'phone_num_1', get_option( 'page_on_front' ) );
+
+
 ?>
 
 
 
 <!DOCTYPE html>
 <html <?php language_attributes() ?>
-	  data-theme-version="1.0.9">
+	  data-theme-version="1.0.10">
 
 	<head>
 		<meta charset="UTF-8">
@@ -61,7 +64,7 @@ $render = isset( $args['render'] ) ? $args['render'] : true;
 						یه پروژه بساز
 					</a> -->
 
-					<a href="tel:021-28428248"
+					<a href="<?= 'tel:' . $phone_num_1 ?>"
 					   class="icon-btn">
 
 						<i class="icon-call">

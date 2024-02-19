@@ -12355,6 +12355,8 @@
   // assets/js/pages/front-page/preloader.js
   gsapWithCSS.registerPlugin(ScrollTrigger3, ScrollToPlugin, EasePack);
   var PreloaderHome = () => {
+    if (window.innerWidth <= 768)
+      return;
     const clockEl = document.querySelector(".clock");
     const preClockScrollDown = document.querySelector(".pre-clock .scroll-down");
     const clockSection = document.querySelector(".clock-section");
@@ -12454,6 +12456,7 @@
     clickToLabel(letsGo, "endOfSlide2");
   };
   PreloaderHome();
+  window.addEventListener("resize", PreloaderHome());
 
   // assets/js/pages/front-page/content.js
   var customerThumbsHeight;
