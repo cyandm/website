@@ -1,8 +1,7 @@
 <?php
 $id = isset( $args['customer-id'] ) ? $args['customer-id'] : get_the_ID();
 $add_class = isset( $args['additional_class'] ) ? $args['additional_class'] : '';
-
-$related_project_id = get_field( 'project', $id )[0];
+$related_project_id = get_field( 'project', $id );
 $star_count = get_field( 'stars', $id );
 $feature_img = wp_get_attachment_image( get_post_thumbnail_id( $id ), [ 0, 480 ] );
 $video = get_field( 'video' );
@@ -36,7 +35,7 @@ $video = get_field( 'video' );
 				<?= get_the_title() ?>
 			</p>
 			<p class="project-name">
-				<?= get_the_title( $related_project_id ) ?>
+				<?= $related_project_id ? get_the_title( $related_project_id[0] ) : get_field( 'position', $id ) ?>
 			</p>
 		</div>
 
@@ -67,11 +66,13 @@ $video = get_field( 'video' );
 			<?= get_field( 'comment' ) ?>
 		</div>
 
-		<a href=<?= get_permalink( $related_project_id ) ?>
-		   class="link-btn">
-			<i class="icon-arrowright"></i>
-			مشاهده پروژه
-		</a>
+		<?php if ( $related_project_id ) : ?>
+			<a href=<?= get_permalink( $related_project_id[0] ) ?>
+			   class="link-btn">
+				<i class="icon-arrowright"></i>
+				مشاهده پروژه
+			</a>
+		<?php endif; ?>
 
 		<div class="clear-fix">
 
