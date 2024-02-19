@@ -27,9 +27,6 @@ export const customerSwiperThumbs = new Swiper('.customer-thumbs', {
 	spaceBetween: 16,
 	watchSlidesProgress: true,
 	speed: 800,
-	autoplay: {
-		delay: 1800,
-	},
 });
 
 export const customerSwiper = new Swiper('.customer-wrapper', {
@@ -38,9 +35,6 @@ export const customerSwiper = new Swiper('.customer-wrapper', {
 	effect: 'fade',
 	speed: 800,
 	thumbs: { swiper: customerSwiperThumbs },
-	autoplay: {
-		delay: 1800,
-	},
 });
 
 export const uiDesignSwiper = new Swiper('#uiDesignSwiper', {

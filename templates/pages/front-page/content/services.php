@@ -28,7 +28,7 @@ $services_Q = new WP_Query( [
 
 				?>
 
-				<a href=<?= $related_landing ? $related_landing : $url ?>
+				<a href=<?= $related_landing ? $related_landing : '#' ?>
 				   class="single-service-card"
 				   style="<?php $is_color_selected &&
 				   	printf( '--ball-first-color:%s; --ball-second-color:%s; ', $ball_first_color, $ball_second_color ) ?>">

@@ -5366,20 +5366,14 @@
     slidesPerView: 4.2,
     spaceBetween: 16,
     watchSlidesProgress: true,
-    speed: 800,
-    autoplay: {
-      delay: 1800
-    }
+    speed: 800
   });
   var customerSwiper = new Swiper(".customer-wrapper", {
     modules: [EffectFade, Autoplay, Thumb],
     slidesPerView: 1,
     effect: "fade",
     speed: 800,
-    thumbs: { swiper: customerSwiperThumbs },
-    autoplay: {
-      delay: 1800
-    }
+    thumbs: { swiper: customerSwiperThumbs }
   });
   var uiDesignSwiper = new Swiper("#uiDesignSwiper", {
     modules: [EffectFade, Mousewheel],
@@ -12463,12 +12457,21 @@
 
   // assets/js/pages/front-page/content.js
   var customerThumbsHeight;
+  var customerConHeight;
   var ContentHome = () => {
     const customerThumbsEl = document.querySelector(".customer-thumbs");
     const customerCon = document.querySelector(".customer-con");
+    const customerVideos = document.querySelectorAll(".feature-video");
     customerSwiperThumbs.on("progress", () => {
       customerThumbsHeight = customerThumbsEl.clientHeight;
+      customerConHeight = customerCon.clientHeight;
       setCssVariable(customerThumbsHeight, "customerThumbsHeight", customerCon);
+      setCssVariable(customerConHeight, "customerConHeight", customerCon);
+    });
+    customerSwiper.on("slideChange", () => {
+      customerVideos.forEach((vid) => {
+        vid.pause();
+      });
     });
     const SingleServiceCardGroup = document.querySelectorAll(
       ".single-service-card"

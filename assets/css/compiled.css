@@ -671,23 +671,29 @@ html:has(.pop-up.open) {
     flex-direction: column;
   }
 }
-.single-customer-card .feature-img {
+.single-customer-card .feature-img,
+.single-customer-card .feature-video {
   max-inline-size: var(--image-width, 40%);
   max-block-size: 33.25rem;
   border-radius: 2rem;
   overflow: hidden;
 }
 @media screen and (max-width: 768px) {
-  .single-customer-card .feature-img {
+  .single-customer-card .feature-img,
+  .single-customer-card .feature-video {
     max-inline-size: 100%;
     inline-size: calc(100% - 2 * var(--margin-from-side));
     max-block-size: 20rem;
   }
 }
-.single-customer-card .feature-img img {
+.single-customer-card .feature-img img,
+.single-customer-card .feature-video img {
   max-height: 100%;
   aspect-ratio: 6/8;
   object-fit: cover;
+}
+.single-customer-card .feature-video {
+  height: var(--customer-con-height);
 }
 .single-customer-card .content {
   display: flex;
