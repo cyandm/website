@@ -12456,7 +12456,6 @@
     clickToLabel(letsGo, "endOfSlide2");
   };
   PreloaderHome();
-  window.addEventListener("resize", PreloaderHome());
 
   // assets/js/pages/front-page/content.js
   var customerThumbsHeight;

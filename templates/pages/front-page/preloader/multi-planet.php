@@ -1,18 +1,25 @@
-<?php $planets =
+<?php
+$seo_landing_url = cyn_get_url_by_page_template( 'seo' );
+$web_landing_url = cyn_get_url_by_page_template( 'ui-design' );
+$marketing_landing_url = cyn_get_url_by_page_template( 'marketing' );
+
+
+
+$planets =
 	[ 
 		[ 
 			'title' => 'خدمات سئو',
-			'link' => '#',
+			'link' => $seo_landing_url,
 			'class' => 'red'
 		],
 		[ 
 			'title' => 'طراحی وبسایت شخصی',
-			'link' => '#',
+			'link' => $web_landing_url,
 			'class' => 'yellow'
 		],
 		[ 
 			'title' => 'همه خدمات',
-			'link' => '#',
+			'link' => $marketing_landing_url,
 			'class' => 'cyan'
 		]
 	]

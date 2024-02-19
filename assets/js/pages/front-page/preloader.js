@@ -140,4 +140,3 @@ const PreloaderHome = () => {
 };
 
 PreloaderHome();
-window.addEventListener('resize', PreloaderHome());
