@@ -4,7 +4,7 @@ $add_class = isset( $args['additional_class'] ) ? $args['additional_class'] : ''
 $related_project_id = get_field( 'project', $id );
 $star_count = get_field( 'stars', $id );
 $feature_img = wp_get_attachment_image( get_post_thumbnail_id( $id ), [ 0, 480 ] );
-$video = get_field( 'video' );
+$video = get_field( 'video', $id );
 
 
 ?>
