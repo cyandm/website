@@ -23,7 +23,7 @@ $video = get_field( 'video', $id );
 		<video class="feature-video"
 			   src="<?= $video['url'] ?>"
 			   controls
-			   poster="<?= wp_get_attachment_image_src( get_post_thumbnail_id( $id ) )[0] ?>">
+			   poster="<?= wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'full' )[0] ?>">
 			<source src="<?= $video['url'] ?>">
 		</video>
 
