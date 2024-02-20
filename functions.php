@@ -16,3 +16,6 @@ $cyn_theme_init = new cyn_theme_init();
 $cyn_acf = new cyn_acf();
 $cyn_register = new cyn_register();
 $cyn_ajax = new cyn_ajax();
+
+
+add_filter( 'big_image_size_threshold', '__return_false' );
