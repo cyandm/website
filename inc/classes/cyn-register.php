@@ -10,7 +10,7 @@ if ( ! class_exists( 'cyn_register' ) ) {
 
 
 		public function cyn_post_type_register() {
-			function make_post_type( $name, $slug, $icon, $menu = true, $supports = [ 'title', 'thumbnail' ] ) { {
+			function make_post_type( $name, $slug, $icon, $menu = true, $supports = [ 'title', 'thumbnail', 'page-attributes' ] ) { {
 					$labels = [ 
 						'name' => $name,
 						'singular_name' => $name,

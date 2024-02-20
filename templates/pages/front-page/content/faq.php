@@ -7,7 +7,9 @@ $faq_Q = new WP_Query( [
 			'key' => 'show_in_front',
 			'value' => 1,
 		]
-	]
+	],
+	'order' => 'ASC',
+	'orderby' => 'menu_order',
 ] );
 
 $faq_image = wp_get_attachment_image( get_field( 'faq_section_image' ), 'full' );

@@ -6,7 +6,9 @@ $projects_Q = new WP_Query( [
 			'key' => 'show_in_front',
 			'value' => 1,
 		]
-	]
+	],
+	'order' => 'ASC',
+	'orderby' => 'menu_order',
 ] );
 
 $link_all = get_post_type_archive_link( 'project' );
@@ -28,22 +30,22 @@ $link_all = get_post_type_archive_link( 'project' );
 
 		<div class="projects-wrapper swiper">
 			<div class="swiper-wrapper">
-				<?php for ( $i = 0; $i < 2; $i++ ) { ?>
 
-					<?php
-					while ( $projects_Q->have_posts() ) :
-						$projects_Q->the_post();
-						get_template_part(
-							'templates/components/card/projects',
-							null,
-							[ 'additional_class' => 'swiper-slide' ] );
-					endwhile;
 
-					wp_reset_postdata();
+				<?php
+				while ( $projects_Q->have_posts() ) :
+					$projects_Q->the_post();
+					get_template_part(
+						'templates/components/card/projects',
+						null,
+						[ 'additional_class' => 'swiper-slide' ] );
+				endwhile;
 
-					?>
+				wp_reset_postdata();
 
-				<?php } ?>
+				?>
+
+
 			</div>
 		</div>
 

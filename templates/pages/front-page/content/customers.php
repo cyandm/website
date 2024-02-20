@@ -6,7 +6,9 @@ $customers_Q = new WP_Query( [
 			'key' => 'show_in_front',
 			'value' => 1,
 		]
-	]
+	],
+	'order' => 'ASC',
+	'orderby' => 'menu_order',
 ] );
 
 
@@ -24,36 +26,36 @@ $customers_Q = new WP_Query( [
 		<div class="customer-wrapper swiper">
 			<div class="swiper-wrapper">
 				<?php
-				for ( $i = 0; $i < 4; $i++ ) :
-					while ( $customers_Q->have_posts() ) {
-						$customers_Q->the_post();
-						get_template_part( 'templates/components/card/customer', null, [ 'additional_class' => 'swiper-slide' ] );
-					}
-				endfor;
+
+				while ( $customers_Q->have_posts() ) {
+					$customers_Q->the_post();
+					get_template_part( 'templates/components/card/customer', null, [ 'additional_class' => 'swiper-slide' ] );
+				}
+
 				?>
 			</div>
 		</div>
 
 		<div class="customer-thumbs swiper">
 			<div class="swiper-wrapper">
-				<?php for ( $i = 0; $i < 4; $i++ ) : ?>
 
-					<?php while ( $customers_Q->have_posts() ) :
-						$customers_Q->the_post();
-						$feature_img = wp_get_attachment_image( get_post_thumbnail_id(), [ 0, 480 ] );
-						?>
-						<div class="swiper-slide">
-							<?= $feature_img !== '' ?
-								$feature_img :
-								'<img src="' . get_stylesheet_directory_uri() . '/assets/imgs/placeholder.png' . '" />';
-							?>
-						</div>
-						<?php
-					endwhile;
-					wp_reset_postdata();
+
+				<?php while ( $customers_Q->have_posts() ) :
+					$customers_Q->the_post();
+					$feature_img = wp_get_attachment_image( get_post_thumbnail_id(), [ 0, 480 ] );
 					?>
+					<div class="swiper-slide">
+						<?= $feature_img !== '' ?
+							$feature_img :
+							'<img src="' . get_stylesheet_directory_uri() . '/assets/imgs/placeholder.png' . '" />';
+						?>
+					</div>
+					<?php
+				endwhile;
+				wp_reset_postdata();
+				?>
 
-				<?php endfor; ?>
+
 			</div>
 		</div>
 
