@@ -1,5 +1,6 @@
 <?php
 cyn_under_construction();
+$page_on_front = get_option( 'page_on_front' );
 
 $logo_svg_hard_code = true;
 
@@ -8,7 +9,7 @@ $end_color = isset( $args['end_color'] ) ? $args['end_color'] : '#04B2E9';
 
 $render = isset( $args['render'] ) ? $args['render'] : true;
 
-$phone_num_1 = get_field( 'phone_num_1', get_option( 'page_on_front' ) );
+$phone_num_1 = get_field( 'phone_num_1', $page_on_front );
 
 
 ?>
@@ -17,13 +18,14 @@ $phone_num_1 = get_field( 'phone_num_1', get_option( 'page_on_front' ) );
 
 <!DOCTYPE html>
 <html <?php language_attributes() ?>
-	  data-theme-version="1.0.11.4">
+	  data-theme-version="1.0.11.5">
 
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport"
 			  content="width=device-width, initial-scale=1.0">
 		<?php wp_head() ?>
+		<?= get_field( 'before_head', $page_on_front ) ?>
 	</head>
 
 	<body <?php body_class() ?>>
