@@ -1,6 +1,6 @@
 {
 	"name": "cyan-dm",
-	"version": "1.0.10.6",
+	"version": "1.0.11",
 	"description": "",
 	"author": "cyan-dm",
 	"scripts": {
@@ -15,6 +15,7 @@
 	"license": "ISC",
 	"dependencies": {
 		"gsap": "^3.12.2",
+		"plyr": "^3.7.8",
 		"swiper": "^10.3.1",
 		"three": "^0.157.0"
 	}

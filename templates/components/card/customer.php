@@ -19,13 +19,16 @@ $video = get_field( 'video', $id );
 			?>
 		</div>
 	<?php else : ?>
+		<div class="feature-video">
+			<video class="plyr"
+				   id="player"
+				   src="<?= $video['url'] ?>"
+				   controls
+				   data-poster="<?= wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'full' )[0] ?>">
+				<source src="<?= $video['url'] ?>">
+			</video>
+		</div>
 
-		<video class="feature-video"
-			   src="<?= $video['url'] ?>"
-			   controls
-			   poster="<?= wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'full' )[0] ?>">
-			<source src="<?= $video['url'] ?>">
-		</video>
 
 	<?php endif; ?>
 

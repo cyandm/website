@@ -9,7 +9,7 @@ const ContentHome = () => {
 	//Customer Swiper Home Page Vars
 	const customerThumbsEl = document.querySelector('.customer-thumbs');
 	const customerCon = document.querySelector('.customer-con');
-	const customerVideos = document.querySelectorAll('.feature-video');
+	const customerVideos = document.querySelectorAll('.feature-video video');
 
 	customerSwiperThumbs.on('progress', () => {
 		customerThumbsHeight = customerThumbsEl.clientHeight;

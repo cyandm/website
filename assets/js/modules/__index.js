@@ -9,3 +9,4 @@ import './popUp';
 import './random';
 import './swiper';
 import './variable';
+import './plyr';
