@@ -1282,6 +1282,10 @@ footer .footer-image img {
   object-fit: cover;
   transform: translate(-25%, 50%);
 }
+footer .social-media {
+  margin-block-start: 0.75rem;
+  display: flex;
+}
 
 .visible {
   visibility: visible !important;
@@ -3236,6 +3240,9 @@ h4,
 
 .plyr {
   height: 100%;
+}
+.plyr__poster {
+  background-size: cover !important;
 }
 
 /* Original */

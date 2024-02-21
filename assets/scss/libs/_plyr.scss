@@ -7,6 +7,10 @@
 
 .plyr {
 	height: 100%;
+
+	&__poster {
+		background-size: cover !important;
+	}
 }
 
 /* Original */

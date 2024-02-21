@@ -17,6 +17,7 @@ $phone_num_3 = get_field( 'phone_num_3', $front_page_ID );
 
 $footer_image = wp_get_attachment_image( get_field( 'footer_image', $front_page_ID ), [ 600, 600 ] );
 
+$social_media_group = array_filter( get_field( 'social_media_group', $front_page_ID ) );
 
 ?>
 
@@ -80,7 +81,11 @@ $footer_image = wp_get_attachment_image( get_field( 'footer_image', $front_page_
 				</div>
 			</div>
 			<div class="social-media">
-
+				<?php foreach ( $social_media_group as $social_media ) : ?>
+					<a href="<?= $social_media['link']['url'] ?>">
+						<?= wp_get_attachment_image( $social_media['image'] ) ?>
+					</a>
+				<?php endforeach ?>
 			</div>
 		</div>
 		<div class="footer-image">
