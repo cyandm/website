@@ -82,7 +82,7 @@ $social_media_group = array_filter( get_field( 'social_media_group', $front_page
 			</div>
 			<div class="social-media">
 				<?php foreach ( $social_media_group as $social_media ) : ?>
-					<a href="<?= $social_media['link']['url'] ?>">
+					<a href="<?= $social_media['link'] ?>">
 						<?= wp_get_attachment_image( $social_media['image'] ) ?>
 					</a>
 				<?php endforeach ?>
