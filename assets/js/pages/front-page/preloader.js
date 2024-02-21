@@ -94,6 +94,7 @@ const PreloaderHome = () => {
 	});
 
 	multiPlanet_TL.to('.multi-planet', { opacity: 1 });
+	multiPlanet_TL.to('.light-planet', { opacity: 1 });
 	multiPlanetGroup.forEach((planet) => {
 		multiPlanet_TL.from(planet, { y: 50, opacity: 0 });
 	});

@@ -13,7 +13,5 @@
 	<section class="webGL">
 	</section>
 
-	<div class="light-planet">
 
-	</div>
 </section>

@@ -1203,11 +1203,11 @@ html:has(.pop-up.open) {
   overflow: hidden;
 }
 .faq-card:hover {
-  border-color: var(--start-color);
+  border-color: var(--start-color, #1dbacf);
 }
 .faq-card:hover .faq-card__title-wrapper i {
   transform: rotate(0deg);
-  color: var(--start-color);
+  color: var(--start-color, #1dbacf);
 }
 .faq-card:hover .faq-card__content-wrapper {
   grid-template-rows: 1fr;
@@ -1572,6 +1572,16 @@ main > section:not(:first-child) {
   color: #3de2f2;
 }
 
+.archive-post {
+  margin-block-start: 4rem;
+}
+.archive-post-wrapper {
+  margin-block-start: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
 .preloader {
   position: relative;
   height: 100vh;
@@ -1705,12 +1715,32 @@ main > section:not(:first-child) {
 .light-planet {
   width: 450px;
   height: 450px;
-  background: conic-gradient(#fbcf34, #f22424, #2cccd7, #0574dc, #05b5dc);
   position: absolute;
   border-radius: 50%;
-  z-index: -5;
+  z-index: -4;
+  opacity: 0;
+  isolation: isolate;
+}
+.light-planet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  background: conic-gradient(#fbcf34, #f22424, #2cccd7, #0574dc, #05b5dc);
   filter: blur(150px);
-  display: none;
+  z-index: -6;
+}
+.light-planet::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  background-color: black;
+  z-index: -6;
 }
 
 .multi-planet {
@@ -1893,6 +1923,10 @@ section.customer-con .customer-thumbs .swiper-slide:not(.swiper-slide-thumb-acti
   }
 }
 
+section.brands-con .h1 {
+  margin-block-end: 1rem;
+}
+
 section.services-con .services-wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1959,6 +1993,7 @@ section.services-con .services-wrapper .single-service-card .h3 {
   -webkit-margin-before: 0.5rem;
   margin-block-start: 0.5rem;
   opacity: 0.4;
+  display: block;
 }
 @media screen and (max-width: 768px) {
   section.services-con .services-wrapper .single-service-card .h3 {

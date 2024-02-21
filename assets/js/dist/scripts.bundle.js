@@ -7857,6 +7857,23 @@
       }
     }
   });
+  var brandsSwiper = new Swiper("#brandsSwiper", {
+    modules: [Autoplay],
+    slidesPerView: 3,
+    autoplay: true,
+    spaceBetween: 24,
+    breakpoints: {
+      768: {
+        slidesPerView: 5
+      },
+      1024: {
+        slidesPerView: 7
+      },
+      1440: {
+        slidesPerView: 9
+      }
+    }
+  });
   if (window.innerWidth <= 1240) {
     cynDestroySwiper(uiDesignSwiper, "#uiDesignSwiper");
     cynDestroySwiper(seoSwiper, "#seoMainSwiper");
@@ -7897,10 +7914,15 @@
 
   // assets/js/modules/plyr.js
   var import_plyr = __toESM(require_plyr_min());
-  var customerVideos = document.querySelectorAll(".plyr");
-  customerVideos.forEach((el) => {
-    const vid = new import_plyr.default(el);
-  });
+  var plyrJs = () => {
+    const customerVideos = document.querySelectorAll(".plyr");
+    if (!customerVideos)
+      return;
+    customerVideos.forEach((el) => {
+      const vid = new import_plyr.default(el);
+    });
+  };
+  plyrJs();
 
   // node_modules/gsap/gsap-core.js
   function _assertThisInitialized(self2) {
@@ -14860,6 +14882,7 @@
       );
     });
     multiPlanet_TL.to(".multi-planet", { opacity: 1 });
+    multiPlanet_TL.to(".light-planet", { opacity: 1 });
     multiPlanetGroup.forEach((planet) => {
       multiPlanet_TL.from(planet, { y: 50, opacity: 0 });
     });
@@ -14902,7 +14925,7 @@
   var ContentHome = () => {
     const customerThumbsEl = document.querySelector(".customer-thumbs");
     const customerCon = document.querySelector(".customer-con");
-    const customerVideos2 = document.querySelectorAll(".feature-video video");
+    const customerVideos = document.querySelectorAll(".feature-video video");
     customerSwiperThumbs.on("progress", () => {
       customerThumbsHeight = customerThumbsEl.clientHeight;
       customerConHeight = customerCon.clientHeight;
@@ -14910,7 +14933,7 @@
       setCssVariable(customerConHeight, "customerConHeight", customerCon);
     });
     customerSwiper.on("slideChange", () => {
-      customerVideos2.forEach((vid) => {
+      customerVideos.forEach((vid) => {
         vid.pause();
       });
     });

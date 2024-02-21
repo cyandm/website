@@ -112,13 +112,34 @@
 .light-planet {
 	width: 450px;
 	height: 450px;
-	background: conic-gradient(#fbcf34, #f22424, #2cccd7, #0574dc, #05b5dc);
 	position: absolute;
 	border-radius: 50%;
-	z-index: -5;
-	filter: blur(150px);
+	z-index: -4;
+	opacity: 0;
+	isolation: isolate;
 
-	display: none;
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		width: inherit;
+		height: inherit;
+		border-radius: inherit;
+		background: conic-gradient(#fbcf34, #f22424, #2cccd7, #0574dc, #05b5dc);
+		filter: blur(150px);
+		z-index: -6;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		width: inherit;
+		height: inherit;
+		border-radius: inherit;
+		background-color: black;
+		z-index: -6;
+	}
 }
 
 .multi-planet {

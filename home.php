@@ -1,7 +1,2 @@
-<?php get_header(); ?>
-
-<main class="container">
-	This is Home
-</main>
-
-<?php get_footer(); ?>
+<?php
+get_template_part( './templates/archive/post', null, [ 'title' => 'همه مقالات' ] );

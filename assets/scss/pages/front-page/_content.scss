@@ -72,6 +72,12 @@ section.customer-con {
 	}
 }
 
+section.brands-con {
+	.h1 {
+		margin-block-end: 1rem;
+	}
+}
+
 section.services-con {
 	.services-wrapper {
 		display: grid;
@@ -148,6 +154,7 @@ section.services-con {
 				-webkit-margin-before: PxToRem(8);
 				margin-block-start: PxToRem(8);
 				opacity: 0.4;
+				display: block;
 
 				@include mq('md') {
 					display: none;

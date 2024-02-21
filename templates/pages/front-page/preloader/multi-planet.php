@@ -42,4 +42,8 @@ $planets =
 	<div class="scroll-down cursor-pointer">
 		اسکرول کنید
 	</div>
+
+	<div class="light-planet">
+
+	</div>
 </section>

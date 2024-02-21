@@ -14,6 +14,7 @@ if ( ! class_exists( 'cyn-theme-init' ) ) {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'cyn_allow_svg' ], 10, 4 );
 			add_filter( 'upload_mimes', [ $this, 'cyn_mime_types' ] );
 			add_filter( 'big_image_size_threshold', '__return_false' );
+			add_filter( 'get_the_archive_title_prefix', '__return_false' );
 
 		}
 

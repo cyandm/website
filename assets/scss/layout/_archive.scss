@@ -1,0 +1,12 @@
+.archive {
+	&-post {
+		margin-block-start: 4rem;
+
+		&-wrapper {
+			margin-block-start: 1rem;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 0.75rem;
+		}
+	}
+}
