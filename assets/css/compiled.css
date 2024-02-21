@@ -686,7 +686,6 @@ html:has(.pop-up.open) {
   .single-customer-card .feature-video {
     max-inline-size: 100%;
     inline-size: calc(100% - 2 * var(--margin-from-side));
-    max-block-size: 20rem;
   }
 }
 .single-customer-card .feature-img img,
@@ -697,6 +696,9 @@ html:has(.pop-up.open) {
 }
 .single-customer-card .feature-video {
   height: var(--customer-con-height);
+}
+.single-customer-card .feature-video video {
+  max-height: var(--customer-con-height);
 }
 .single-customer-card .content {
   display: flex;
@@ -3240,7 +3242,7 @@ h4,
 }
 
 .plyr {
-  height: 100%;
+  max-height: 100%;
 }
 .plyr__poster {
   background-size: cover !important;

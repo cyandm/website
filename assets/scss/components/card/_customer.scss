@@ -18,7 +18,7 @@
 		@include mq('md') {
 			max-inline-size: 100%;
 			inline-size: calc(100% - 2 * var(--margin-from-side));
-			max-block-size: 20rem;
+			//max-block-size: 20rem;
 		}
 
 		img {
@@ -30,6 +30,10 @@
 
 	.feature-video {
 		height: var(--customer-con-height);
+
+		video {
+			max-height: var(--customer-con-height);
+		}
 	}
 
 	.content {
