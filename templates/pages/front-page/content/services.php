@@ -56,10 +56,9 @@ $services_Q = new WP_Query( [
 			?>
 
 
-			<a href=<?= get_post_type_archive_link( 'service' ) ?>
-			   class="all-service">
+			<span class="all-service">
 				به کم قانع نشو...
-			</a>
+			</span>
 		</div>
 	</section>
 <?php endif; ?>
