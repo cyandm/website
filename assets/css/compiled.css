@@ -1588,6 +1588,16 @@ main > section:not(:first-child) {
   grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
 }
+@media screen and (max-width: 992px) {
+  .archive-post-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  .archive-post-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 
 .preloader {
   position: relative;
@@ -2269,6 +2279,11 @@ section.faq-con .faq-content > *:nth-child(1) {
   transform: translateY(0);
 }
 
+@media screen and (max-width: 768px) {
+  .marketing-slide-0 {
+    height: 100vh;
+  }
+}
 .marketing-slide-0 .container {
   height: 100%;
 }
@@ -2283,6 +2298,11 @@ section.faq-con .faq-content > *:nth-child(1) {
 }
 .marketing-slide-0-content .t1 {
   text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .marketing-slide-0-content .t1 {
+    font-size: 2rem;
+  }
 }
 .marketing-slide-0 .scroll-down {
   display: flex;
