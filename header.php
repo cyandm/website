@@ -18,7 +18,7 @@ $phone_num_1 = get_field( 'phone_num_1', $page_on_front );
 
 <!DOCTYPE html>
 <html <?php language_attributes() ?>
-	  data-theme-version="1.0.12">
+	  data-theme-version="1.0.12.1">
 
 	<head>
 		<meta charset="UTF-8">

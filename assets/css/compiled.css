@@ -2529,6 +2529,11 @@ main.seo .seo-slide-0-img > * {
   }
 }
 
+main.page-content a {
+  color: linear-gradient(103.44deg, #15eded 12.12%, #04b2e9 130.32%);
+  text-decoration: underline;
+}
+
 @font-face {
   font-family: "cyan-icon";
   src: url("../fonts/icons/cyan-icon.eot");
