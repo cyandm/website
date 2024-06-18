@@ -2452,6 +2452,69 @@
     }
   });
 
+  // assets/js/modules/comments.js
+  var require_comments = __commonJS({
+    "assets/js/modules/comments.js"() {
+      var commentOpener = document.getElementById("commentOpener");
+      var landPage = document.getElementById("land_page");
+      var commentList = document.getElementById("commentList");
+      var commentCloser = document.getElementById("commentCloser");
+      var footer = document.getElementsByName("footer");
+      var addNewComment = document.getElementById("addNewComment");
+      if (!commentOpener)
+        return;
+      if (!commentList)
+        return;
+      if (!commentCloser)
+        return;
+      if (!footer)
+        return;
+      commentOpener.addEventListener("click", (event2) => {
+        landPage.classList.add("blur-lg");
+        commentList.classList.remove("hidden");
+        console.log("ok shode");
+      });
+      commentCloser.addEventListener("click", (event2) => {
+        landPage.classList.remove("blur-lg");
+        commentList.classList.add("hidden");
+        console.log("ok shode");
+      });
+      addNewComment.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget, e.submitter);
+        jQuery(($) => {
+          $.ajax({
+            type: "POST",
+            url: restDetails.url + "cynApi/v1/comments",
+            data: formData,
+            dataType: "json",
+            cache: false,
+            processData: false,
+            contentType: false,
+            beforeSend: (xhr) => {
+              xhr.setRequestHeader("X-WP-Nonce", restDetails.nonce);
+            },
+            success: (res) => {
+              console.log(res);
+            }
+            // error: (error) => {
+            //     // console.log(error); 
+            //     // if (res?.commentStatus === 0) {
+            //         // setWarningComment(commentsMessage);
+            //         // return;
+            //     // }
+            //     // if (res?.commentStatus === 1) {
+            //         setSuccessComment(commentsMessage);
+            //         return;
+            //     // }
+            //     // setErrorComment(commentsMessage);
+            // }
+          });
+        });
+      });
+    }
+  });
+
   // assets/js/utils/custom-events.js
   var cynActivate = new CustomEvent("cynActivate", { bubbles: true });
 
@@ -7923,6 +7986,9 @@
     });
   };
   plyrJs();
+
+  // assets/js/modules/__index.js
+  var import_comments = __toESM(require_comments());
 
   // node_modules/gsap/gsap-core.js
   function _assertThisInitialized(self2) {

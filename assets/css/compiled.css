@@ -657,6 +657,16 @@ html:has(.pop-up.open) {
   transition-delay: 0.05s;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 0s 600000s, color 0s 600000s !important;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
 .single-customer-card {
   display: flex !important;
   display: flex;
@@ -2527,6 +2537,13 @@ main.seo .seo-slide-0-img > * {
     height: unset;
     margin-block: 2rem;
   }
+}
+
+.thumbnail img {
+  border-radius: 32px;
+  height: 50vh;
+  object-fit: cover;
+  max-width: 80vw;
 }
 
 @font-face {
