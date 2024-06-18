@@ -57,10 +57,7 @@ footer {
 		}
 	}
 
-	.footer-phones {
-		display: grid;
-		color: #3de2f2;
-	}
+
 
 	.footer-image {
 		position: absolute;
@@ -73,9 +70,14 @@ footer {
 		}
 	}
 
+}
+	.footer-phones {
+		display: grid;
+		color: #3de2f2;
+	}
+
 	.social-media {
 		margin-block-start: 0.75rem;
 		display: flex;
 		gap: 0.5rem;
 	}
-}

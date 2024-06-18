@@ -1281,10 +1281,6 @@ footer .footer-address-map iframe {
   max-width: 100%;
   border-radius: 1rem;
 }
-footer .footer-phones {
-  display: grid;
-  color: #3de2f2;
-}
 footer .footer-image {
   position: absolute;
   left: 0;
@@ -1294,7 +1290,13 @@ footer .footer-image img {
   object-fit: cover;
   transform: translate(-25%, 50%);
 }
-footer .social-media {
+
+.footer-phones {
+  display: grid;
+  color: #3de2f2;
+}
+
+.social-media {
   margin-block-start: 0.75rem;
   display: flex;
   gap: 0.5rem;
@@ -2546,6 +2548,136 @@ main.seo .seo-slide-0-img > * {
   max-width: 80vw;
 }
 
+.contact {
+  margin-top: 46px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 45px;
+}
+.contact .contant-img {
+  width: 40%;
+  position: relative;
+}
+@media screen and (max-width: 992px) {
+  .contact .contant-img {
+    width: 75%;
+  }
+}
+.contact .contact-info {
+  border: 1px solid rgba(251, 251, 251, 0.16);
+  padding: 24px;
+  border-radius: 32px;
+  background-color: rgba(255, 255, 255, 0.02);
+  width: 60%;
+}
+.contact .contact-info .info {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.contact .contact-info .info .row {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.contact .contact-info .info .address-map iframe {
+  width: 258px;
+  height: 70px;
+  border-radius: 14px;
+}
+@media screen and (max-width: 992px) {
+  .contact .contact-info .info {
+    width: 85%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .contact .contact-info {
+    width: 85%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .contact {
+    flex-direction: column;
+    margin: 0px;
+  }
+}
+
+.bubble {
+  margin: auto;
+  border-radius: 50%;
+  position: absolute;
+  right: 5px;
+}
+.bubble.-red {
+  width: 50px;
+  height: 50px;
+  animation: RD 15s infinite linear;
+  background-color: #c97c93;
+  top: 50vh;
+}
+.bubble.-blue {
+  width: 50px;
+  height: 50px;
+  background-color: #6ad5ee;
+  animation: BLU 15s infinite linear;
+  top: 30vh;
+}
+.bubble.-darkblue {
+  width: 85px;
+  height: 85px;
+  top: 60vh;
+  animation: DBLU 15s infinite linear;
+  background-color: #2b93d1;
+}
+.bubble.-orange {
+  width: 45px;
+  height: 45px;
+  animation: GFG 15s infinite linear;
+  background-color: #feac76;
+}
+
+@keyframes RD {
+  0% {
+    transform: rotate(20deg) translateY(300px) rotate(20deg);
+  }
+  100% {
+    transform: rotate(300deg) translateY(220px) rotate(-360deg);
+  }
+}
+@keyframes GFG {
+  0% {
+    transform: rotate(20deg) translateY(200px) rotate(20deg);
+  }
+  100% {
+    transform: rotate(300deg) translateY(120px) rotate(-360deg);
+  }
+}
+@keyframes BLU {
+  0% {
+    transform: rotate(40deg) translateY(250px) rotate(180deg);
+  }
+  100% {
+    transform: rotate(100deg) translateY(250px) rotate(0deg);
+  }
+}
+@keyframes DBLU {
+  0% {
+    transform: rotate(180deg) translateY(340px) rotate(-180deg);
+  }
+  100% {
+    transform: rotate(100deg) translateY(220px) rotate(0deg);
+  }
+}
 @font-face {
   font-family: "cyan-icon";
   src: url("../fonts/icons/cyan-icon.eot");
