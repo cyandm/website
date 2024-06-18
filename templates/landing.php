@@ -12,10 +12,7 @@ get_template_part('assets/icons/hotdesk');
             <?php the_content(); ?>
         </div>
     </main>
-
     <?php get_template_part('templates/single/comment') ?>
-
-
 </div>
 
 <?php get_template_part('templates/single/sideBarComment') ?>

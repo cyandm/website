@@ -36,3 +36,8 @@ function convert_date_for_human($id, $post_type = 'post')
 	)
 		. ' ' . __('پیش', 'cyn-dm');
 }
+function cyn_get_card($name, $args = [])
+{
+    get_template_part('/partials/cards/' . $name, null, $args);
+}
+

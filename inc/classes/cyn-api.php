@@ -26,21 +26,30 @@ if (!class_exists('cyn_api')) {
 
 
 
-        public function cyn_handle_post_comments()
+        public function cyn_handle_post_comments(WP_REST_Request $req)
         {
-            cyn_verify_nonce($_SERVER['HTTP_X_WP_NONCE']);
-            $comment = new WP_Query($_POST);
-            $response = $this->render_by_query($comment,"comment",[]);
-            // wp_send_json_success(
-            //     [
-            //         'html' => $response,
-            //     ],
-            //     200
-            // );
 
-            $res = new WP_REST_Response(['response' => 'true']);
+            //  cyn_verify_nonce($_SERVER['HTTP_X_WP_NONCE']);
 
-            return $res;
+            $author = $req->get_param('author-name');
+            $content = $req->get_param('content');
+            $parent_Id = $req->get_param('parent-id');
+            $post_Id = $req->get_param('post-id');
+
+
+
+            $comment_id = wp_insert_comment([
+                'comment_author' => $author,
+                'comment_content' => $content,
+                'comment_post_ID' => $post_Id,
+                'comment_parent' => $parent_Id ?? 0,
+            ]);
+
+            if (false === $comment_id) {
+                return new WP_REST_Response(['status' => false, 'message' => 'something went wrong!'], 500);
+            } else {
+                return new WP_REST_Response(['status' => true, 'message' => 'comment created', 'comment-id' => $comment_id], 20);
+            }
         }
 
 
@@ -48,7 +57,7 @@ if (!class_exists('cyn_api')) {
         {
             ob_start();
             if ($query->have_posts()) {
-                while ($query->have_posts()):
+                while ($query->have_posts()) :
                     $query->the_post();
                     cyn_get_card($post_type, $args);
                 endwhile;

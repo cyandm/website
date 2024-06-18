@@ -1552,6 +1552,10 @@ video {
   margin-bottom: 2rem;
 }
 
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .mb-8 {
   margin-bottom: 2rem;
 }
@@ -2720,6 +2724,16 @@ video {
 .bg-\[rgb\(255\2c 0\2c 0\)\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
+}
+
+.bg-alert-error {
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 180 99 / var(--tw-bg-opacity));
+}
+
+.bg-alert-success {
+  --tw-bg-opacity: 1;
+  background-color: rgb(104 139 98 / var(--tw-bg-opacity));
 }
 
 .bg-black-1 {

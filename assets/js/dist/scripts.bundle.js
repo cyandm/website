@@ -2459,15 +2459,12 @@
       var landPage = document.getElementById("land_page");
       var commentList = document.getElementById("commentList");
       var commentCloser = document.getElementById("commentCloser");
-      var footer = document.getElementsByName("footer");
       var addNewComment = document.getElementById("addNewComment");
       if (!commentOpener)
         return;
       if (!commentList)
         return;
       if (!commentCloser)
-        return;
-      if (!footer)
         return;
       commentOpener.addEventListener("click", (event2) => {
         landPage.classList.add("blur-lg");
@@ -2477,7 +2474,6 @@
       commentCloser.addEventListener("click", (event2) => {
         landPage.classList.remove("blur-lg");
         commentList.classList.add("hidden");
-        console.log("ok shode");
       });
       addNewComment.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -2495,20 +2491,8 @@
               xhr.setRequestHeader("X-WP-Nonce", restDetails.nonce);
             },
             success: (res) => {
-              console.log(res);
+              console.log(res.status);
             }
-            // error: (error) => {
-            //     // console.log(error); 
-            //     // if (res?.commentStatus === 0) {
-            //         // setWarningComment(commentsMessage);
-            //         // return;
-            //     // }
-            //     // if (res?.commentStatus === 1) {
-            //         setSuccessComment(commentsMessage);
-            //         return;
-            //     // }
-            //     // setErrorComment(commentsMessage);
-            // }
           });
         });
       });

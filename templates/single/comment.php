@@ -1,4 +1,3 @@
-
 <?php
     $id = isset($args['id']) ? $args['id'] : 0;
 
@@ -44,3 +43,4 @@
         </div>
     </div>
 </section>
+<?php wp_reset_postdata()?>

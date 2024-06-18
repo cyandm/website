@@ -18,9 +18,9 @@ module.exports = {
         '3': '#292626',
       },
       'alert': {
-        'success': 'rgba(#4caf50, 0.3)',
-        'warning': ' rgba(#ff9800, 0.3)',
-        'error': 'rgba(#ef5350, 0.3)',
+        'success': '#688b62',
+        'warning': '#ff6347',
+        'error': '#f2b463',
       },
     },
     gradient: {
