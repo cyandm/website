@@ -14,7 +14,7 @@ module.exports = {
       },
       'gray': {
         '1': 'hsla(0, 0%, 46%, 1)',
-        '2': '#767676',
+        '2': '#A6B2B9',
         '3': '#292626',
       },
       'alert': {
@@ -22,11 +22,11 @@ module.exports = {
         'warning': '#ff6347',
         'error': '#f2b463',
       },
-    },
-    gradient: {
-      blue_start: "#1dbacf",
-      blue_end: "#0d8bff",
-      blue_1: "",
+      'blue': {
+        '1': '#1dbacf',
+        '2': '#1dbacf',
+      },
+   
     },
     extend: {},
   },

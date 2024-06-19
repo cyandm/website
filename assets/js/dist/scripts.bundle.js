@@ -2460,6 +2460,8 @@
       var commentList = document.getElementById("commentList");
       var commentCloser = document.getElementById("commentCloser");
       var addNewComment = document.getElementById("addNewComment");
+      var commentsMessage = document.getElementById("commentsMessage");
+      var overlay = document.getElementById("overlay");
       if (!commentOpener)
         return;
       if (!commentList)
@@ -2467,12 +2469,13 @@
       if (!commentCloser)
         return;
       commentOpener.addEventListener("click", (event2) => {
-        landPage.classList.add("blur-lg");
         commentList.classList.remove("hidden");
-        console.log("ok shode");
+        overlay.classList.remove("hidden");
+        overlay.classList.add("block");
       });
       commentCloser.addEventListener("click", (event2) => {
-        landPage.classList.remove("blur-lg");
+        overlay.classList.add("hidden");
+        overlay.classList.remove("block");
         commentList.classList.add("hidden");
       });
       addNewComment.addEventListener("submit", (e) => {
@@ -2491,9 +2494,76 @@
               xhr.setRequestHeader("X-WP-Nonce", restDetails.nonce);
             },
             success: (res) => {
-              console.log(res.status);
+              if (res.status == true) {
+                console.log(res.status);
+                setSuccessComment(commentsMessage);
+                return;
+              }
             }
           });
+        });
+      });
+      var setSuccessComment = (commentsMessage2) => {
+        const span = document.createElement("span");
+        span.classList.add("comment_alert");
+        span.classList.add("bg-alert-success");
+        span.classList.add("p-4");
+        span.classList.add("rounded-3xl");
+        span.classList.add("mb-4");
+        span.classList.add("block");
+        span.innerText = "\u06A9\u0627\u0645\u0646\u062A \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06CC\u062A \u062B\u0628\u062A \u0634\u062F \u0648 \u0645\u0646\u062A\u0638\u0631 \u062A\u0627\u06CC\u06CC\u062F \u0627\u062F\u0645\u06CC\u0646 \u0627\u0633\u062A.";
+        commentsMessage2.appendChild(span);
+      };
+      var fadeAlert = () => {
+        document.querySelector(".comment_alert").classList.remove("block");
+        document.querySelector(".comment_alert").classList.add("hidden");
+      };
+      setTimeout(fadeAlert, 5e3);
+      window.onload = (event2) => {
+        const userId = Math.round(Math.random() * 100);
+        document.cookie = "usrId=" + JSON.stringify(userId);
+      };
+      var commentCounter = document.querySelector(".comment_counter");
+      var commentLikeIcon = document.querySelectorAll(".comment_like");
+      commentLikeIcon == null ? void 0 : commentLikeIcon.forEach((item) => {
+        var isUserLiked = true;
+        item.addEventListener("click", (e) => {
+          let comment_id = item.getAttribute("data-comment-id");
+          if (isUserLiked) {
+            item.style.color = "red";
+            jQuery(($) => {
+              $.ajax({
+                type: "GET",
+                url: restDetails.url + "cynApi/v1/like",
+                dataType: "json",
+                cache: false,
+                processData: false,
+                contentType: false,
+                data: { comment_id },
+                success: (res) => {
+                  e.target.previousElementSibling.innerHTML = +e.target.previousElementSibling.innerHTML + 1;
+                }
+              });
+            });
+            isUserLiked = false;
+          } else {
+            item.style.color = "white";
+            jQuery(($) => {
+              $.ajax({
+                type: "GET",
+                url: restDetails.url + "cynApi/v1/like",
+                dataType: "json",
+                cache: false,
+                processData: false,
+                contentType: false,
+                data: comment_id,
+                success: (res) => {
+                  e.target.previousElementSibling.innerHTML = +e.target.previousElementSibling.innerHTML - 1;
+                }
+              });
+            });
+            isUserLiked = true;
+          }
         });
       });
     }

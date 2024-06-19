@@ -14,7 +14,20 @@ if (!class_exists('cyn_api')) {
                     '/comments',
                     [
                         'methods' => 'POST',
-                        'callback' => [$this, 'cyn_handle_post_comments'],
+                        'callback' => [$this, 'handle_post_comments'],
+                        'permission_callback' => '__return_true'
+
+                    ]
+                );
+            });
+
+            add_action('rest_api_init', function () {
+                register_rest_route(
+                    'cynApi/v1',
+                    '/like',
+                    [
+                        'methods' => 'GET',
+                        'callback' => [$this, 'handle_like'],
                         'permission_callback' => '__return_true'
 
                     ]
@@ -24,13 +37,16 @@ if (!class_exists('cyn_api')) {
 
 
 
-
-
-        public function cyn_handle_post_comments(WP_REST_Request $req)
+        public function handle_like(WP_REST_Request $req)
         {
+            var_dump($req);
+            $post_Id = $req->get_param('post-id');
+            add_comment_meta(5, 'users who liked this comment', "", $unique = true);
+            return new WP_REST_Response(['status' => true, 'message' => 'liked', 'comment-id' => ""], 200);
+        }
 
-            //  cyn_verify_nonce($_SERVER['HTTP_X_WP_NONCE']);
-
+        public function handle_post_comments(WP_REST_Request $req)
+        {
             $author = $req->get_param('author-name');
             $content = $req->get_param('content');
             $parent_Id = $req->get_param('parent-id');
@@ -48,24 +64,8 @@ if (!class_exists('cyn_api')) {
             if (false === $comment_id) {
                 return new WP_REST_Response(['status' => false, 'message' => 'something went wrong!'], 500);
             } else {
-                return new WP_REST_Response(['status' => true, 'message' => 'comment created', 'comment-id' => $comment_id], 20);
+                return new WP_REST_Response(['status' => true, 'message' => 'comment created', 'comment-id' => $comment_id], 200);
             }
-        }
-
-
-        public function render_by_query($query, $post_type, array $args = [])
-        {
-            ob_start();
-            if ($query->have_posts()) {
-                while ($query->have_posts()) :
-                    $query->the_post();
-                    cyn_get_card($post_type, $args);
-                endwhile;
-            } else {
-                get_template_part('/templates/archive/not-found');
-            }
-            wp_reset_postdata();
-            return ob_get_clean();
         }
     }
 }

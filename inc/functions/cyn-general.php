@@ -41,3 +41,13 @@ function cyn_get_card($name, $args = [])
     get_template_part('/partials/cards/' . $name, null, $args);
 }
 
+ function is_user_likes_this_post( $id, $postsUserLiked ) {
+
+	// if ( ! in_array( $id, $postsUserLiked ) ) {
+	// 	return false;
+	// }
+
+	return $postsUserLiked[ $id ];
+}
+
+
