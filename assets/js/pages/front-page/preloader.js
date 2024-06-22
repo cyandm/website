@@ -22,17 +22,6 @@ const PreloaderHome = () => {
 		'.multi-planet .planet-con'
 	);
 
-	if (
-		!clockEl ||
-		!preClockScrollDown ||
-		!clockSection ||
-		!clockInnerElements ||
-		!letsGo ||
-		!bottomFire ||
-		!multiPlanetSection ||
-		!multiPlanetGroup
-	)
-		return;
 
 	//TimeLines Config
 	const clockSpinTL = gsap.timeline();

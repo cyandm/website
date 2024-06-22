@@ -1,39 +1,102 @@
-@use '../utils/_index' as *;
+@use "../utils/_index" as *;
 
 .visible {
-	visibility: visible !important;
+  visibility: visible !important;
 }
 
 .pointer-all {
-	pointer-events: all !important;
+  pointer-events: all !important;
 }
 
 .cursor-pointer {
-	cursor: pointer !important;
+  cursor: pointer !important;
 }
 
 .hidden {
-	display: none !important;
+  display: none !important;
 }
 
 .fade-off {
-	opacity: 0;
+  opacity: 0;
 }
 
 .mask-wrapper {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 .only-mobile {
-	display: none;
+  display: none;
 
-	@include mq('md') {
-		display: block !important;
-	}
+  @include mq("md") {
+    display: block !important;
+  }
 }
 
 .only-desktop {
-	@include mq('md') {
-		display: none !important;
+  @include mq("md") {
+    display: none !important;
+  }
+}
+.bubble{
+
+ div {
+  transition: all 0.9s ease-in-out;
+  position: absolute;
+  padding: 40px;
+  span {
+    display: block;
+    box-shadow: inset -3px 5px 9px 0 rgba(255, 255, 255, 0.25);
+    width: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+	  transition: all 0.9s ease-in-out;
+
+    &.orange {
+      background: linear-gradient(73deg, #872d08, #feac76);
+    }
+    &.orange-2 {
+      background: linear-gradient(73deg, #872d08, #feac76);
+    }
+    &.red {
+      background: linear-gradient(#c97c93, #741e42);
+      width: 84px;
+	     @include mq("md") {
+      width: 49px !important;
+    }
+    }
+    &.blue {
+      background: linear-gradient(73deg, #2b93d1, #0b1964);
+      width: 70px;
+ 
+    }
+    &.grey {
+      background: linear-gradient(73deg, #d7f0ff, #493563);
+      width: 38px;
+    }
+    &.grey-2 {
+      background: linear-gradient(73deg, #d7f0ff, #493563);
+      width: 63px;
+	  
+    }
+    &.green {
+      background: linear-gradient(73deg, #6ad5ee, #033a46);
+      width: 56px;
+ 
+    }
+    &.pink {
+      background: linear-gradient(73deg, #fb78f8, #71126e);
+    }
+    @include mq("md") {
+      width: 30px !important;
+    }
+  }
+  &:hover span {
+    transform: translate(10px, 10px);
+  }
+}
+    @include mq("md") {
+			position: relative;
+	    width: 100%;
+		padding: 50px;
 	}
 }

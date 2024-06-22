@@ -16,11 +16,40 @@ $address_html = get_field('address_map', $front_page_ID);
 
 <main class="contact container">
    <div class="contant-img">
-         <div class="bubble -red"></div>
-   <div class="bubble -blue"></div>
-   <div class="bubble -darkblue"></div>
+  <div class="bubble">
+        <div class=" bubble-orange">
+            <span class="orange"></span>
+        </div>
+        <div class="  bubble-red">
+            <span class="red"></span>
+        </div>
+        <div class="  bubble-red-2">
+            <span class="red"></span>
+        </div>
+        <div class=" bubble-blue">
+            <span class="blue"></span>
+        </div>
+        <div class=" bubble-green">
+            <span class="green"></span>
+        </div>
+        <div class=" bubble-pink">
+            <span class="pink"></span>
+        </div>
+        <div class=" bubble-grey">
+            <span class="grey"></span>
+        </div>
+        <div class="bubble-grey-2">
+            <span class="grey-2"></span>
+        </div>
+        <div class=" bubble-orange-2">
+            <span class="orange-2"></span>
+        </div>
+        <div class=" bubble-blue-2">
+            <span class="blue"></span>
+        </div>
+    </div>
+    			<?= wp_get_attachment_image(get_post_thumbnail_id(), 'full') ?>
 
-   <img  src="<?= $contant_img ?>">
       <div class="bubble -orange"></div>
 
    </div>
@@ -30,6 +59,7 @@ $address_html = get_field('address_map', $front_page_ID);
          <div class="social-media">
             <?php foreach ($social_media_group as $social_media): ?>
                <a href="<?= $social_media['link'] ?>">
+                  
                   <?= wp_get_attachment_image($social_media['image']) ?>
                </a>
             <?php endforeach ?>

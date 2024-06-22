@@ -15,6 +15,7 @@
 	},
 	"license": "ISC",
 	"dependencies": {
+		"esbuild": "^0.21.5",
 		"gsap": "^3.12.2",
 		"plyr": "^3.7.8",
 		"swiper": "^10.3.1",
