@@ -35,8 +35,15 @@
       }
     return target;
   };
+  var __esm = (fn, res) => function __init() {
+    return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
+  };
   var __commonJS = (cb, mod) => function __require() {
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+  };
+  var __export = (target, all) => {
+    for (var name in all)
+      __defProp(target, name, { get: all[name], enumerable: true });
   };
   var __copyProps = (to, from, except, desc) => {
     if (from && typeof from === "object" || typeof from === "function") {
@@ -54,6 +61,176 @@
     isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
     mod
   ));
+  var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+
+  // assets/js/utils/custom-events.js
+  var cynActivate;
+  var init_custom_events = __esm({
+    "assets/js/utils/custom-events.js"() {
+      cynActivate = new CustomEvent("cynActivate", { bubbles: true });
+    }
+  });
+
+  // assets/js/utils/functions.js
+  var functions_exports = {};
+  __export(functions_exports, {
+    activateAll: () => activateAll,
+    activateEl: () => activateEl,
+    activateFirstEl: () => activateFirstEl,
+    addListener: () => addListener,
+    changeButtonStatus: () => changeButtonStatus,
+    cynDestroySwiper: () => cynDestroySwiper,
+    cynRemoveSwiperClass: () => cynRemoveSwiperClass,
+    deActivateAll: () => deActivateAll,
+    deActivateEl: () => deActivateEl,
+    definePopUp: () => definePopUp,
+    getCookie: () => getCookie,
+    getUserIp: () => getUserIp,
+    setCookie: () => setCookie,
+    setUserIP: () => setUserIP,
+    showMassage: () => showMassage,
+    toggleActivateEl: () => toggleActivateEl
+  });
+  var deActivateEl, activateEl, toggleActivateEl, deActivateAll, activateAll, activateFirstEl, addListener, definePopUp, setUserIP, getUserIp, setCookie, getCookie, showMassage, changeButtonStatus, cynRemoveSwiperClass, cynDestroySwiper;
+  var init_functions = __esm({
+    "assets/js/utils/functions.js"() {
+      init_custom_events();
+      deActivateEl = (nodeEl) => {
+        nodeEl.setAttribute("data-active", "false");
+        nodeEl.dispatchEvent(cynActivate);
+      };
+      activateEl = (nodeEl) => {
+        nodeEl.setAttribute("data-active", "true");
+        nodeEl.dispatchEvent(cynActivate);
+      };
+      toggleActivateEl = (nodeEl) => {
+        const current = nodeEl.getAttribute("data-active");
+        if (current === "false" || !current) {
+          activateEl(nodeEl);
+          return;
+        }
+        deActivateEl(nodeEl);
+      };
+      deActivateAll = (parentNode) => {
+        parentNode.forEach((node) => {
+          deActivateEl(node);
+        });
+      };
+      activateAll = (parentNode) => {
+        parentNode.forEach((node) => {
+          activateEl(node);
+        });
+      };
+      activateFirstEl = (parentNode) => {
+        activateEl(parentNode[0]);
+      };
+      addListener = (elementNode, eventType, func) => {
+        if (elementNode.getAttribute("hasListener"))
+          return;
+        elementNode.setAttribute("hasListener", true);
+        elementNode.addEventListener(eventType, func);
+      };
+      definePopUp = (nodeEl) => {
+        nodeEl.addEventListener("cynActivate", (e) => {
+          if (e.target != nodeEl)
+            return;
+          document.body.setAttribute("data-popup-open", e.target.dataset.active);
+        });
+        nodeEl.addEventListener("click", (e) => {
+          if (e.target != nodeEl)
+            return;
+          deActivateEl(nodeEl);
+        });
+      };
+      setUserIP = () => {
+        jQuery(($) => {
+          $.getJSON("https://api.ipify.org?format=json", ({ ip }) => {
+            window.localStorage.setItem("user-ip", ip);
+          });
+        });
+      };
+      getUserIp = () => window.localStorage.getItem("user-ip");
+      setCookie = (cookieName, cookieValue, expireDays) => {
+        const d = /* @__PURE__ */ new Date();
+        d.setTime(d.getTime() + expireDays * 24 * 60 * 60 * 1e3);
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cookieName + "=" + JSON.stringify(cookieValue) + ";" + expires + ";path=/";
+      };
+      getCookie = (cookieName) => {
+        let name = cookieName + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(";");
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == " ") {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return JSON.parse(c.substring(name.length, c.length));
+          }
+        }
+        return JSON.parse("{}");
+      };
+      showMassage = (status, parentEl, innerText = null) => {
+        const span = document.createElement("span");
+        span.classList.add("message");
+        span.classList.add(status);
+        if (status === "success") {
+          span.innerText = innerText != null ? innerText : "\u0639\u0645\u0644\u06CC\u0627\u062A \u0628\u0627 \u0645\u0648\u0641\u0642\u06CC\u062A \u0627\u0646\u062C\u0627\u0645 \u0634\u062F";
+          return;
+        }
+        if (status === "warning") {
+          span.innerText = innerText != null ? innerText : "\u0639\u0645\u0644\u06CC\u0627\u062A \u062F\u0631 \u0627\u0646\u062A\u0638\u0627\u0631 \u062A\u0627\u06CC\u06CC\u062F \u0627\u062F\u0645\u06CC\u0646 \u0627\u0633\u062A";
+          return;
+        }
+        if (status === "error") {
+          span.innerText = innerText != null ? innerText : "\u0639\u0645\u0644\u06CC\u0627\u062A \u0628\u0627 \u062E\u0637\u0627 \u0645\u0648\u0627\u062C\u0647 \u0634\u062F";
+          return;
+        }
+        parentEl.appendChild(span);
+      };
+      changeButtonStatus = (status, btn) => {
+        if (status === "pending") {
+          btn.classList.add("pending");
+          btn.innerText = translateStrings.Btn.pending;
+          return;
+        }
+        if (status === "success") {
+          btn.classList.remove("pending");
+          btn.classList.add("success");
+          btn.innerText = translateStrings.Btn.success;
+          return;
+        }
+        if (status === "error") {
+          btn.classList.remove("pending");
+          btn.classList.add("error");
+          btn.innerText = translateStrings.Btn.error;
+          return;
+        }
+      };
+      cynRemoveSwiperClass = (swiperEl, selector3) => {
+        const swiperWrapper = swiperEl.querySelector(".swiper-wrapper");
+        const swiperSlides = document.querySelectorAll(
+          "".concat(selector3, " > .swiper-wrapper > .swiper-slide")
+        );
+        if (!swiperWrapper || !swiperSlides)
+          return;
+        swiperEl.classList.remove("swiper");
+        swiperEl.classList.remove("swiper-backface-hidden");
+        swiperWrapper.classList.remove("swiper-wrapper");
+        swiperSlides.forEach((el) => {
+          el.classList.remove("swiper-slide");
+        });
+      };
+      cynDestroySwiper = (swiper, selector3) => {
+        const swiperEl = document.querySelector(selector3);
+        if (!swiperEl)
+          return;
+        swiper.destroy();
+        cynRemoveSwiperClass(swiperEl, selector3);
+      };
+    }
+  });
 
   // node_modules/plyr/dist/plyr.min.js
   var require_plyr_min = __commonJS({
@@ -2455,6 +2632,7 @@
   // assets/js/modules/comments.js
   var require_comments = __commonJS({
     "assets/js/modules/comments.js"() {
+      var { getCookie: getCookie3, setCookie: setCookie2 } = (init_functions(), __toCommonJS(functions_exports));
       var commentOpener = document.getElementById("commentOpener");
       var landPage = document.getElementById("land_page");
       var commentList = document.getElementById("commentList");
@@ -2515,113 +2693,56 @@
         commentsMessage2.appendChild(span);
       };
       var fadeAlert = () => {
-        document.querySelector(".comment_alert").classList.remove("block");
-        document.querySelector(".comment_alert").classList.add("hidden");
+        var _a, _b;
+        (_a = document.querySelector(".comment_alert")) == null ? void 0 : _a.classList.remove("block");
+        (_b = document.querySelector(".comment_alert")) == null ? void 0 : _b.classList.add("hidden");
       };
       setTimeout(fadeAlert, 5e3);
-      window.onload = (event2) => {
-        const userId = Math.round(Math.random() * 100);
-        document.cookie = "usrId=" + JSON.stringify(userId);
-      };
+      function checkUserExists() {
+        let userUID = getCookie3("userId");
+        if (userUID !== "")
+          return;
+        const user_id = Date.now().toString(36) + Math.random().toString(36);
+        setCookie2("userId", user_id);
+      }
+      window.addEventListener("load", checkUserExists);
       var commentCounter = document.querySelector(".comment_counter");
       var commentLikeIcon = document.querySelectorAll(".comment_like");
       commentLikeIcon == null ? void 0 : commentLikeIcon.forEach((item) => {
-        var isUserLiked = true;
         item.addEventListener("click", (e) => {
-          let comment_id = item.getAttribute("data-comment-id");
-          if (isUserLiked) {
-            item.style.color = "red";
-            jQuery(($) => {
-              $.ajax({
-                type: "GET",
-                url: restDetails.url + "cynApi/v1/like",
-                dataType: "json",
-                cache: false,
-                processData: false,
-                contentType: false,
-                data: { comment_id },
-                success: (res) => {
-                  e.target.previousElementSibling.innerHTML = +e.target.previousElementSibling.innerHTML + 1;
-                }
-              });
-            });
-            isUserLiked = false;
-          } else {
-            item.style.color = "white";
-            jQuery(($) => {
-              $.ajax({
-                type: "GET",
-                url: restDetails.url + "cynApi/v1/like",
-                dataType: "json",
-                cache: false,
-                processData: false,
-                contentType: false,
-                data: comment_id,
-                success: (res) => {
-                  e.target.previousElementSibling.innerHTML = +e.target.previousElementSibling.innerHTML - 1;
-                }
-              });
-            });
-            isUserLiked = true;
-          }
+          const commentId = item.getAttribute("data-comment-id");
+          handleLike(commentId, item);
         });
       });
+      var handleLike = (commentId, item) => {
+        jQuery(($) => {
+          $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: restDetails.url + "cynApi/v1/like",
+            data: {
+              "comment-id": commentId,
+              "user-id": getCookie3("userId")
+            },
+            success: (res) => {
+              console.log(res);
+              if (res.userLiked == true) {
+                item.style.color = "red";
+                item.previousElementSibling.innerHTML = +item.previousElementSibling.innerHTML + 1;
+              } else {
+                item.style.color = "white";
+                item.previousElementSibling.innerHTML = +item.previousElementSibling.innerHTML - 1;
+              }
+            }
+          });
+        });
+      };
     }
   });
 
-  // assets/js/utils/custom-events.js
-  var cynActivate = new CustomEvent("cynActivate", { bubbles: true });
-
-  // assets/js/utils/functions.js
-  var deActivateEl = (nodeEl) => {
-    nodeEl.setAttribute("data-active", "false");
-    nodeEl.dispatchEvent(cynActivate);
-  };
-  var activateEl = (nodeEl) => {
-    nodeEl.setAttribute("data-active", "true");
-    nodeEl.dispatchEvent(cynActivate);
-  };
-  var toggleActivateEl = (nodeEl) => {
-    const current = nodeEl.getAttribute("data-active");
-    if (current === "false" || !current) {
-      activateEl(nodeEl);
-      return;
-    }
-    deActivateEl(nodeEl);
-  };
-  var definePopUp = (nodeEl) => {
-    nodeEl.addEventListener("cynActivate", (e) => {
-      if (e.target != nodeEl)
-        return;
-      document.body.setAttribute("data-popup-open", e.target.dataset.active);
-    });
-    nodeEl.addEventListener("click", (e) => {
-      if (e.target != nodeEl)
-        return;
-      deActivateEl(nodeEl);
-    });
-  };
-  var cynRemoveSwiperClass = (swiperEl, selector3) => {
-    const swiperWrapper = swiperEl.querySelector(".swiper-wrapper");
-    const swiperSlides = document.querySelectorAll(
-      "".concat(selector3, " > .swiper-wrapper > .swiper-slide")
-    );
-    if (!swiperWrapper || !swiperSlides)
-      return;
-    swiperEl.classList.remove("swiper");
-    swiperEl.classList.remove("swiper-backface-hidden");
-    swiperWrapper.classList.remove("swiper-wrapper");
-    swiperSlides.forEach((el) => {
-      el.classList.remove("swiper-slide");
-    });
-  };
-  var cynDestroySwiper = (swiper, selector3) => {
-    const swiperEl = document.querySelector(selector3);
-    if (!swiperEl)
-      return;
-    swiper.destroy();
-    cynRemoveSwiperClass(swiperEl, selector3);
-  };
+  // assets/js/utils/__index.js
+  init_custom_events();
+  init_functions();
 
   // assets/js/modules/random.js
   var getRandomInt = (min, max) => {
@@ -2852,6 +2973,7 @@
   MainScroll();
 
   // assets/js/modules/mobile-menu.js
+  init_functions();
   var MobileMenu = () => {
     const mobileMenuToggle = document.querySelector("#mobileMenuToggle");
     const mobileMenu = document.querySelector("#mobileMenu");
@@ -7894,6 +8016,7 @@
   }
 
   // assets/js/modules/swiper.js
+  init_functions();
   var projectsSwiper = new Swiper(".projects-wrapper", {
     modules: [Autoplay],
     slidesPerView: 1.5,
@@ -8043,6 +8166,12 @@
 
   // assets/js/modules/__index.js
   var import_comments = __toESM(require_comments());
+
+  // assets/js/modules/faq.js
+  var separator = document.querySelector(".separator");
+  if (separator) {
+    separator.innerHTML = '<svg class="icon text-cyn-1 w-[24px]"><use href="#icon-Arrow-6"/></svg>';
+  }
 
   // node_modules/gsap/gsap-core.js
   function _assertThisInitialized(self2) {
@@ -15120,6 +15249,7 @@
   HomeProject();
 
   // assets/js/pages/services.js
+  init_functions();
   var footerService = (swiper) => {
     const footerCon = document.querySelector(".service-footer");
     if (!footerCon)

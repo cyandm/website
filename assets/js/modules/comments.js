@@ -1,3 +1,4 @@
+const { getCookie, setCookie } = require("../utils/functions");
 
 
 const commentOpener = document.getElementById('commentOpener');
@@ -73,8 +74,8 @@ const setSuccessComment = (commentsMessage) => {
 
 };
 const fadeAlert = () => {
-    document.querySelector('.comment_alert').classList.remove('block')
-    document.querySelector('.comment_alert').classList.add('hidden')
+    document.querySelector('.comment_alert')?.classList.remove('block')
+    document.querySelector('.comment_alert')?.classList.add('hidden')
 }
 setTimeout(fadeAlert, 5000);
 
@@ -86,11 +87,31 @@ setTimeout(fadeAlert, 5000);
 
 
 
+
+
+
+
+
+
+
+
+
 ///////////////////////////////////////////////////like comment
-window.onload = (event) => {
-    const userId = Math.round(Math.random() * 100)
-    document.cookie = 'usrId=' + JSON.stringify(userId);
-};
+
+function checkUserExists() {
+    let userUID = getCookie("userId");
+    if (userUID !== "") return
+
+
+    const user_id = Date.now().toString(36) + Math.random().toString(36);
+    setCookie("userId", user_id);
+
+}
+
+window.addEventListener('load', checkUserExists);
+// window.addEventListener('load', handleLike());
+
+
 
 
 const commentCounter = document.querySelector('.comment_counter')
@@ -98,52 +119,38 @@ const commentLikeIcon = document.querySelectorAll('.comment_like')
 
 
 commentLikeIcon?.forEach((item) => {
-    var isUserLiked = true
     item.addEventListener('click', (e) => {
-        let comment_id = item.getAttribute("data-comment-id");
-
-
-        if (isUserLiked) {
-            item.style.color = "red";
-
-            jQuery(($) => {
-
-                $.ajax({
-                    type: 'GET',
-                    url: restDetails.url + 'cynApi/v1/like',
-                    dataType: "json",
-                    cache: false,
-                    processData: false,
-                    contentType: false,
-                    data: {comment_id},
-
-                    success: (res) => {
-                        e.target.previousElementSibling.innerHTML = +(e.target.previousElementSibling.innerHTML) + 1
-
-                    },
-
-                });
-            });
-            isUserLiked = false;
-        } else {
-            item.style.color = "white";
-
-            jQuery(($) => {
-                $.ajax({
-                    type: 'GET',
-                    url: restDetails.url + 'cynApi/v1/like',
-                    dataType: "json",
-                    cache: false,
-                    processData: false,
-                    contentType: false,
-                    data: comment_id,
-
-                    success: (res) => { 
-                        e.target.previousElementSibling.innerHTML = +(e.target.previousElementSibling.innerHTML) - 1
-                    },
-                });
-            });
-            isUserLiked = true;
-        }
+        const commentId = item.getAttribute("data-comment-id");
+        handleLike(commentId, item);
     })
 })
+
+
+///////////////////ajax req 
+const handleLike = (commentId, item) => {
+
+    jQuery(($) => {
+
+        $.ajax({
+            type: 'POST',
+            dataType: "json",
+            url: restDetails.url + 'cynApi/v1/like',
+            data: {
+
+                'comment-id': commentId,
+                'user-id': getCookie('userId'),
+            },
+
+            success: (res) => {
+                console.log(res)
+                if (res.userLiked == true) {
+                    item.style.color = "red";
+                    item.previousElementSibling.innerHTML = +(item.previousElementSibling.innerHTML) + 1
+                } else {
+                    item.style.color = "white";
+                    item.previousElementSibling.innerHTML = +(item.previousElementSibling.innerHTML) - 1
+                }
+            }
+        });
+    });
+}

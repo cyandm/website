@@ -39,4 +39,12 @@
             <path d="M11 14.7897C15.594 14.7897 19.499 17.1527 21 20.4607V19.4537C21 13.4377 16.579 8.53069 11 8.16269V3.46069L3 11.4607L11 19.4607V14.7937" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
         </g>
     </symbol>
+    <symbol id="icon-Arrow-6" viewBox="0 0 24 25">
+        <title>Arrow 6</title>
+        <g class="nc-icon-wrapper">
+            <path d="M5 12.4606H19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+            <path d="M10 7.46063L5 12.4606" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+            <path d="M10 17.4606L5 12.4606" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+        </g>
+    </symbol>
 </svg>

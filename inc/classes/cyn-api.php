@@ -26,7 +26,7 @@ if (!class_exists('cyn_api')) {
                     'cynApi/v1',
                     '/like',
                     [
-                        'methods' => 'GET',
+                        'methods' => 'POST',
                         'callback' => [$this, 'handle_like'],
                         'permission_callback' => '__return_true'
 
@@ -39,10 +39,26 @@ if (!class_exists('cyn_api')) {
 
         public function handle_like(WP_REST_Request $req)
         {
-            var_dump($req);
-            $post_Id = $req->get_param('post-id');
-            add_comment_meta(5, 'users who liked this comment', "", $unique = true);
-            return new WP_REST_Response(['status' => true, 'message' => 'liked', 'comment-id' => ""], 200);
+
+            $comment_Id = $req->get_param('comment-id');
+            $user_id = $req->get_param('user-id');
+            $users_who_liked = get_comment_meta($comment_Id, 'users_who_liked', true);
+
+            if (!$users_who_liked) {
+                $users_who_liked = [];
+            }
+
+            if (in_array($user_id, $users_who_liked)) {
+                array_splice($users_who_liked, array_search($user_id, $users_who_liked), 1);
+                update_comment_meta($comment_Id, 'users_who_liked', $users_who_liked);
+
+                return new WP_REST_Response(['status' => true, 'userLiked' => false,  'message' => 'disliked'], 200);
+            } else {
+                array_push($users_who_liked, $user_id);
+                update_comment_meta($comment_Id, 'users_who_liked', $users_who_liked);
+
+                return new WP_REST_Response(['status' => true, 'userLiked' => true,  'message' => 'liked',], 200);
+            }
         }
 
         public function handle_post_comments(WP_REST_Request $req)

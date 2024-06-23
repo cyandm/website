@@ -7,8 +7,8 @@ $like_count = get_comment_meta($id, 'like_count', true);
 
 
 
-$postsUserLiked = isset($_COOKIE['postsUserLiked']) ? $_COOKIE['postsUserLiked'] : '{}';
-$isUserLiked = is_user_likes_this_post($id, $postsUserLiked) ? 'true' : 'false';
+// $postsUserLiked = isset($_COOKIE['postsUserLiked']) ? $_COOKIE['postsUserLiked'] : '{}';
+// $isUserLiked = is_user_likes_this_post($id, $postsUserLiked) ? 'true' : 'false';
 
 
 $comments_query = new WP_Comment_Query([
@@ -25,6 +25,8 @@ $comments_count = sprintf(
     $comments_query->found_comments,
     __('دیدگاه', 'cyn-dm')
 );
+$userID = $_COOKIE['userId'];
+
 
 ?>
 
@@ -70,9 +72,7 @@ $comments_count = sprintf(
                     <svg class="icon absolute  top-[1.5rem] right-[1.5rem]">
                         <use href="#icon-Messages,-Chat-9" />
                     </svg>
-                    <textarea name="content" required oninvalid="this.setCustomValidity('<?php _e('دیدگاه فیلد ضروری است', 'cyn-dm') ?>')" 
-                    id="content" placeholder="<?php _e('دیدگاهتان را وارد کنید', 'cyn-dm') ?>"
-                     class="py-2 px-4 pr-16 border-[1px] rounded-3xl bg-black-2 w-full my-2 border-gray-3 min-h-[120px]"></textarea>
+                    <textarea name="content" required oninvalid="this.setCustomValidity('<?php _e('دیدگاه فیلد ضروری است', 'cyn-dm') ?>')" id="content" placeholder="<?php _e('دیدگاهتان را وارد کنید', 'cyn-dm') ?>" class="py-2 px-4 pr-16 border-[1px] rounded-3xl bg-black-2 w-full my-2 border-gray-3 min-h-[120px]"></textarea>
                 </label>
             </div>
             <input type="hidden" id="parentID" name="parent-id" value="">
@@ -93,7 +93,7 @@ $comments_count = sprintf(
 
     <div class="comments__list__wrapper p-4 border-r-4 border-r-blue-2 relative  overflow-scroll max-h-[64rem] whitespace-nowrap overflow-auto scrollbar-hide">
         <?php if ($comments) : ?>
-            <?php foreach ($comments as $comment_id => $comment) : ?>
+            <?php foreach ($comments as $index => $comment) : ?>
                 <div class="comment mb-8 border-b-[1px] border-gray-3 pb-4">
                     <div class="flex justify-start gap-4 mb-4">
                         <img src="<?php echo get_stylesheet_directory_uri() . './assets/imgs/user.png' ?>" class="w-[50px] h-[50px] rounded-full object-cover" alt="">
@@ -118,17 +118,24 @@ $comments_count = sprintf(
                             </svg>
                         </div>
                         <div class="flex justify-between">
-                            <?php
-                            $like = get_comment_meta($comment->comment_id, 'users who liked this comment', true);
-                            echo $like;
-                                                        ?>
                             <span class="comment_counter">
-                             
-                                0
+                                <?php
+                                $users_who_liked = get_comment_meta($comment->comment_ID, 'users_who_liked', true);
+                                $count = $users_who_liked ? count($users_who_liked) : 0;
+                                $users = $users_who_liked ? $users_who_liked : [];
+
+                                if (in_array($userID, $users)) { ?>
+                                    <svg class="icon comment_like text-[red]" data-comment-id="<?= $comment->comment_ID ?>">>
+                                        <use href="#icon-heart" />
+                                    </svg>
+                                <?php } else { ?>
+                                    <svg class="icon comment_like" data-comment-id="<?= $comment->comment_ID ?>">>
+                                        <use href="#icon-heart" />
+                                    </svg>
+                                <?php } ?>
+                                
+                                <?php echo $count ?>
                             </span>
-                            <svg class="icon comment_like" data-comment-id="<?= $comment_id ?>">>
-                                <use href="#icon-heart" />
-                            </svg>
                         </div>
                     </div>
                 </div>
