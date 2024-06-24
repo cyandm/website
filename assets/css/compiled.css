@@ -3135,9 +3135,9 @@ main.about .about-sections .swiper-wrapper .swiper-slide {
   background: hsl(227, 44%, 6%);
   padding: 15px;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1200px) {
   main.about .about-sections {
-    display: block;
+    display: flex;
   }
 }
 main.about .section-content {
@@ -3163,7 +3163,7 @@ main.about .section-content p {
   line-height: 2.25rem;
   padding-block: 8px;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1200px) {
   main.about .section-content {
     width: 70%;
   }
