@@ -1242,10 +1242,11 @@ footer .columns {
   flex-wrap: nowrap;
   gap: 6rem;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   footer .columns {
     gap: 2rem;
     width: 85%;
+    flex-direction: column;
   }
 }
 footer .columns .column-3 {
@@ -1253,12 +1254,12 @@ footer .columns .column-3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   flex-wrap: wrap;
   gap: 0;
   gap: 12px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   footer .columns .column-3 {
     max-width: 100%;
   }
@@ -1266,7 +1267,7 @@ footer .columns .column-3 {
 footer .columns .column-2 {
   display: none;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   footer .columns .column-4 {
     width: 100%;
   }

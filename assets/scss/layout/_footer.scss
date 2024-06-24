@@ -8,16 +8,17 @@ footer {
     display: flex;
     flex-wrap: nowrap;
     gap: 6rem;
-    @include mq("md") {
+    @include mq("lg") {
       gap: 2rem;
 	          width: 85%;
+            flex-direction: column;
     }
 
     .column-3 {
       max-width: 35%;
-      @include d_flex(column, center, center);
+      @include d_flex(column, center, start);
       gap: 12px;
-      @include mq("md") {
+      @include mq("lg") {
         max-width: 100%;
       }
     }
@@ -26,7 +27,7 @@ footer {
       display: none;
     }
     .column-4 {
-		    @include mq("md") {
+		    @include mq("lg") {
 
       width: 100%;}
     }
