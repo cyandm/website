@@ -3292,6 +3292,20 @@ main.about .clock {
   background: hsl(227, 44%, 6%);
 }
 
+.faqcontent {
+  display: none;
+}
+.faqcontent.deactive {
+  display: none;
+}
+.faqcontent.active {
+  display: block;
+}
+
+.color {
+  background: linear-gradient(103.44deg, #15eded 12.12%, #04b2e9 130.32%);
+}
+
 @font-face {
   font-family: "cyan-icon";
   src: url("../fonts/icons/cyan-icon.eot");

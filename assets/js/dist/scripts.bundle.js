@@ -7802,6 +7802,22 @@
   if (separator) {
     separator.innerHTML = '<svg class="icon text-cyn-1 w-[24px]"><use href="#icon-Arrow-6"/></svg>';
   }
+  var FAQ_Tab = document.querySelectorAll(".faqtab");
+  var FAQ_Content = document.querySelectorAll(".faqcontent");
+  FAQ_Tab.forEach((elem) => {
+    const tab_id = elem.getAttribute("term-id");
+    elem.addEventListener("click", () => {
+      elem.classList.remove("color");
+      FAQ_Content.forEach((e) => {
+        e.classList.remove("active");
+        const content_id = e.getAttribute("term-id");
+        if (tab_id == content_id) {
+          elem.classList.add("color");
+          e.classList.add("active");
+        }
+      });
+    });
+  });
 
   // node_modules/gsap/gsap-core.js
   function _assertThisInitialized(self2) {

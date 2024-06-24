@@ -35,7 +35,7 @@ $link_all = get_post_type_archive_link('faq');
              [&>*:hover]:scale-110 [&>*:hover]:bg-cyn-1 delay-500">
 
                 <?php foreach ($faq_cats as $cat) : ?>
-                    <li term-id="<?php echo $cat->term_id ?>" class=""> <?php echo $cat->name ?> </li>
+                    <li term-id="<?php echo $cat->term_id ?>" class="faqtab"> <?php echo $cat->name ?> </li>
                 <?php endforeach; ?>
 
             </ul>
@@ -46,7 +46,8 @@ $link_all = get_post_type_archive_link('faq');
         <section class="faq-con container">
 
             <?php
-            foreach ($faq_cats as $cat) :
+            foreach ($faq_cats as $i=> $cat) :
+                
                 $faq_group = get_posts([
                     'fields' => 'ids',
                     'post_type' => 'faq',
@@ -59,7 +60,8 @@ $link_all = get_post_type_archive_link('faq');
                         ]
                     ],
                 ]); ?>
-                <div term-id="<?php echo $cat->term_id ?>">
+                <div term-id="<?php echo $cat->term_id ?>" class="faqcontent <?php if ($i === 0)
+                       echo 'active'; ?>">
                     <div class="faq-content">
                         <div class="faq-posts">
                             <?php
