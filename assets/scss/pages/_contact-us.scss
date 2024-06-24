@@ -6,11 +6,63 @@
   .contant-img {
     width: 40%;
     position: relative;
+    img{
+          aspect-ratio: 1 / 1;
+    }
     @include mq("lg") {
       width: 75%;
     }
   }
+.bubble- {
+    &red {
+      top: 0%;
+      left: 0%;
+    }
+    &orange {
+      top: 22vh;
+    right: -13%;
+      @include mq("md") {
+      top: 22vh;
+        right: 85%;
+      }
+    }
 
+    &blue {
+      top: 0vh;
+      right: -5%;
+      @include mq("md") {
+        top: 4vh;
+      }
+    }
+    &grey {
+      top: 45vh;
+      left: 10%;
+       @include mq("md") {
+                   top: 33vh;
+        left: 79%;
+       }
+    }
+
+    &green {
+      top: 40vh;
+    right: -13%;
+
+      @include mq("md") {
+        top: 24vh;
+        left: 0%;
+      }
+    }
+    &pink {
+        top: 35vh;
+    right: 45%;
+      @include mq("md") {
+            top: 42vh;
+        right: 43%;
+      }
+    }
+
+ 
+  }
   .contact-info {
     border: 1px solid rgba(251, 251, 251, 0.16);
     padding: 24px;

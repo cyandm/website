@@ -406,29 +406,7 @@ body[data-scrolled=true] .bottom-fire {
   color: #1dbacf;
 }
 .breadcrumb nav p .separator {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0;
-  transform: rotateY(180deg);
   margin-inline: 0.5rem;
-  font-size: 1.75rem;
-  color: #1dbacf;
-}
-.breadcrumb nav p .separator::after {
-  content: "\e93a";
-  font-family: "cyan-icon" !important;
-  speak-as: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .mini-bubble {
@@ -2658,9 +2636,65 @@ main.seo .seo-slide-0-img > * {
   width: 40%;
   position: relative;
 }
+.contact .contant-img img {
+  aspect-ratio: 1/1;
+}
 @media screen and (max-width: 992px) {
   .contact .contant-img {
     width: 75%;
+  }
+}
+.contact .bubble-red {
+  top: 0%;
+  left: 0%;
+}
+.contact .bubble-orange {
+  top: 22vh;
+  right: -13%;
+}
+@media screen and (max-width: 768px) {
+  .contact .bubble-orange {
+    top: 22vh;
+    right: 85%;
+  }
+}
+.contact .bubble-blue {
+  top: 0vh;
+  right: -5%;
+}
+@media screen and (max-width: 768px) {
+  .contact .bubble-blue {
+    top: 4vh;
+  }
+}
+.contact .bubble-grey {
+  top: 45vh;
+  left: 10%;
+}
+@media screen and (max-width: 768px) {
+  .contact .bubble-grey {
+    top: 33vh;
+    left: 79%;
+  }
+}
+.contact .bubble-green {
+  top: 40vh;
+  right: -13%;
+}
+@media screen and (max-width: 768px) {
+  .contact .bubble-green {
+    top: 24vh;
+    left: 0%;
+  }
+}
+.contact .bubble-pink {
+  top: 35vh;
+  right: 45%;
+}
+@media screen and (max-width: 768px) {
+  .contact .bubble-pink {
+    top: 42vh;
+    right: 43%;
   }
 }
 .contact .contact-info {

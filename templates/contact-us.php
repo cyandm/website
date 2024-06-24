@@ -23,9 +23,6 @@ $address_html = get_field('address_map', $front_page_ID);
         <div class="  bubble-red">
             <span class="red"></span>
         </div>
-        <div class="  bubble-red-2">
-            <span class="red"></span>
-        </div>
         <div class=" bubble-blue">
             <span class="blue"></span>
         </div>
@@ -38,20 +35,10 @@ $address_html = get_field('address_map', $front_page_ID);
         <div class=" bubble-grey">
             <span class="grey"></span>
         </div>
-        <div class="bubble-grey-2">
-            <span class="grey-2"></span>
-        </div>
-        <div class=" bubble-orange-2">
-            <span class="orange-2"></span>
-        </div>
-        <div class=" bubble-blue-2">
-            <span class="blue"></span>
-        </div>
     </div>
     			<?= wp_get_attachment_image(get_post_thumbnail_id(), 'full') ?>
 
-      <div class="bubble -orange"></div>
-
+ 
    </div>
    <div class="contact-info">
       <div class="info">
