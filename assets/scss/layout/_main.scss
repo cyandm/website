@@ -5,7 +5,7 @@
 	margin-inline: auto;
 
 	@media (width <= 1440px) {
-		margin-inline: PxToRem(16);
+		padding-inline: PxToRem(16);
 	}
 }
 

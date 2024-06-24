@@ -1,16 +1,105 @@
 @use "../utils/_index" as *;
 
 main.about {
-  // position: relative;
-  // height: 90vh;
+    //  top: 0;
+    // bottom:0;
+    // position:fixed;
+    // height: 100vh;
+    // overflow-y:scroll;
+    // overflow-x:hidden;
   section.head {
     background-image: url("../imgs/about-back.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    h1{
+            @include mq("lg") {
+@include  font_style('h2')
+            }
+    }
     &:hover  .bubble span {
     transform: translate(10px, 10px);
+    }
+.bubble- {
+    &red {
+      top: 10%;
+      left: 20%;
+    }
+    &orange {
+      top: 5vh;
+      right: 28%;
+      @include mq("md") {
+        top: 28vh;
+        right: 24%;
+      }
+    }
+    &orange-2 {
+      top: 30vh;
+      left: 20%;
+      @include mq("md") {
+              top: 20vh;
+        left: 10%;
+      }
+    }
+    &blue {
+      top: 10vh;
+      right: 10%;
+      @include mq("md") {
+        top: 4vh;
+      }
+    }
+    &grey {
+      top: 45vh;
+      left: 10%;
+       @include mq("md") {
+              top: 26vh;
+                  left: 16%;
+       }
+    }
+    &grey-2 {
+      top: 40vh;
+      right: 15%;
+      @include mq("md") {
+        top: 15vh;
+        right: 0%;
+      }
+    }
+    &green {
+      top: 70vh;
+      left: 10%;
+      @include mq("md") {
+        top: 24vh;
+        left: 0%;
+      }
+    }
+    &pink {
+      top: 70vh;
+      right: 22%;
+      @include mq("md") {
+        top: 26vh;
+        right: 0%;
+      }
+    }
+    &blue-2 {
+      top: 55vh;
+      left: 20%;
+      @include mq("md") {
+        top: 22vh;
+        left: 60%;
+      }
+    }
+    &red-2 {
+      top: 60vh;
+      right: 8%;
+      @include mq("md") {
+        top: 25vh;
+      }
+    }
+ 
   }
+
+
+  
   }
   section {
     position: relative;
@@ -24,7 +113,7 @@ main.about {
     }
     @include mq("lg") {
       height: auto;
-      padding-block: 50px;
+      padding-block: 20px;
       margin: 0;
     }
   }
@@ -52,9 +141,14 @@ main.about {
       height: auto;
     }
   }
-  .second {
+  .sections {
     position: relative;
     @include d_flex(column, center, center);
+        @include mq("lg") {
+          display: none;
+          // margin: 16px;
+    }
+
     // height: 100vh;
    }
   .third {
@@ -67,6 +161,8 @@ main.about {
     background-repeat: no-repeat;
     img {
       width: 60%;
+              @include mq("lg") {
+width: 100%;    }
     }
     .content {
       padding: 10px;
@@ -75,13 +171,19 @@ main.about {
         align-items: center;
       }
     }
+            @include mq("lg") {
+height: auto;
+padding: 15px;    }
   }
   .scroll-down {
     p {
       display: none;
     }
   }
-  .bubble- {
+  
+  .last {
+        margin-bottom: 120px;
+        .bubble- {
     &red {
       top: 10%;
       left: 20%;
@@ -89,7 +191,7 @@ main.about {
     &orange {
       top: 5vh;
       right: 28%;
-      @include mq("md") {
+      @include mq("lg") {
         top: 48vh;
         right: 12%;
       }
@@ -97,7 +199,7 @@ main.about {
     &orange-2 {
       top: 30vh;
       left: 20%;
-      @include mq("md") {
+      @include mq("lg") {
         top: 43vh;
         left: 0%;
       }
@@ -105,7 +207,7 @@ main.about {
     &blue {
       top: 10vh;
       right: 10%;
-      @include mq("md") {
+      @include mq("lg") {
         top: 4vh;
       }
     }
@@ -116,7 +218,7 @@ main.about {
     &grey-2 {
       top: 40vh;
       right: 15%;
-      @include mq("md") {
+      @include mq("lg") {
         top: 8vh;
         right: 0%;
       }
@@ -124,7 +226,7 @@ main.about {
     &green {
       top: 70vh;
       left: 10%;
-      @include mq("md") {
+      @include mq("lg") {
         top: 50vh;
         left: 0%;
       }
@@ -132,7 +234,7 @@ main.about {
     &pink {
       top: 70vh;
       right: 22%;
-      @include mq("md") {
+      @include mq("lg") {
         top: 43vh;
         right: 0%;
       }
@@ -140,7 +242,7 @@ main.about {
     &blue-2 {
       top: 55vh;
       left: 20%;
-      @include mq("md") {
+      @include mq("lg") {
         top: 5vh;
         left: 0%;
       }
@@ -148,15 +250,13 @@ main.about {
     &red-2 {
       top: 60vh;
       right: 8%;
-      @include mq("md") {
+      @include mq("lg") {
         top: 25vh;
       }
     }
-    span {
-    }
+ 
   }
 
-  .last {
     .about-video {
       width: 100%;
       @include d_flex(column, center, center);
@@ -202,25 +302,58 @@ main.about {
           }
         }
         @include mq("lg") {
-          width: 320px;
-          height: 320px;
+          width: 85%;
+          z-index: 555555555;
         }
       }
     }
   }
+  .sections-mobile{
+    background: $gradient_blue_1;  
+align-items: center;display: flex;
+justify-content: center;
+  }
+.about-sections{
+  display: none;
+  width: 95%;
+ padding-block: 16px;
 
+
+  .swiper-wrapper{
+     
+      .swiper-slide{
+        background: $black_1;
+        padding: 15px;
+
+
+  }
+  }
+
+        @include mq("lg") {
+          display: block;
+        }
+
+}
   .section-content {
-    width: 45%;
+    width: 40%;
+    aspect-ratio: 1/1;
     border-radius: 50%;
     padding: 150px 100px;
     background: #090c17;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     p {
       @include font_style("body_1");
       padding-block: 8px;
     }
+        @include mq("lg") {
+      width: 70%;
+        }
     @include mq("lg") {
       width: 100%;
       padding: 5%;
+      border-radius: 0;
     }
   }
   .clock {

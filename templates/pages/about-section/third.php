@@ -1,4 +1,4 @@
-<section class="third"> 
+<section class="third fade-in-down" anim-delay="0.6">
     <img class="" src="<?= get_stylesheet_directory_uri() . '/assets/imgs/puzzle-image.png' ?>" />
 
     <div class="content ">

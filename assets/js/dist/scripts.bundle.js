@@ -7553,6 +7553,12 @@
     cynDestroySwiper(seoSwiper, "#seoMainSwiper");
     cynDestroySwiper(marketingSwiper, "#marketingMainSwiper");
   }
+  var mobile_about = new Swiper(".about-sections", {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    }
+  });
 
   // assets/js/modules/variable.js
   var rootEl = document.querySelector(":root");
@@ -14587,6 +14593,28 @@
     clickToLabel(letsGo, "endOfSlide2");
   };
   PreloaderHome();
+
+  // assets/js/pages/front-page/gsap.js
+  gsapWithCSS.registerPlugin(ScrollTrigger3);
+  var fadeInGroup = document.querySelectorAll(".fade-in");
+  fadeInGroup.forEach((element) => {
+    gsapWithCSS.from(element, {
+      scrollTrigger: element,
+      opacity: 0,
+      duration: 0.7,
+      delay: element.getAttribute("anim-delay")
+    });
+  });
+  var fadeInDownGroup = document.querySelectorAll(".fade-in-down");
+  fadeInDownGroup.forEach((element) => {
+    gsapWithCSS.from(element, {
+      scrollTrigger: element,
+      opacity: 0,
+      y: 10,
+      duration: 0.7,
+      delay: element.getAttribute("anim-delay")
+    });
+  });
 
   // assets/js/pages/front-page/content.js
   var customerThumbsHeight;

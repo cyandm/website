@@ -8,7 +8,7 @@ $video = get_field('about_video');
 
 
 ?>
-<section class="last">
+<section class="last fade-in-down" anim-delay="0.3">
     <div class="bubble">
     <div class=" bubble-orange">
         <span class="orange"></span>

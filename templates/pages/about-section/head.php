@@ -7,9 +7,9 @@
         <div class="  bubble-red">
             <span class="red"></span>
         </div>
-        <div class="  bubble-red-2">
+        <!-- <div class="  bubble-red-2">
             <span class="red"></span>
-        </div>
+        </div> -->
         <div class=" bubble-blue">
             <span class="blue"></span>
         </div>

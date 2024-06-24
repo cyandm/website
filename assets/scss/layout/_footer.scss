@@ -1,83 +1,93 @@
-@use '../utils/_index' as *;
+@use "../utils/_index" as *;
 
 footer {
-	margin-block: 2rem;
-	position: relative;
+  margin-block: 2rem;
+  position: relative;
 
-	.columns {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 6rem;
+  .columns {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 6rem;
+    @include mq("md") {
+      gap: 2rem;
+	          width: 85%;
+    }
 
-		.column-3 {
-			max-width: 20%;
+    .column-3 {
+      max-width: 35%;
+      @include d_flex(column, center, center);
+      gap: 12px;
+      @include mq("md") {
+        max-width: 100%;
+      }
+    }
 
-			@include mq('md') {
-				max-width: 100%;
-			}
-		}
+    .column-2 {
+      display: none;
+    }
+    .column-4 {
+		    @include mq("md") {
 
-		.column-2 {
-			display: none;
-		}
-	}
+      width: 100%;}
+    }
+  }
 
-	.footer-menu {
-		ul {
-			display: grid;
-			gap: 0.5rem;
-		}
+  .footer-menu {
+    margin-top: 12px;
 
-		li {
-			color: $gray_1;
-			transition: color 0.3s ease-in-out;
+    ul {
+      display: grid;
+      gap: 0.5rem;
+    }
 
-			@include psudo(after, '', 0, 0.5rem) {
-				transform: translate(50%, 1rem);
-				right: -0.75rem;
-				border-radius: 50%;
-				transition: 0.3s ease-in-out;
-			}
+    li {
+      color: $gray_1;
+      transition: color 0.3s ease-in-out;
 
-			&:hover {
-				color: #fff;
+      @include psudo(after, "", 0, 0.5rem) {
+        transform: translate(50%, 1rem);
+        right: -0.75rem;
+        border-radius: 50%;
+        transition: 0.3s ease-in-out;
+      }
 
-				&::after {
-					background-color: #3de2f2;
-				}
-			}
-		}
-	}
+      &:hover {
+        color: #fff;
 
-	.footer-address-map {
-		iframe {
-			max-height: 10rem;
-			max-width: 100%;
-			border-radius: 1rem;
-		}
-	}
+        &::after {
+          background-color: #3de2f2;
+        }
+      }
+    }
+  }
 
+  .footer-address-map {
+    iframe {
+      max-height: 70px;
+      max-width: 100%;
+      border-radius: 1rem;
+    }
+  }
 
+  .footer-image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
 
-	.footer-image {
-		position: absolute;
-		left: 0;
-		bottom: 0;
-
-		img {
-			object-fit: cover;
-			transform: translate(-25%, 50%);
-		}
-	}
-
+    img {
+      object-fit: cover;
+      transform: translate(-25%, 50%);
+    }
+  }
 }
-	.footer-phones {
-		display: grid;
-		color: #3de2f2;
-	}
+.footer-phones {
+  display: grid;
+  color: #3de2f2;
+}
 
-	.social-media {
-		margin-block-start: 0.75rem;
-		display: flex;
-		gap: 0.5rem;
-	}
+.social-media {
+  margin-block-start: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+    
+}

@@ -1,27 +1,27 @@
 <?php
-$render = isset( $args['render'] ) ? $args['render'] : true;
+$render = isset($args['render']) ? $args['render'] : true;
 
-$front_page_ID = get_option( 'page_on_front' );
+$front_page_ID = get_option('page_on_front');
 
-$col_1_title = get_field( 'column_1_title', $front_page_ID );
-$col_2_title = get_field( 'column_2_title', $front_page_ID );
+$col_1_title = get_field('column_1_title', $front_page_ID);
+$col_2_title = get_field('column_2_title', $front_page_ID);
 
-$col_3_title = get_field( 'column_3_title', $front_page_ID );
-$address_text = get_field( 'address_text', $front_page_ID );
-$address_html = get_field( 'address_map', $front_page_ID );
+$col_3_title = get_field('column_3_title', $front_page_ID);
+$address_text = get_field('address_text', $front_page_ID);
+$address_html = get_field('address_map', $front_page_ID);
 
-$col_4_title = get_field( 'column_4_title', $front_page_ID );
-$phone_num_1 = get_field( 'phone_num_1', $front_page_ID );
-$phone_num_2 = get_field( 'phone_num_2', $front_page_ID );
-$phone_num_3 = get_field( 'phone_num_3', $front_page_ID );
+$col_4_title = get_field('column_4_title', $front_page_ID);
+$phone_num_1 = get_field('phone_num_1', $front_page_ID);
+$phone_num_2 = get_field('phone_num_2', $front_page_ID);
+$phone_num_3 = get_field('phone_num_3', $front_page_ID);
 
-$footer_image = wp_get_attachment_image( get_field( 'footer_image', $front_page_ID ), [ 600, 600 ] );
+$footer_image = wp_get_attachment_image(get_field('footer_image', $front_page_ID), [600, 600]);
 
-$social_media_group = array_filter( get_field( 'social_media_group', $front_page_ID ) );
+$social_media_group = array_filter(get_field('social_media_group', $front_page_ID));
 
 ?>
 
-<?php if ( $render === true ) : ?>
+<?php if ($render === true): ?>
 
 	<footer>
 		<div class="container">
@@ -32,9 +32,9 @@ $social_media_group = array_filter( get_field( 'social_media_group', $front_page
 					</span>
 
 					<div class="footer-menu">
-						<?php wp_nav_menu( [ 
+						<?php wp_nav_menu([
 							'theme_location' => 'footer_col_1'
-						] ) ?>
+						]) ?>
 					</div>
 				</div>
 				<div class="column-2">
@@ -43,9 +43,9 @@ $social_media_group = array_filter( get_field( 'social_media_group', $front_page
 					</span>
 
 					<div class="footer-menu">
-						<?php wp_nav_menu( [ 
+						<?php wp_nav_menu([
 							'theme_location' => 'footer_col_2'
-						] ) ?>
+						]) ?>
 					</div>
 				</div>
 				<div class="column-3">
@@ -78,15 +78,16 @@ $social_media_group = array_filter( get_field( 'social_media_group', $front_page
 						</a>
 					</div>
 
+				</div></div>
+				<div class="social-media">
+					<?php foreach ($social_media_group as $social_media): ?>
+						<a href="<?= $social_media['link'] ?>">
+							<?= wp_get_attachment_image($social_media['image']) ?>
+						</a>
+					<?php endforeach ?>
 				</div>
-			</div>
-			<div class="social-media">
-				<?php foreach ( $social_media_group as $social_media ) : ?>
-					<a href="<?= $social_media['link'] ?>">
-						<?= wp_get_attachment_image( $social_media['image'] ) ?>
-					</a>
-				<?php endforeach ?>
-			</div>
+			
+
 		</div>
 		<div class="footer-image">
 			<?= $footer_image ?>
@@ -95,7 +96,7 @@ $social_media_group = array_filter( get_field( 'social_media_group', $front_page
 
 <?php endif; ?>
 
-<?php get_template_part( '/templates/components/popup' ) ?>
+<?php get_template_part('/templates/components/popup') ?>
 
 <div class="wp-scripts">
 	<?php wp_footer() ?>

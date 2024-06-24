@@ -1239,11 +1239,24 @@ footer {
 }
 footer .columns {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 6rem;
 }
+@media screen and (max-width: 768px) {
+  footer .columns {
+    gap: 2rem;
+    width: 85%;
+  }
+}
 footer .columns .column-3 {
-  max-width: 20%;
+  max-width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  gap: 12px;
 }
 @media screen and (max-width: 768px) {
   footer .columns .column-3 {
@@ -1252,6 +1265,14 @@ footer .columns .column-3 {
 }
 footer .columns .column-2 {
   display: none;
+}
+@media screen and (max-width: 768px) {
+  footer .columns .column-4 {
+    width: 100%;
+  }
+}
+footer .footer-menu {
+  margin-top: 12px;
 }
 footer .footer-menu ul {
   display: grid;
@@ -1285,7 +1306,7 @@ footer .footer-menu li:hover::after {
   background-color: #3de2f2;
 }
 footer .footer-address-map iframe {
-  max-height: 10rem;
+  max-height: 70px;
   max-width: 100%;
   border-radius: 1rem;
 }
@@ -1592,7 +1613,7 @@ header .left-col {
 }
 @media (width <= 1440px) {
   .container {
-    margin-inline: 1rem;
+    padding-inline: 1rem;
   }
 }
 
@@ -2755,8 +2776,114 @@ main.about section.head {
   background-repeat: no-repeat;
   background-size: contain;
 }
+@media screen and (max-width: 992px) {
+  main.about section.head h1 {
+    font-family: "peyda";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-variant-ligatures: discretionary-ligatures;
+    font-feature-settings: "ss01" 1, "salt" 0;
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    font-weight: bold;
+  }
+}
 main.about section.head:hover .bubble span {
   transform: translate(10px, 10px);
+}
+main.about section.head .bubble-red {
+  top: 10%;
+  left: 20%;
+}
+main.about section.head .bubble-orange {
+  top: 5vh;
+  right: 28%;
+}
+@media screen and (max-width: 768px) {
+  main.about section.head .bubble-orange {
+    top: 28vh;
+    right: 24%;
+  }
+}
+main.about section.head .bubble-orange-2 {
+  top: 30vh;
+  left: 20%;
+}
+@media screen and (max-width: 768px) {
+  main.about section.head .bubble-orange-2 {
+    top: 20vh;
+    left: 10%;
+  }
+}
+main.about section.head .bubble-blue {
+  top: 10vh;
+  right: 10%;
+}
+@media screen and (max-width: 768px) {
+  main.about section.head .bubble-blue {
+    top: 4vh;
+  }
+}
+main.about section.head .bubble-grey {
+  top: 45vh;
+  left: 10%;
+}
+@media screen and (max-width: 768px) {
+  main.about section.head .bubble-grey {
+    top: 26vh;
+    left: 16%;
+  }
+}
+main.about section.head .bubble-grey-2 {
+  top: 40vh;
+  right: 15%;
+}
+@media screen and (max-width: 768px) {
+  main.about section.head .bubble-grey-2 {
+    top: 15vh;
+    right: 0%;
+  }
+}
+main.about section.head .bubble-green {
+  top: 70vh;
+  left: 10%;
+}
+@media screen and (max-width: 768px) {
+  main.about section.head .bubble-green {
+    top: 24vh;
+    left: 0%;
+  }
+}
+main.about section.head .bubble-pink {
+  top: 70vh;
+  right: 22%;
+}
+@media screen and (max-width: 768px) {
+  main.about section.head .bubble-pink {
+    top: 26vh;
+    right: 0%;
+  }
+}
+main.about section.head .bubble-blue-2 {
+  top: 55vh;
+  left: 20%;
+}
+@media screen and (max-width: 768px) {
+  main.about section.head .bubble-blue-2 {
+    top: 22vh;
+    left: 60%;
+  }
+}
+main.about section.head .bubble-red-2 {
+  top: 60vh;
+  right: 8%;
+}
+@media screen and (max-width: 768px) {
+  main.about section.head .bubble-red-2 {
+    top: 25vh;
+  }
 }
 main.about section {
   position: relative;
@@ -2782,7 +2909,7 @@ main.about section .content {
 @media screen and (max-width: 992px) {
   main.about section {
     height: auto;
-    padding-block: 50px;
+    padding-block: 20px;
     margin: 0;
   }
 }
@@ -2818,7 +2945,7 @@ main.about .bubble-section {
     height: auto;
   }
 }
-main.about .second {
+main.about .sections {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -2826,6 +2953,11 @@ main.about .second {
   align-items: center;
   flex-wrap: wrap;
   gap: 0;
+}
+@media screen and (max-width: 992px) {
+  main.about .sections {
+    display: none;
+  }
 }
 main.about .third {
   position: relative;
@@ -2842,6 +2974,11 @@ main.about .third {
 main.about .third img {
   width: 60%;
 }
+@media screen and (max-width: 992px) {
+  main.about .third img {
+    width: 100%;
+  }
+}
 main.about .third .content {
   padding: 10px;
   text-align: center;
@@ -2849,92 +2986,101 @@ main.about .third .content {
 main.about .third .content .scroll-down div {
   align-items: center;
 }
+@media screen and (max-width: 992px) {
+  main.about .third {
+    height: auto;
+    padding: 15px;
+  }
+}
 main.about .scroll-down p {
   display: none;
 }
-main.about .bubble-red {
+main.about .last {
+  margin-bottom: 120px;
+}
+main.about .last .bubble-red {
   top: 10%;
   left: 20%;
 }
-main.about .bubble-orange {
+main.about .last .bubble-orange {
   top: 5vh;
   right: 28%;
 }
-@media screen and (max-width: 768px) {
-  main.about .bubble-orange {
+@media screen and (max-width: 992px) {
+  main.about .last .bubble-orange {
     top: 48vh;
     right: 12%;
   }
 }
-main.about .bubble-orange-2 {
+main.about .last .bubble-orange-2 {
   top: 30vh;
   left: 20%;
 }
-@media screen and (max-width: 768px) {
-  main.about .bubble-orange-2 {
+@media screen and (max-width: 992px) {
+  main.about .last .bubble-orange-2 {
     top: 43vh;
     left: 0%;
   }
 }
-main.about .bubble-blue {
+main.about .last .bubble-blue {
   top: 10vh;
   right: 10%;
 }
-@media screen and (max-width: 768px) {
-  main.about .bubble-blue {
+@media screen and (max-width: 992px) {
+  main.about .last .bubble-blue {
     top: 4vh;
   }
 }
-main.about .bubble-grey {
+main.about .last .bubble-grey {
   top: 45vh;
   left: 10%;
 }
-main.about .bubble-grey-2 {
+main.about .last .bubble-grey-2 {
   top: 40vh;
   right: 15%;
 }
-@media screen and (max-width: 768px) {
-  main.about .bubble-grey-2 {
+@media screen and (max-width: 992px) {
+  main.about .last .bubble-grey-2 {
     top: 8vh;
     right: 0%;
   }
 }
-main.about .bubble-green {
+main.about .last .bubble-green {
   top: 70vh;
   left: 10%;
 }
-@media screen and (max-width: 768px) {
-  main.about .bubble-green {
+@media screen and (max-width: 992px) {
+  main.about .last .bubble-green {
     top: 50vh;
     left: 0%;
   }
 }
-main.about .bubble-pink {
+main.about .last .bubble-pink {
   top: 70vh;
   right: 22%;
 }
-@media screen and (max-width: 768px) {
-  main.about .bubble-pink {
+@media screen and (max-width: 992px) {
+  main.about .last .bubble-pink {
     top: 43vh;
     right: 0%;
   }
 }
-main.about .bubble-blue-2 {
+main.about .last .bubble-blue-2 {
   top: 55vh;
   left: 20%;
 }
-@media screen and (max-width: 768px) {
-  main.about .bubble-blue-2 {
+@media screen and (max-width: 992px) {
+  main.about .last .bubble-blue-2 {
     top: 5vh;
     left: 0%;
   }
 }
-main.about .bubble-red-2 {
+main.about .last .bubble-red-2 {
   top: 60vh;
   right: 8%;
 }
-@media screen and (max-width: 768px) {
-  main.about .bubble-red-2 {
+@media screen and (max-width: 992px) {
+  main.about .last .bubble-red-2 {
     top: 25vh;
   }
 }
@@ -2969,15 +3115,39 @@ main.about .last .about-video .video .plyr .plyr__control--overlaid {
 }
 @media screen and (max-width: 992px) {
   main.about .last .about-video .video {
-    width: 320px;
-    height: 320px;
+    width: 85%;
+    z-index: 555555555;
+  }
+}
+main.about .sections-mobile {
+  background: linear-gradient(100.06deg, #1dbacf 23.34%, #0d8bff 124.17%);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+main.about .about-sections {
+  display: none;
+  width: 95%;
+  padding-block: 16px;
+}
+main.about .about-sections .swiper-wrapper .swiper-slide {
+  background: hsl(227, 44%, 6%);
+  padding: 15px;
+}
+@media screen and (max-width: 992px) {
+  main.about .about-sections {
+    display: block;
   }
 }
 main.about .section-content {
-  width: 45%;
+  width: 40%;
+  aspect-ratio: 1/1;
   border-radius: 50%;
   padding: 150px 100px;
   background: #090c17;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 main.about .section-content p {
   font-family: "peyda";
@@ -2994,8 +3164,14 @@ main.about .section-content p {
 }
 @media screen and (max-width: 992px) {
   main.about .section-content {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 992px) {
+  main.about .section-content {
     width: 100%;
     padding: 5%;
+    border-radius: 0;
   }
 }
 main.about .clock {

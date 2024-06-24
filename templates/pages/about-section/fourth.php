@@ -16,7 +16,8 @@
 
     
     <?php if ($employs_Q->have_posts()): ?>
-        <section class="team-con container">
+        
+        <section class="team-con container fade-in-down" anim-delay="0.8">
     
             <div class="section-title">
                 <h2 class="h1">

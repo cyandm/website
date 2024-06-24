@@ -116,3 +116,9 @@ if (window.innerWidth <= 1240) {
 	cynDestroySwiper(seoSwiper, '#seoMainSwiper');
 	cynDestroySwiper(marketingSwiper, '#marketingMainSwiper');
 }
+  export const mobile_about = new Swiper(".about-sections", {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
