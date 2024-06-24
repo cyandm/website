@@ -1,3 +1,4 @@
+const { getCookie, setCookie } = require("../utils/functions");
 
 
 const commentOpener = document.getElementById('commentOpener');
@@ -5,6 +6,10 @@ const landPage = document.getElementById('land_page');
 const commentList = document.getElementById('commentList');
 const commentCloser = document.getElementById('commentCloser');
 const addNewComment = document.getElementById('addNewComment');
+const commentsMessage = document.getElementById('commentsMessage');
+const overlay = document.getElementById('overlay');
+
+
 
 if (!commentOpener) return;
 if (!commentList) return;
@@ -12,12 +17,15 @@ if (!commentCloser) return;
 
 
 commentOpener.addEventListener('click', (event) => {
-    landPage.classList.add('blur-lg')
+    // landPage.classList.add('blur-lg')
     commentList.classList.remove('hidden')
-    console.log('ok shode')
+    // console.log('ok shode')
+    overlay.classList.remove('hidden')
+    overlay.classList.add('block')
 })
 commentCloser.addEventListener('click', (event) => {
-    landPage.classList.remove('blur-lg')
+    overlay.classList.add('hidden')
+    overlay.classList.remove('block')
     commentList.classList.add('hidden')
 })
 
@@ -39,7 +47,11 @@ addNewComment.addEventListener('submit', (e) => {
                 xhr.setRequestHeader("X-WP-Nonce", restDetails.nonce);
             },
             success: (res) => {
-                console.log(res.status)
+                if (res.status == true) {
+                    console.log(res.status)
+                    setSuccessComment(commentsMessage);
+                    return;
+                }
 
             },
 
@@ -48,42 +60,97 @@ addNewComment.addEventListener('submit', (e) => {
 })
 
 
-const setWarningComment = (commentsMessage) => {
-        const span = document.createElement('span');
-        span.classList.add('bg-alert-success');
-        span.classList.add('p-4');
-        span.classList.add('rounded-3xl');
-        span.classList.add('mb-4');
-        span.classList.add('block');
-        span.innerText = 'کامنت شما با موفقیت ثبت شد و در انتظار تایید است';
-        commentsMessage.appendChild(span);
-
-};
 
 const setSuccessComment = (commentsMessage) => {
-        const span = document.createElement('span');
-        span.classList.add('bg-alert-success');
-        span.classList.add('p-4');
-        span.classList.add('rounded-3xl');
-        span.classList.add('mb-4');
-        span.classList.add('block');
-        span.innerText = 'کامنت شما با موفقیت ثبت شد';
-        commentsMessage.appendChild(span);
+    const span = document.createElement('span');
+    span.classList.add('comment_alert');
+    span.classList.add('bg-alert-success');
+    span.classList.add('p-4');
+    span.classList.add('rounded-3xl');
+    span.classList.add('mb-4');
+    span.classList.add('block');
+    span.innerText = 'کامنت شما با موفقیت ثبت شد و منتظر تایید ادمین است.';
+    commentsMessage.appendChild(span);
 
 };
+const fadeAlert = () => {
+    document.querySelector('.comment_alert')?.classList.remove('block')
+    document.querySelector('.comment_alert')?.classList.add('hidden')
+}
+setTimeout(fadeAlert, 5000);
 
-const setErrorComment = (commentsMessage) => {
-        const span = document.createElement('span');
-        span.classList.add('bg-alert-error');
-        span.classList.add('p-4');
-        span.classList.add('rounded-3xl');
-        span.classList.add('mb-4');
-        span.classList.add('block');
-        span.innerText = 'خطایی در ثبت کامنت به وجود آمده است!';
-        commentsMessage.appendChild(span);
 
-};
 
 // window.setTimeout(() => { clearInterval(setWarningComment) }, 3000);
 // window.setTimeout(() => { clearInterval(setSuccessComment) }, 3000);
 // window.setTimeout(() => { clearInterval(setErrorComment) }, 3000);
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////like comment
+
+function checkUserExists() {
+    let userUID = getCookie("userId");
+    if (userUID !== "") return
+
+
+    const user_id = Date.now().toString(36) + Math.random().toString(36);
+    setCookie("userId", user_id);
+
+}
+
+window.addEventListener('load', checkUserExists);
+// window.addEventListener('load', handleLike());
+
+
+
+
+const commentCounter = document.querySelector('.comment_counter')
+const commentLikeIcon = document.querySelectorAll('.comment_like')
+
+
+commentLikeIcon?.forEach((item) => {
+    item.addEventListener('click', (e) => {
+        const commentId = item.getAttribute("data-comment-id");
+        handleLike(commentId, item);
+    })
+})
+
+
+///////////////////ajax req 
+const handleLike = (commentId, item) => {
+
+    jQuery(($) => {
+
+        $.ajax({
+            type: 'POST',
+            dataType: "json",
+            url: restDetails.url + 'cynApi/v1/like',
+            data: {
+
+                'comment-id': commentId,
+                'user-id': getCookie('userId'),
+            },
+
+            success: (res) => {
+                console.log(res)
+                if (res.userLiked == true) {
+                    item.style.color = "red";
+                    item.previousElementSibling.innerHTML = +(item.previousElementSibling.innerHTML) + 1
+                } else {
+                    item.style.color = "white";
+                    item.previousElementSibling.innerHTML = +(item.previousElementSibling.innerHTML) - 1
+                }
+            }
+        });
+    });
+}

@@ -7,6 +7,7 @@ module.exports = {
       'black': {
         '1': 'hsla(227, 44%, 6%, 1)',
         '2': '#151823',
+        '3': '#050507',
       },
       'white': {
         '1': 'hsla(194, 100%, 96%, 1)',
@@ -14,7 +15,7 @@ module.exports = {
       },
       'gray': {
         '1': 'hsla(0, 0%, 46%, 1)',
-        '2': '#767676',
+        '2': '#A6B2B9',
         '3': '#292626',
       },
       'alert': {
@@ -22,11 +23,15 @@ module.exports = {
         'warning': '#ff6347',
         'error': '#f2b463',
       },
-    },
-    gradient: {
-      blue_start: "#1dbacf",
-      blue_end: "#0d8bff",
-      blue_1: "",
+      'blue': {
+        '1': '#1dbacf',
+        '2': '#1dbacf',
+      },
+      'cyn': {
+        '1': '#3DE2F2',
+        // '2': '#1dbacf',
+      },
+   
     },
     extend: {},
   },

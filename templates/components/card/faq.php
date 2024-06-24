@@ -6,7 +6,7 @@ $content = get_the_content( post: $faq_ID );
 ?>
 
 
-<div class="faq-card">
+<div class="faq-card bg-black-2 px-4 py-8">
 	<div class="faq-card__title-wrapper">
 
 		<h3 class="faq-card__title">

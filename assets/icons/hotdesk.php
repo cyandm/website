@@ -27,4 +27,24 @@
             <path d="M14 7.46063L19 12.4606" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
         </g>
     </symbol>
+    <symbol id="icon-heart" viewBox="0 0 18 18">
+        <title>heart</title>
+        <g class="nc-icon-wrapper">
+            <path d="M8.529,15.222c.297,.155,.644,.155,.941,0,1.57-.819,6.529-3.787,6.529-8.613,.008-2.12-1.704-3.846-3.826-3.859-1.277,.016-2.464,.66-3.173,1.72-.71-1.06-1.897-1.704-3.173-1.72-2.123,.013-3.834,1.739-3.826,3.859,0,4.826,4.959,7.794,6.529,8.613Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </symbol>
+    <symbol id="icon-Reply,-Share,-Circle" viewBox="0 0 24 25">
+        <title>Reply, Share, Circle</title>
+        <g class="nc-icon-wrapper">
+            <path d="M11 14.7897C15.594 14.7897 19.499 17.1527 21 20.4607V19.4537C21 13.4377 16.579 8.53069 11 8.16269V3.46069L3 11.4607L11 19.4607V14.7937" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+        </g>
+    </symbol>
+    <symbol id="icon-Arrow-6" viewBox="0 0 24 25">
+        <title>Arrow 6</title>
+        <g class="nc-icon-wrapper">
+            <path d="M5 12.4606H19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+            <path d="M10 7.46063L5 12.4606" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+            <path d="M10 17.4606L5 12.4606" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+        </g>
+    </symbol>
 </svg>

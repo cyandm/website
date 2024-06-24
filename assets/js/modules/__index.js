@@ -11,3 +11,4 @@ import './swiper';
 import './variable';
 import './plyr';
 import './comments';
+import './faq';

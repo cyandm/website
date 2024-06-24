@@ -75,6 +75,6 @@ $phone_num_1 = get_field('phone_num_1', $page_on_front);
 				</a>
 
 			</div>
-
+			<div id="overlay" class="backdrop-blur-sm bg-[#6a777b42] fixed bottom-0 top-0 right-0 left-0 min-h-[100vh] blur-xl hidden"></div>
 		</header>
 	<?php endif; ?>
