@@ -1,5 +1,7 @@
 <?php /* Template Name: Contact */
 get_header();
+use RankMath\Frontend\Breadcrumbs;
+
 $front_page_ID = get_option('page_on_front');
 
 $contant_img = get_field('contact_us_img');

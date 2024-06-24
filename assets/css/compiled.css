@@ -406,7 +406,15 @@ body[data-scrolled=true] .bottom-fire {
   color: #1dbacf;
 }
 .breadcrumb nav p .separator {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
   margin-inline: 0.5rem;
+  font-size: 1.75rem;
+  color: #1dbacf;
 }
 
 .mini-bubble {
