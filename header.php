@@ -1,21 +1,12 @@
 <?php
 cyn_under_construction();
 $page_on_front = get_option('page_on_front');
-
 $logo_svg_hard_code = true;
-
 $start_color = isset($args['start_color']) ? $args['start_color'] : '#15EDED';
 $end_color = isset($args['end_color']) ? $args['end_color'] : '#04B2E9';
-
 $render = isset($args['render']) ? $args['render'] : true;
-
 $phone_num_1 = get_field('phone_num_1', $page_on_front);
-
-
 ?>
-
-
-
 <!DOCTYPE html>
 <html <?php language_attributes() ?> data-theme-version="1.0.11.7">
 

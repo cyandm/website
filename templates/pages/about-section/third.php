@@ -1,4 +1,4 @@
-<section class="third fade-in-down" anim-delay="0.6">
+<section class="third swiper-slide">
     <img class="" src="<?= get_stylesheet_directory_uri() . '/assets/imgs/puzzle-image.png' ?>" />
 
     <div class="content ">

@@ -1,4 +1,4 @@
-<section class="head pre-clock">
+<section class="head swiper-slide">
 
    <div class="bubble">
         <div class=" bubble-orange">
@@ -40,7 +40,5 @@
         <?php get_template_part('/templates/components/scroll') ?>
  
     </div>
-    <div class="clock">
-
-			</div>
+   
 </section>

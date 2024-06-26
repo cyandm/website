@@ -38,7 +38,8 @@
   }
 }
 .bubble{
-
+position: relative;
+width: 100%;
  div {
   transition: all 0.9s ease-in-out;
   position: absolute;

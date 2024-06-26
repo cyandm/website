@@ -122,3 +122,15 @@ if (window.innerWidth <= 1240) {
       prevEl: ".swiper-button-prev",
     },
   });
+
+
+	  export const aboutPage = new Swiper(".about", {
+   direction: "vertical",
+      slidesPerView: 1,
+      spaceBetween: 30,
+      mousewheel: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });

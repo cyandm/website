@@ -2284,6 +2284,10 @@ video {
   justify-items: stretch;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
 .gap-4 {
   gap: 1rem;
 }
@@ -2808,7 +2812,7 @@ video {
 
 .bg-black-2 {
   --tw-bg-opacity: 1;
-  background-color: rgb(21 24 35 / var(--tw-bg-opacity));
+  background-color: rgb(16 18 29 / var(--tw-bg-opacity));
 }
 
 .decoration-slice {

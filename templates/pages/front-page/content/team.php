@@ -19,18 +19,18 @@ $link_all = get_post_type_archive_link( 'employ' );
 
 		<div class="section-title">
 			<h2 class="h1">
-				کارای خفن یه تیم خفن هم میخواد
+کارای حرفه‌ای یه تیم حرفه‌ای می‌خواد
 			</h2>
 
-			<a href=<?= $link_all ?>
+			<!-- <a href=<?= $link_all ?>
 			   class="primary-btn">
 				مشاهده همه
-			</a>
+			</a> -->
 		</div>
 
 
-		<div class="team-wrapper">
-			<div class="profile-wrapper">
+		<div class="team-wrapper  w-full">
+			<div class="profile-wrapper d-flex gap-4">
 
 
 

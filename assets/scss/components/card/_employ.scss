@@ -1,120 +1,93 @@
-@use '../../utils/_index' as *;
-
+@use "../../utils/_index" as *;
+.team-wrapper{
+	
+}
 .employ-card {
-	--border-width: 2px;
+	width: 100%;
+  --border-width: 2px;
+   border: var(--border-width) solid transparent;
+  transition: all 1s ease-in-out;
+  padding: 8px 8px 20px 8px;
+    min-height: 420px;
+  .front {
+    transition: all 3s ease-in-out;
 
-	padding: 2rem;
-	display: flex;
-	position: relative;
-	border: var(--border-width) solid transparent;
-	border-radius: 0 1rem 1rem 0;
-	transition: 0.3s ease-in-out;
+    img {
+      height:300px;
+      object-fit: cover;
+      border-radius: 2rem;
+     }
+  }
+ 
 
-	&__container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: flex-start;
-	}
+  &__name {
+    @include font_style("h3");
+  }
 
-	&__name-wrapper {
-		display: flex;
-		flex-direction: column;
-		transition: 0.3s ease-in-out;
-	}
+  &__special {
+    @include font_style("body_2");
+  }
 
-	&__name {
-		@include font_style('h3');
-	}
+  .behind-card {
+    display: none;
+//     // pointer-events: none;
+    transition: all 0.8s ease-in-out;
+    position: relative;
+    inset: calc(var(--border-width) * -1) 0 0 0;
+    height: calc(100% + (var(--border-width) * 2));
+     border-right: none;
+    border-radius: 1rem 0 0 1rem;
+    align-items: flex-start;
+    padding: 20px 16px 0 16px;
+    &_name {
+      color: $cyan;
+    }
+    p {
+      @include font_style("body_2");
+      color: $gray_2;
 
-	&__special {
-		@include font_style('body_2');
-	}
+    }
+  }
 
-	&__biography-wrapper {
-		opacity: 0;
-		pointer-events: none;
+ 
 
-		transition: all 0.3s ease-in-out;
-		position: absolute;
-		inset: calc(var(--border-width) * -1) 0 0 0;
-		height: calc(100% + (var(--border-width) * 2));
-		background-color: #000;
-		z-index: 100;
-		transform: translateX(-100%);
-		border: var(--border-width) solid var(--employ-color);
-		border-right: none;
-		border-radius: 1rem 0 0 1rem;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: flex-start;
-		padding-inline: 1rem;
-	}
+  &:hover {
+    border-color: #15eded #04b2e9;
+    .front {
+      display: none;
+    }
+    .behind-card {
+      display: block;
+     }
+  
+  }
 
-	&__image {
-		@include psudo(after, '', 0, 100%) {
-			border-radius: 50%;
-			aspect-ratio: 1;
-			height: unset;
-			background-color: var(--employ-color);
-			z-index: -1;
-			-webkit-filter: blur(50px);
-			filter: blur(50px);
-			transform: scale(0.5);
-			transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out,
-				-webkit-filter 0.3s ease-in-out;
-		}
-	}
+  @include mq("lg") {
+    border-color: transparent !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
 
-	&:hover {
-		background-color: #000;
-		border-color: var(--employ-color);
+    &__biography-wrapper {
+      border-color: transparent;
+      position: relative;
+      opacity: 1;
+      transform: translate(0);
+    }
 
-		.employ-card {
-			&__image::after {
-				transform: scale(0.7);
-				-webkit-filter: blur(60px);
-				filter: blur(60px);
-			}
+    &__name-wrapper {
+      display: none;
+    }
 
-			&__biography-wrapper {
-				opacity: 1;
-				pointer-events: all;
-			}
+    &__image {
+      display: flex;
+      justify-content: center;
 
-			&__name-wrapper {
-				opacity: 0;
-			}
-		}
-	}
-
-	@include mq('lg') {
-		border-color: transparent !important;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 1rem;
-		gap: 1rem;
-
-		&__biography-wrapper {
-			border-color: transparent;
-			position: relative;
-			opacity: 1;
-			transform: translate(0);
-		}
-
-		&__name-wrapper {
-			display: none;
-		}
-
-		&__image {
-			display: flex;
-			justify-content: center;
-
-			img {
-				max-width: max(50%, 200px);
-			}
-		}
-	}
+      img {
+        max-width: max(50%, 200px);
+      }
+    }
+  }
 }

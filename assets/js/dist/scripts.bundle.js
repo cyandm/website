@@ -7750,6 +7750,16 @@
       prevEl: ".swiper-button-prev"
     }
   });
+  var aboutPage = new Swiper(".about", {
+    direction: "vertical",
+    slidesPerView: 1,
+    spaceBetween: 30,
+    mousewheel: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    }
+  });
 
   // assets/js/modules/variable.js
   var rootEl = document.querySelector(":root");
@@ -7807,7 +7817,9 @@
   FAQ_Tab.forEach((elem) => {
     const tab_id = elem.getAttribute("term-id");
     elem.addEventListener("click", () => {
-      elem.classList.remove("color");
+      FAQ_Tab.forEach((tab) => {
+        tab.classList.remove("color");
+      });
       FAQ_Content.forEach((e) => {
         e.classList.remove("active");
         const content_id = e.getAttribute("term-id");

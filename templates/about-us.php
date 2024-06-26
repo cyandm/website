@@ -9,7 +9,7 @@ $about = get_field('about_us_section'); ?>
   get_template_part('/templates/pages/about-section/mobile-slider');
   
   get_template_part('/templates/pages/about-section/third');
-  get_template_part('/templates/pages/about-section/fourth');
+  get_template_part('/templates/pages/front-page/content/team');
   get_template_part('/templates/pages/about-section/last')
     ?>
 

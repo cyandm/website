@@ -215,8 +215,12 @@ section.team-con {
 	.profile-wrapper {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
+		min-width: 100%;
+@include mq('lg') {
+		 		grid-template-columns: repeat(2, 1fr);
 
-		@include mq('lg') {
+		}
+		@include mq('md') {
 			display: flex;
 			flex-direction: column;
 		}

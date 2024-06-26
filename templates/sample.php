@@ -1,0 +1,122 @@
+<?php
+  /* Template Name: About_us2 */
+
+cyn_under_construction();
+$page_on_front = get_option('page_on_front');
+$logo_svg_hard_code = true;
+$start_color = isset($args['start_color']) ? $args['start_color'] : '#15EDED';
+$end_color = isset($args['end_color']) ? $args['end_color'] : '#04B2E9';
+$render = isset($args['render']) ? $args['render'] : true;
+$phone_num_1 = get_field('phone_num_1', $page_on_front);
+?>
+<!DOCTYPE html>
+<html <?php language_attributes() ?> data-theme-version="1.0.11.7">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <?php wp_head() ?>
+  <?= get_field('before_head', $page_on_front) ?>
+
+</head>
+
+<body <?php body_class() ?>>
+  <?php wp_body_open() ?>
+  <?php
+  get_template_part('/assets/icons/hotdesk');
+
+  ?>
+  <?php if ($render === true): ?>
+    <header class="container" style="--start-color: <?= $start_color ?> ; --end-color: <?= $end_color ?>;">
+
+      <?php get_template_part('/templates/components/mobile-menu') ?>
+
+      <div class="right-col">
+        <div class="logo">
+          <?php
+          if ($logo_svg_hard_code):
+            get_template_part('/templates/components/logo');
+          elseif (has_custom_logo()):
+            the_custom_logo();
+          else: ?>
+            <img src=<?= get_stylesheet_directory_uri() . '/assets/imgs/placeholder.png' ?> alt="">
+          <?php endif; ?>
+        </div>
+
+        <div class="header-menu desktop-menu">
+          <?php
+          wp_nav_menu([
+            'theme_location' => 'header'
+          ])
+            ?>
+        </div>
+      </div>
+
+      <div class="left-col">
+
+        <!-- <a href="#"
+             class="primary-btn">
+            یه پروژه بساز
+          </a> -->
+
+        <a href="<?= 'tel:' . $phone_num_1 ?>" class="icon-btn">
+
+          <i class="icon-call">
+
+          </i>
+
+        </a>
+
+      </div>
+      <div id="overlay"
+        class="backdrop-blur-sm bg-[#6a777b42] fixed bottom-0 top-0 right-0 left-0 min-h-[100vh] blur-xl hidden"></div>
+      <style>
+        html,
+        body {
+          position: relative;
+          height: 100%;
+        }
+      </style>
+    </header>
+  <?php endif; ?>
+
+
+
+
+<?php $about = get_field('about_us_section'); ?>
+
+  <!-- Swiper -->
+  <div class="swiper  about">
+    <div class="swiper-wrapper">
+         <?php get_template_part('/templates/pages/about-section/head'); ?>
+               <?php get_template_part('/templates/pages/about-section/sections'); ?>
+        <?php get_template_part('/templates/pages/about-section/third'); ?>
+        <?php get_template_part('/templates/pages/about-section/last'); ?>
+        <?php get_template_part('/templates/pages/front-page/content/team');        ?>
+
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".about", {
+   direction: "vertical",
+      slidesPerView: 1,
+      spaceBetween: 30,
+      mousewheel: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
+</body>
+
+</html>
