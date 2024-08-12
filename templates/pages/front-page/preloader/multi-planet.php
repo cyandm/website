@@ -28,9 +28,7 @@ $planets =
 <section class="multi-planet">
 	<?php foreach ( $planets as $index => $planet ) : ?>
 		<div <?php printf( 'class="planet-con planet-%s"', $planet['class'] ); ?>>
-			<div class="planet">
-
-			</div>
+	 
 			<div class="cta">
 				<a href=<?= $planet['link'] ?>>
 					<?= $planet['title'] ?>
@@ -40,8 +38,7 @@ $planets =
 	<?php endforeach; ?>
 
 	<div class="scroll-down cursor-pointer">
-		اسکرول کنید
-	</div>
+ 	</div>
 
 	<div class="light-planet">
 

@@ -4,9 +4,7 @@
 	display: flex !important;
 	@include d_flex($gap: PxToRem(20), $equal_children: true);
 
-	@include mq('md') {
-		flex-direction: column;
-	}
+
 
 	.feature-img,
 	.feature-video {
@@ -14,17 +12,15 @@
 		max-block-size: PxToRem(532);
 		border-radius: PxToRem(32);
 		overflow: hidden;
-
-		@include mq('md') {
-			max-inline-size: 100%;
-			inline-size: calc(100% - 2 * var(--margin-from-side));
-			//max-block-size: 20rem;
-		}
-
 		img {
 			max-height: 100%;
 			aspect-ratio: 6/8;
 			object-fit: cover;
+		}		
+		@include mq('md') {
+			max-inline-size: 100%;
+			inline-size: calc(100% - 2 * var(--margin-from-side));
+			//max-block-size: 20rem;
 		}
 	}
 
@@ -34,17 +30,17 @@
 		video {
 			max-height: var(--customer-con-height);
 		}
+					@include mq('lg') {
+						height: 400px;
+					}
 	}
 
 	.content {
 		@include d_flex(column, $gap: PxToRem(16));
-		padding-block-start: PxToRem(12);
+		padding-block: PxToRem(12);
 		margin-inline-end: var(--margin-from-side);
 
-		@include mq('md') {
-			margin-inline: 0;
-			inline-size: calc(100% - 2 * var(--margin-from-side));
-		}
+	
 
 		.name-wrapper {
 			@include d_flex(column, $gap: PxToRem(8));
@@ -82,5 +78,11 @@
 		.clear-fix {
 			height: var(--customer-thumbs-height);
 		}
+			@include mq('md') {
+			margin-inline: 0;
+			inline-size: calc(100% - 2 * var(--margin-from-side));
+		}
 	}
+		@include mq('md') {
+display: block !important;	}
 }

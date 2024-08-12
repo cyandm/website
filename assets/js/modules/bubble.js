@@ -12,3 +12,16 @@ export const appendMiniBubble = (count, parent) => {
     parent.appendChild(cloned);
   }
 };
+ 
+
+// const fixed_bubble = document.getElementById("fixed_bubble");
+// const main = document.querySelector(".service-pages");
+
+// main.addEventListener("scroll", (e) => {
+//    console.log(main);
+
+//   main.classList.add("active");
+//   fixed_bubble.style.background = "red";
+// });
+
+ 

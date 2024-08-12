@@ -4,9 +4,11 @@
 	--height: 450px;
 	display: grid;
 	grid-template-areas: 'stacked';
-
-	border-radius: 32px;
+ 	border-radius: 32px;
 	overflow: hidden;
+	transition: all 1s ease-in-out;
+	&:hover{
+transform: scale(1.02);	}
 
 	&__thumbnail {
 		grid-area: stacked;

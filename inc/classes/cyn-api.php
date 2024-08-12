@@ -7,7 +7,19 @@ if (!class_exists('cyn_api')) {
     {
         function __construct()
         {
+            // add_action('rest_api_init', [$this, 'make_project_form']);
+            add_action('rest_api_init', function () {
+                register_rest_route(
+                    'cynApi/v1',
+                    '/projectForm',
+                    [
+                        'methods' => 'POST',
+                        'callback' => [$this, 'cyn_handle_make_form'],
+                        'permission_callback' => '__return_true'
 
+                    ]
+                );
+            });
             add_action('rest_api_init', function () {
                 register_rest_route(
                     'cynApi/v1',
@@ -83,5 +95,46 @@ if (!class_exists('cyn_api')) {
                 return new WP_REST_Response(['status' => true, 'message' => 'comment created', 'comment-id' => $comment_id], 200);
             }
         }
+
+
+
+
+
+        // public function make_project_form()
+        // {
+        //     register_rest_route('cynApi/v1', '/projectForm', [
+        //         'methods' => 'POST',
+        //         'callback' => [$this, 'cyn_handle_make_form']
+        //     ]);
+        // }
+
+        public function cyn_handle_make_form()
+        {
+        
+   
+
+
+            $insert_post = wp_insert_post([
+                'post_type' => 'make_project_form',
+                 'post_title' => sanitize_text_field($_POST['name']),
+                'post_content' => sanitize_textarea_field($_POST['describe']),
+              'meta_input' => [
+                    'project_name' => sanitize_text_field($_POST['project_name']),
+                    'tel' => sanitize_text_field($_POST['tel']),
+                    'budget' => sanitize_text_field($_POST['budget']),
+
+                ]
+            ]);
+
+            if (is_wp_error($insert_post))
+                return wp_send_json_error(['insert_row' => false], 500);
+
+
+
+            wp_send_json_success(['post_id' => $insert_post], 200);
+        }
+
+
+
     }
 }

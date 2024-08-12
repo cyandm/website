@@ -1,4 +1,4 @@
-<?php /* Template Name: About_us */
+<?php /* Template Name: About_us first version */
 get_header();
 $about = get_field('about_us_section'); ?>
 

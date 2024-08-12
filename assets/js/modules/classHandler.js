@@ -1,19 +1,19 @@
 export const toggleShow = (el, isAddClass) => {
 	['visible', 'pointer-all'].map((cls) => {
-		el.classList.toggle(cls, isAddClass);
+		el?.classList.toggle(cls, isAddClass);
 	});
 };
 
 export const toggleFadeOff = (el, isAddClass) => {
-	el.classList.toggle('fade-off', isAddClass);
+	el?.classList.toggle('fade-off', isAddClass);
 };
 
 export const activate = (el) => {
-	el.classList.add('active');
+	el?.classList.add('active');
 };
 
 export const deactivate = (el) => {
-	el.classList.remove('active');
+	el?.classList.remove('active');
 };
 
 export const activateOnly = (el, node) => {
@@ -26,3 +26,6 @@ export const activateOnly = (el, node) => {
 export const activateFirstEl = (node) => {
 	activate(node[0]);
 };
+
+
+

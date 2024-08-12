@@ -2,32 +2,49 @@ const { getCookie, setCookie } = require("../utils/functions");
 
 
 const commentOpener = document.getElementById('commentOpener');
-const landPage = document.getElementById('land_page');
+const comment_back = document.getElementById("comment_back");
 const commentList = document.getElementById('commentList');
 const commentCloser = document.getElementById('commentCloser');
 const addNewComment = document.getElementById('addNewComment');
 const commentsMessage = document.getElementById('commentsMessage');
 const overlay = document.getElementById('overlay');
+const blog_commentOpener = document.getElementById("blog_comment");
+
+ 
+
+if (!overlay) return;
 
 
 
-if (!commentOpener) return;
-if (!commentList) return;
-if (!commentCloser) return;
+commentOpener?.addEventListener('click', (event) => {
 
+    overlay.classList.remove("invisible");
+        overlay.classList.remove("opacity-0");
 
-commentOpener.addEventListener('click', (event) => {
-    // landPage.classList.add('blur-lg')
-    commentList.classList.remove('hidden')
-    // console.log('ok shode')
-    overlay.classList.remove('hidden')
-    overlay.classList.add('block')
 })
 commentCloser.addEventListener('click', (event) => {
-    overlay.classList.add('hidden')
-    overlay.classList.remove('block')
-    commentList.classList.add('hidden')
+    overlay.classList.add("invisible");
+            overlay.classList.add("opacity-0");
+
 })
+
+
+comment_back.addEventListener("click", (event) => {
+  overlay.classList.add("invisible");
+  overlay.classList.add("opacity-0");
+});
+
+
+
+
+blog_commentOpener?.addEventListener("click", (e) => {
+  overlay.classList.remove("invisible");
+  overlay.classList.remove("opacity-0");
+});
+
+
+
+
 
 
 addNewComment.addEventListener('submit', (e) => {

@@ -1,6 +1,7 @@
 @use '../../utils/_index' as *;
 
 .projects-con {
+	padding-block: 10%;
 	.container {
 		margin-block-start: 8rem;
 		@include mq('md') {

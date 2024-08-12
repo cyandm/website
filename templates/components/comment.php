@@ -18,8 +18,6 @@
 
     ?>
 
-
-
 <section class="comments p-8 max-w-[1000px] container ">
     <div class="p-8 bg-black-2 rounded-3xl min-w-[100%]">
         <div class="comments__count-wrapper mb-8">
@@ -34,8 +32,8 @@
             </span>
         </div>
 
-        <div id="commentOpener" class="comments__send border-[1px]  rounded-3xl  p-4 text-center">
-            <a class="btn" variant="primary" size="big" class="btn">
+        <div id="commentOpener" class="comments__send border-[1px]  rounded-3xl  text-center">
+            <a class="btn leading-[4]" variant="primary" size="big" >
 
                 <i class="icon-send"></i>
                 <?php _e('ارسال دیدگاه', 'cyn-dm') ?>

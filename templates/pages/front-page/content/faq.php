@@ -25,10 +25,10 @@ $link_all = get_post_type_archive_link( 'faq' );
 				سوالات متداول
 			</h2>
 
-			<!-- <a href=<?= $link_all ?>
+			<a href=<?= $link_all ?>
 			   class="primary-btn">
 				مشاهده همه
-			</a> -->
+			</a>
 		</div>
 
 		<div class="faq-content">

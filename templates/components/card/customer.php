@@ -77,8 +77,6 @@ $video = get_field( 'video', $id );
 			</a>
 		<?php endif; ?>
 
-		<div class="clear-fix">
-
-		</div>
+	 
 	</div>
 </div>

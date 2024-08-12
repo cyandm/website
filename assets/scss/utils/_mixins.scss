@@ -5,7 +5,7 @@
 	$dir: row,
 	$j_c: start,
 	$a_i: start,
-	$wrap: wrap,
+	$wrap: nowrap,
 	$equal_children: false,
 	$gap: 0
 ) {
@@ -50,12 +50,10 @@
 
 @mixin base_font() {
 	font-family: 'peyda';
-	font-size: PxToRem(20);
-	font-style: normal;
-	font-weight: 700;
-	line-height: normal;
-	font-variant-ligatures: discretionary-ligatures;
+ 	font-style: normal;
+ 	font-variant-ligatures: discretionary-ligatures;
 	font-feature-settings: 'ss01' 1, 'salt' 0;
+	letter-spacing:0.5px;
 	@content;
 }
 
@@ -63,6 +61,8 @@
 	@include base_font();
 	@if ($type == 't1') {
 		font-size: PxToRem(80);
+				line-height: PxToRem(104);
+
 		font-weight: bold;
 	}
 	@if ($type == 't2') {
@@ -122,7 +122,24 @@
 		@content;
 	}
 }
+@mixin make_icon_before($content) {
+	&::before {
+		content: $content;
+		font-family: 'cyan-icon' !important;
+		speak-as: never;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
 
+		/* Better Font Rendering =========== */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+
+		@content;
+	}
+}
 @mixin base_btn(
 	$color: inherit,
 	$color_hover: $black_1,
@@ -177,7 +194,9 @@
 			'sm': 480px,
 			'md': 768px,
 			'lg': 992px,
-			'xl': 1200px,
+			'xl': 1280px,
+						'xxl': 1550px,
+
 		),
 		$viewport
 	);

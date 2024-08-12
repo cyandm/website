@@ -12,3 +12,11 @@ import './variable';
 import './plyr';
 import './comments';
 import './faq';
+import "./team";
+import "./customize"
+import "./CustomizeForm";
+import "./toastify";
+import "./project-button";
+import "./search"
+import "./preloader"
+import "./service-bubble";

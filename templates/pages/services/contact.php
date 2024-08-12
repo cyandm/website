@@ -2,7 +2,8 @@
 $title = get_field( 'contact_title' );
 $slogan = get_field( 'contact_slogan' );
 $btn = get_field( 'contact_btn' );
-
+// $btn_url = $btn['url'];
+// $btn_title = $btn['title'];
 $image_tr = wp_get_attachment_image( get_field( 'top_right' ), [ 300, 300 ] );
 $image_tl = wp_get_attachment_image( get_field( 'top_left' ), [ 300, 300 ] );
 $image_br = wp_get_attachment_image( get_field( 'bottom_right' ), [ 300, 300 ] );
@@ -44,8 +45,21 @@ function cyn_render_content( $title, $slogan, $btn ) {
 			<?= $image_tr ?>
 
 			<div class="only-desktop">
-				<?php cyn_render_content( $title, $slogan, $btn ) ?>
-			</div>
+				<div class="service-contact-content">
+<div class="t2">
+		<?=	$title; ?>
+		</div>
+
+		<div class="body_2">
+		<?=	$slogan ;?>
+		</div>
+		
+		<a class="primary-btn"
+		   href="  ">
+	 
+		</a>
+				</div>
+ 			</div>
 
 			<?= $image_tl ?>
 		</div>
@@ -56,8 +70,7 @@ function cyn_render_content( $title, $slogan, $btn ) {
 		</div>
 
 		<div class="only-mobile">
-			<?php cyn_render_content( $title, $slogan, $btn ) ?>
-		</div>
+ 		</div>
 	</div>
 
 </div>

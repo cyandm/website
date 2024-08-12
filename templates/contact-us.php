@@ -5,17 +5,13 @@ use RankMath\Frontend\Breadcrumbs;
 $front_page_ID = get_option('page_on_front');
 
 $contant_img = get_field('contact_us_img');
-$social_media_group = array_filter(get_field('social_media_group', $front_page_ID));
-$phone_num_1 = get_field('phone_num_1', $front_page_ID);
-$phone_num_2 = get_field('phone_num_2', $front_page_ID);
-$phone_num_3 = get_field('phone_num_3', $front_page_ID);
-$address_text = get_field('address_text', $front_page_ID);
-$address_html = get_field('address_map', $front_page_ID);
+$address = get_option('address_text');
+$address_map = get_option('address_map');
+$number1 = get_option('phone_number');
+$number2 = get_option('phone_number2');
+$number3 = get_option('phone_number3');
 ?>
-
-
 <?php get_template_part('/templates/components/breadcrumb') ?>
-
 <main class="contact container">
    <div class="contant-img">
   <div class="bubble">
@@ -46,25 +42,28 @@ $address_html = get_field('address_map', $front_page_ID);
       <div class="info">
         <div class="row"><p class="h2">شبکه های اجتماعی</p>
          <div class="social-media">
-            <?php foreach ($social_media_group as $social_media): ?>
-               <a href="<?= $social_media['link'] ?>">
-                  
-                  <?= wp_get_attachment_image($social_media['image']) ?>
-               </a>
-            <?php endforeach ?>
+      <?php
+ 				for ($i = 1; $i <5; $i++) {
+					?>
+					<a href="<?= get_option("social_link_$i"); ?>">
+												<img class="" src="<?= get_option("social_logo_$i") ?>" />
+
+ 					</a>
+
+				<?php } ?>
          </div>
       </div> 
       <div  class="row">
                 <p class="h2">شماره تماس های ما</p>
          <div class="footer-phones">
-            <a href="tel:<?= $phone_num_1 ?>">
-               <?= $phone_num_1 ?>
+            <a href="tel:<?= $number1 ?>">
+               <?= $number1 ?>
             </a>
-            <a href="tel:<?= $phone_num_1 ?>">
-               <?= $phone_num_2 ?>
+            <a href="tel:<?= $number2 ?>">
+               <?= $number2 ?>
             </a>
-            <a href="tel:<?= $phone_num_1 ?>">
-               <?= $phone_num_3 ?>
+            <a href="tel:<?= $number3 ?>">
+               <?= $number3 ?>
             </a>
          </div>
       </div>
@@ -73,12 +72,10 @@ $address_html = get_field('address_map', $front_page_ID);
             نشانی ما </span>
 
          <p class="address-text">
-            <?= $address_text ?>
+            <?= $address ?>
          </p>
 
-         <div class="address-map">
-            <?= $address_html ?>
-         </div>
+      
   </div>
 
   

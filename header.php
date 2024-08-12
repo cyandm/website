@@ -24,12 +24,18 @@ $phone_num_1 = get_field('phone_num_1', $page_on_front);
 	get_template_part('/assets/icons/hotdesk');
 
 	?>
+	<div class="preloader-div">
+					  <div class="loader"></div> 
+
+		</div>
 	<?php if ($render === true) : ?>
 		<header class="container" style="--start-color: <?= $start_color ?> ; --end-color: <?= $end_color ?>;">
 
 			<?php get_template_part('/templates/components/mobile-menu') ?>
 
 			<div class="right-col">
+					<a href="<?= get_home_url(); ?>">
+				
 				<div class="logo">
 					<?php
 					if ($logo_svg_hard_code) :
@@ -40,7 +46,7 @@ $phone_num_1 = get_field('phone_num_1', $page_on_front);
 						<img src=<?= get_stylesheet_directory_uri() . '/assets/imgs/placeholder.png' ?> alt="">
 					<?php endif; ?>
 				</div>
-
+</a>
 				<div class="header-menu desktop-menu">
 					<?php
 					wp_nav_menu([
@@ -52,11 +58,12 @@ $phone_num_1 = get_field('phone_num_1', $page_on_front);
 
 			<div class="left-col">
 
-				<!-- <a href="#"
-					   class="primary-btn">
+				<a href="#"
+					   class="primary-btn" id="customize_button">
 						یه پروژه بساز
-					</a> -->
-
+					</a>
+ <a class="search-link" href="<?= get_home_url()."?s="; ?>">                    <i class="icon-search"></i>
+</a>
 				<a href="<?= 'tel:' . $phone_num_1 ?>" class="icon-btn">
 
 					<i class="icon-call">
@@ -66,6 +73,10 @@ $phone_num_1 = get_field('phone_num_1', $page_on_front);
 				</a>
 
 			</div>
-			<div id="overlay" class="backdrop-blur-sm bg-[#6a777b42] fixed bottom-0 top-0 right-0 left-0 min-h-[100vh] blur-xl hidden"></div>
 		</header>
 	<?php endif; ?>
+
+
+  <?php get_template_part('/templates/components/card/make-project'); ?>
+
+  

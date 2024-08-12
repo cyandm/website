@@ -1,4 +1,4 @@
-<section class="pre-clock">
+ <section class="pre-clock">
 
 	<div class="content">
 
@@ -7,7 +7,7 @@
 		</p>
 
 		<h1>
-			زمــــان داره به سرعـــــــــــــــــــــت می‌گذره
+			زمــــان دارهll به سرعـــــــــــــــــــــت می‌گذره
 
 			<div class="clock">
 
@@ -22,3 +22,4 @@
 	<?php get_template_part( '/templates/components/scroll' ) ?>
 
 </section>
+ 

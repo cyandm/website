@@ -64,6 +64,7 @@ section.customer-con {
 		@include mq('md') {
 			width: 100%;
 			right: 0;
+			position: relative;
 
 			img {
 				border-radius: 0.5rem;
@@ -144,7 +145,7 @@ section.services-con {
 					object-fit: contain;
 				}
 
-				@include mq('md') {
+				@include mq('xl') {
 					width: PxToRem(120);
 					height: PxToRem(100);
 				}
@@ -220,7 +221,7 @@ section.team-con {
 		 		grid-template-columns: repeat(2, 1fr);
 
 		}
-		@include mq('md') {
+		@include mq('sm') {
 			display: flex;
 			flex-direction: column;
 		}

@@ -10,6 +10,8 @@
 		$border_color: var(--start-color, $gradient_blue_start)
 	);
 	padding: PxToRem(8) PxToRem(32);
+       	white-space: nowrap;
+
 }
 
 .secondary-btn {

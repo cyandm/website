@@ -1,31 +1,29 @@
 @use "../utils/_index" as *;
 
 footer {
-  margin-block: 2rem;
-  position: relative;
-
+  
   .columns {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 6rem;
-    @include mq("lg") {
-      gap: 2rem;
-	          width: 85%;
-            flex-direction: column;
-    }
+     flex-wrap: nowrap;
+             z-index: 55555;
+ 
+        @include mq("md") {
+ 	          // width: 85%;
+        
+     }
+.row{
+  
 
+
+}
     .column-3 {
-      max-width: 35%;
-      @include d_flex(column, center, start);
-      gap: 12px;
-      @include mq("lg") {
+       @include mq("lg") {
         max-width: 100%;
+        width: 90%;
       }
     }
 
     .column-2 {
-      display: none;
-    }
+     }
     .column-4 {
 		    @include mq("lg") {
 
@@ -46,7 +44,7 @@ footer {
       transition: color 0.3s ease-in-out;
 
       @include psudo(after, "", 0, 0.5rem) {
-        transform: translate(50%, 1rem);
+        transform: translate(50%, 0.5rem);
         right: -0.75rem;
         border-radius: 50%;
         transition: 0.3s ease-in-out;
@@ -65,30 +63,43 @@ footer {
   .footer-address-map {
     iframe {
       max-height: 70px;
-      max-width: 100%;
+      width: 260px;;
       border-radius: 1rem;
+                    @include mq("md") {
+width: 90%;
+                    }
     }
   }
-
   .footer-image {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-
+  //  z-index: -1;
     img {
-      object-fit: cover;
-      transform: translate(-25%, 50%);
+       transform: translate(-21%, 0%);
+
+              @include mq("xl") {
+      transform:translate(-25%, 63%)
+
+
+
+              }
+              @include mq("lg") {
+      transform: translate(0%, -18%);
+
+
+              }
+ 
     }
   }
 }
 .footer-phones {
   display: grid;
+  gap: 4px;
   color: #3de2f2;
+  margin-top: 14px;
 }
 
 .social-media {
   margin-block-start: 0.75rem;
   display: flex;
-  gap: 0.5rem;
+  gap: 20px;
     
 }

@@ -5,13 +5,20 @@ $services_Q = new WP_Query( [
 	'orderby' => 'meta_value',
 	'order' => 'ASC'
 ] );
+$link_all = get_post_type_archive_link('service');
 
 ?>
 
 <?php if ( $services_Q->have_posts() ) : ?>
 	<section class="services-con container">
+
+	
 		<div class="section-title">
 			<h2 class="h1">چیکار می‌تونم برات بکنم؟</h2>
+					<a href=<?= $link_all ?>
+								   class="primary-btn">
+									مشاهده همه
+								</a>
 		</div>
 
 		<div class="services-wrapper">
@@ -60,5 +67,10 @@ $services_Q = new WP_Query( [
 				به کم قانع نشو...
 			</span>
 		</div>
+				<div class="section-view-all">
+			<a href=<?= $link_all ?> class="primary-btn full-width">
+						مشاهده همه
+					</a>
+				</div>
 	</section>
 <?php endif; ?>

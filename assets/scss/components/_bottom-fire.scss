@@ -6,12 +6,12 @@
 	position: fixed;
 	bottom: -6.5rem;
 	animation: bottom_fire_container 10s ease-in-out infinite alternate;
-	z-index: -1;
+	z-index:444444;
 	transition: opacity 0.3s ease;
 	opacity: 1;
 
 	@include mq('md') {
-		bottom: -13rem;
+		bottom: -1rem;
 	}
 
 	.circle {
@@ -54,5 +54,8 @@
 body[data-scrolled='true'] {
 	.bottom-fire {
 		opacity: 0;
+		height:10px;
+		min-height: 0;
+		// display: none;
 	}
 }

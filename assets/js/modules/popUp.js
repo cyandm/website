@@ -43,3 +43,5 @@ popUpCon.addEventListener('click', (e) => {
   popUpCon.classList.remove('open');
   popUPcontent.innerHTML = '';
 });
+
+

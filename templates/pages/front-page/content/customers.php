@@ -1,6 +1,7 @@
 <?php
 $customers_Q = new WP_Query( [ 
 	'post_type' => 'customer',
+	
 	'meta_query' => [ 
 		[ 
 			'key' => 'show_in_front',
