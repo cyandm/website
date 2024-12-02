@@ -1,8 +1,0 @@
-@use '../utils/_index' as *;
-
-main.page-content {
-	a {
-		color: $cyan_1;
-		text-decoration: underline;
-	}
-}

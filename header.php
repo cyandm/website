@@ -1,81 +1,35 @@
 <?php
-cyn_under_construction();
-$page_on_front = get_option( 'page_on_front' );
+/**
+ * Header for wordpress theme
+ * its must include only head and body tags
+ * header templates located in /partials/header/
+ * @package CyanTheme
+ */
 
-$logo_svg_hard_code = true;
+use Cyan\Theme\Helpers\Templates;
 
-$start_color = isset( $args['start_color'] ) ? $args['start_color'] : '#15EDED';
-$end_color = isset( $args['end_color'] ) ? $args['end_color'] : '#04B2E9';
-
-$render = isset( $args['render'] ) ? $args['render'] : true;
-
-$phone_num_1 = get_field( 'phone_num_1', $page_on_front );
-
-
+$render_template = $args['render_template'] ?? true;
 ?>
-
-
-
 <!DOCTYPE html>
-<html <?php language_attributes() ?>
-	  data-theme-version="1.0.12.1">
+<html lang="en">
 
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport"
 			  content="width=device-width, initial-scale=1.0">
-		<?php wp_head() ?>
-		<?= get_field( 'before_head', $page_on_front ) ?>
+		<?php wp_head(); ?>
 	</head>
 
-	<body <?php body_class() ?>>
-		<?php wp_body_open() ?>
+	<body>
+		<?php wp_body_open(); ?>
 
-		<?php if ( $render === true ) : ?>
-			<header class="container"
-					style="--start-color: <?= $start_color ?> ; --end-color: <?= $end_color ?>;">
-
-				<?php get_template_part( '/templates/components/mobile-menu' ) ?>
-
-				<div class="right-col">
-					<div class="logo">
-						<?php
-						if ( $logo_svg_hard_code ) :
-							get_template_part( '/templates/components/logo' );
-						elseif ( has_custom_logo() ) :
-							the_custom_logo();
-						else : ?>
-							<img src=<?= get_stylesheet_directory_uri() . '/assets/imgs/placeholder.png' ?>
-								 alt="">
-						<?php endif; ?>
-					</div>
-
-					<div class="header-menu desktop-menu">
-						<?php
-						wp_nav_menu( [ 
-							'theme_location' => 'header'
-						] )
-							?>
-					</div>
+		<?php if ( $render_template ) : ?>
+			<header>
+				<div class="hidden lg:block">
+					<?php Templates::getPart( 'desktop-header' ); ?>
 				</div>
-
-				<div class="left-col">
-
-					<!-- <a href="#"
-					   class="primary-btn">
-						یه پروژه بساز
-					</a> -->
-
-					<a href="<?= 'tel:' . $phone_num_1 ?>"
-					   class="icon-btn">
-
-						<i class="icon-call">
-
-						</i>
-
-					</a>
-
+				<div class="lg:hidden">
+					<?php Templates::getPart( 'mobile-header' ); ?>
 				</div>
-
 			</header>
 		<?php endif; ?>

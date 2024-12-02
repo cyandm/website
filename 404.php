@@ -1,23 +1,16 @@
-<?php get_header() ?>
+<?php
+/*
+Template Name: 404
+Description: A template for displaying a 404 error page.
+More information at https://developer.wordpress.org/themes/templates/template-hierarchy/#404-not-found-hierarchy
+*/
 
-<main class="page-404 container">
+?>
 
-	<div class="page-404-image">
-		<img src="<?= get_stylesheet_directory_uri() . '/assets/imgs/404.svg' ?>"
-			 alt="404">
-	</div>
+<?php get_header(); ?>
 
-	<div class="page-404-content">
-		<div>
-			صفحه مورد نظر یافت نشد
-		</div>
-
-		<a href="/"
-		   class="primary-btn">
-			بازگشت به صفحه اصلی
-		</a>
-	</div>
-
+<main class="container">
+	<!-- write your code here -->
 </main>
 
-<?php get_footer() ?>
+<?php get_footer();

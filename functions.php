@@ -1,20 +1,40 @@
 <?php
+/**
+ * Cyan Theme Functions
+ * this file is used to initialize the theme
+ * @package CyanTheme
+ */
 
-/****************************** Required Files */
-require_once( __DIR__ . '/inc/classes/cyn-theme-init.php' );
-require_once( __DIR__ . '/inc/classes/cyn-acf.php' );
-require_once( __DIR__ . '/inc/classes/cyn-register.php' );
-require_once( __DIR__ . '/inc/classes/cyn-ajax.php' );
-require_once( __DIR__ . '/inc/functions/cyn-render.php' );
-require_once( __DIR__ . '/inc/functions/cyn-customize.php' );
-require_once( __DIR__ . '/inc/functions/cyn-under-construction.php' );
-require_once( __DIR__ . '/inc/functions/cyn-update-checker.php' );
-require_once( __DIR__ . '/inc/functions/cyn-general.php' );
+//Constants
+define( 'THEME_DIR', get_template_directory() );
+define( 'THEME_URI', get_template_directory_uri() );
+define( 'THEME_VERSION', '2.0.0' );
+define( 'ENVIRONMENT', 'development' ); //development, production
+define( 'THEME_SLUG', 'cyn-theme' );
+define( 'THEME_NAME', 'Cyan Theme' );
 
-/***************************** Instance Classes */
-$cyn_theme_init = new cyn_theme_init();
-$cyn_acf = new cyn_acf();
-$cyn_register = new cyn_register();
-$cyn_ajax = new cyn_ajax();
+define( 'THEME_ASSETS_DIR', THEME_DIR . '/assets' );
+define( 'THEME_ASSETS_URI', THEME_URI . '/assets' );
 
+define( 'THEME_IMAGES_DIR', THEME_DIR . '/assets/images' );
+define( 'THEME_IMAGES_URI', THEME_URI . '/assets/images' );
 
+include_once THEME_DIR . '/vendor/autoload.php';
+
+//Init theme
+Cyan\Theme\Classes\ThemeInit::init();
+
+//Third party plugins
+Cyan\Theme\Classes\ThirdParty::init();
+
+//Customize
+Cyan\Theme\Classes\Customize::init();
+
+//Custom code
+Cyan\Theme\Classes\CustomCode::init();
+
+//Register
+Cyan\Theme\Classes\Register::init();
+
+//Rest
+Cyan\Theme\Classes\Rest::init();

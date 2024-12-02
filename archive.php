@@ -1,18 +1,16 @@
 <?php
+/*
+Template Name: Archive
+Description: A template for displaying an archive of post types
+More information at https://developer.wordpress.org/themes/templates/template-hierarchy/#archive-hierarchy
 
-if ( isset( $wp_query->post->post_type ) ) {
-	get_template_part( 'templates/archive/' . $wp_query->post->post_type );
-	return;
-}
+*/
 
-$query_array = explode( ' ', $wp_query->request );
-$query_array = array_splice( $query_array, 0 );
-$post_type_needle_index = array_search( '((wp_posts.post_type', $query_array );
-$req_post_type = str_replace( "'", "", $query_array[ $post_type_needle_index + 2 ] );
+?>
+<?php get_header(); ?>
 
-if ( $req_post_type ) {
-	get_template_part( 'templates/archive/' . $req_post_type );
-	return;
-}
+<main class="container">
+	<!-- write your code here -->
+</main>
 
-wp_die( 'not template found!' );
+<?php get_footer();
