@@ -20,6 +20,7 @@ class Customize {
 	public static function register( $wp_customize ) {
 		self::$wpCustomize = $wp_customize;
 		self::registerPanelCustomCode();
+		self::registerPanelBasicTheme();
 	}
 
 	private static function addControl( $section, $type, $id, $label, $description = '' ) {
@@ -107,6 +108,29 @@ class Customize {
 
 		for ( $i = 1; $i <= 10; $i++ ) {
 			self::addControl( 'end_body_section', 'textarea', "cyn_end_body_code_$i", "کد سفارشی $i" );
+		}
+	}
+
+	private static function registerPanelBasicTheme() {
+		self::$wpCustomize->add_panel(
+			'basic_theme',
+			[ 
+				'title' => 'تنظیمات پایه ای تم',
+				'priority' => 1
+			]
+		);
+
+		self::$wpCustomize->add_section(
+			'telephones',
+			[ 
+				'title' => 'شماره تلفن ها',
+				'priority' => 1,
+				'panel' => 'basic_theme'
+			]
+		);
+
+		for ( $i = 1; $i <= 10; $i++ ) {
+			self::addControl( 'telephones', 'number', "theme_telephone_$i", "شماره تلفن $i" );
 		}
 	}
 }

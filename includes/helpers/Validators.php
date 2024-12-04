@@ -2,7 +2,6 @@
 
 namespace Cyan\Theme\Helpers;
 
-use Cyan\Theme\Helpers\Exceptions\NotFoundException;
 
 class Validators {
 
@@ -12,7 +11,7 @@ class Validators {
 			case 'page':
 				return $post_type;
 			default:
-				throw new NotFoundException( 'Post type not found' );
+				wp_die( 'Post type not found' );
 		}
 	}
 
@@ -22,7 +21,7 @@ class Validators {
 			case 'post_tag':
 				return $taxonomy;
 			default:
-				throw new NotFoundException( 'Taxonomy not found' );
+				wp_die( 'Taxonomy not found' );
 		}
 	}
 
@@ -30,9 +29,10 @@ class Validators {
 		switch ( $menu ) {
 			case 'header-menu':
 			case 'footer-menu':
+			case 'mobile-menu':
 				return $menu;
 			default:
-				throw new NotFoundException( 'Menu not found' );
+				wp_die( 'menu is not found' );
 		}
 	}
 
@@ -41,7 +41,7 @@ class Validators {
 			return $page;
 		}
 
-		throw new NotFoundException( 'Page not found' );
+		wp_die( 'Page not found' );
 	}
 
 	public static function term( $term ) {
@@ -49,7 +49,7 @@ class Validators {
 			return $term;
 		}
 
-		throw new NotFoundException( 'Term not found' );
+		wp_die( 'Term not found' );
 	}
 
 }

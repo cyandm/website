@@ -11,7 +11,7 @@ use Cyan\Theme\Helpers\Templates;
 $render_template = $args['render_template'] ?? true;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 
 	<head>
 		<meta charset="UTF-8">
@@ -20,16 +20,16 @@ $render_template = $args['render_template'] ?? true;
 		<?php wp_head(); ?>
 	</head>
 
-	<body>
+	<body class="bg-gray-950 text-white">
 		<?php wp_body_open(); ?>
 
 		<?php if ( $render_template ) : ?>
 			<header>
 				<div class="hidden lg:block">
-					<?php Templates::getPart( 'desktop-header' ); ?>
+					<?php Templates::getPart( 'header/desktop' ); ?>
 				</div>
 				<div class="lg:hidden">
-					<?php Templates::getPart( 'mobile-header' ); ?>
+					<?php Templates::getPart( 'header/mobile' ); ?>
 				</div>
 			</header>
 		<?php endif; ?>

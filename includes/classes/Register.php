@@ -27,6 +27,7 @@ class Register {
 	public static function registerMenus() {
 		register_nav_menus( [ 
 			'header-menu' => 'منوی بالا',
+			'mobile-menu' => 'منوی موبایل هدر',
 			'footer-menu' => 'منوی پایین'
 		] );
 	}

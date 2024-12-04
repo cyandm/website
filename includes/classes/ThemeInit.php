@@ -12,12 +12,11 @@ class ThemeInit {
 	private static $isDev;
 	private static $version;
 
-	private function __construct() {
-		self::$isDev = ENVIRONMENT === 'development';
-		self::$version = self::$isDev ? time() : THEME_VERSION;
-	}
 
 	public static function init() {
+		self::$isDev = ENVIRONMENT === 'development';
+		self::$version = self::$isDev ? time() : THEME_VERSION;
+
 		//Initialize theme
 		add_action( 'init', [ __CLASS__, 'removeUnnecessaryAssets' ] );
 
@@ -26,13 +25,15 @@ class ThemeInit {
 		add_action( 'admin_enqueue_scripts', [ __CLASS__, 'adminEnqueueScripts' ] );
 
 		//Theme Support
-		self::themeSupport( [ 'general', 'woocommerce' ] );
+		self::themeSupport( [ 'general' ] ); //general, woocommerce
 
 		//Logout user
 		self::logoutUser();
 
 		//Allow SVG
 		self::allowSvg();
+
+
 	}
 
 	public static function removeUnnecessaryAssets() {
@@ -89,8 +90,9 @@ class ThemeInit {
 	}
 
 	public static function frontendEnqueueScripts() {
-		$css_path = self::$isDev ? '/css/style.css' : '/css/style.min.css';
-		$js_path = self::$isDev ? '/js/script.js' : '/js/script.min.js';
+
+		$css_path = self::$isDev ? '/css/dist/cyn-theme-style.css' : '/css/dist/cyn-theme-style.min.css';
+		$js_path = self::$isDev ? '/js/dist/cyn-theme-script.bundle.js' : '/js/dist/cyn-theme-script.bundle.min.js';
 
 		//Enqueue styles
 		wp_enqueue_style( THEME_SLUG, THEME_ASSETS_URI . $css_path, [], self::$version );
@@ -136,12 +138,12 @@ class ThemeInit {
 				'type' => $filetype['type'],
 				'proper_filename' => $data['proper_filename']
 			];
-		} );
+		}, 10, 4 );
 
 		add_filter( 'upload_mimes', function ($mimes) {
 			$mimes['svg'] = 'image/svg+xml';
 			return $mimes;
-		} );
+		}, 10, 1 );
 	}
 }
 

@@ -1,3 +1,3 @@
-import HelloWorld from './functions/hello-wrold';
+import HelloWorld from './functions/hello-world';
 
 HelloWorld();
